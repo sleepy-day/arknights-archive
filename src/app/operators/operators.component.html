@@ -1,0 +1,9 @@
+<h3>Operators</h3>
+
+<div *ngFor="let operator of operators | keyvalue">
+    <span *ngIf="operator.value['profession'] !== 'TRAP' && operator.value['profession'] !== 'TOKEN'">
+        <a [routerLink]="['/operators', operator.value['name']]">
+            {{ operator.value["name"] }}
+        </a> 
+    </span>
+</div>
