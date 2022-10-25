@@ -21,9 +21,17 @@ export class OperatorComponent implements OnInit {
   ngOnInit(): void {
     this.route.paramMap
     this.route.params.subscribe(params => {
-      let name = params['opName']
-      console.log("ee:", name)
-      this.operator = this.opService.getOperatorDetailsFullByName(name)
+      let name = params['opName'];
+      let op = this.opService.getOperatorByName(name);
+      if (JSON.stringify(op) === "{}") {
+        console.log("Error loading operator:", name);
+        return;
+      }
+
+      let altClass = this.opService.getOperatorAltClassByName(name);
+      console.log(JSON.stringify(altClass));
+      let altOps = this.opService.getOperatorAlterById(op["id" as keyof object]);
+      this.operator = { op: op, altClass: altClass, altOps: altOps };
       console.log(this.operator)
     })
   }

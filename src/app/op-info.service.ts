@@ -7,22 +7,22 @@ import operatorMeta from '../assets/json/char_meta_table.json';
   providedIn: 'root'
 })
 export class OpInfoService {
+  altClassOps: string[] = ["Amiya"];
   constructor() { }
 
   getAllOperators(): object {
     return operatorList;
   }
 
-  getOperatorDetailsFullByName(name: string): object {
+  getOperatorByName(name: string): object {
     let id = "";
     let info = {};
-    let altClass = {};
-    let altOps: object[] = [];
 
     (Object.keys(operatorList) as (keyof typeof operatorList)[]).forEach((key) => {
       if (operatorList[key]["name"] === name) {
         id = key;
         info = operatorList[key];
+        console.log("Operator found:", name)
         return;
       }
     })
@@ -31,6 +31,11 @@ export class OpInfoService {
       return {};
     }
 
+    return { id: id, info: info };
+  }
+
+  getOperatorAlterById(id: string): object[] {
+    let altOps: object[] = [];
     let metaChars = operatorMeta["spCharGroups"];
     let altIds: string[] = [];
 
@@ -53,15 +58,23 @@ export class OpInfoService {
       })
     }
 
-    let patchChars = operatorPatchList["patchChars"];
-    (Object.keys(patchChars) as (keyof typeof patchChars)[]).forEach((key) => {
-      if (patchChars[key]["name"] === name) {
-        altClass = { id: key, info: patchChars[key] };
-        return;
-      }
-    })
+    return altOps;
+  }
 
-    return {id: id, info: info, altClass: altClass, altOps: altOps};
+  getOperatorAltClassByName(name: string): object[] {
+    if (this.altClassOps.includes(name)) {
+      let altClass: object[] = [];
+      let patchChars = operatorPatchList["patchChars"];
+      (Object.keys(patchChars) as (keyof typeof patchChars)[]).forEach((key) => {
+        if (patchChars[key]["name"] === name) {
+          altClass.push({ id: key, info: patchChars[key] });
+        }
+      })
+
+      return altClass;
+    } else {
+      return [];
+    }
   }
 
   getOperatorById(id: string): object {

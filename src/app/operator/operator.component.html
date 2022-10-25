@@ -1,16 +1,18 @@
 <div class="mainpanel">
-    <img class="opimage" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
-    
+    <img class="opimage" src="../../assets/img/operators/{{$any(operator)['op']['id']}}_1.png" />
+
     <div>
-        <h3>{{ $any(operator)['info']['name'] }}</h3>
-        <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
+        <h3>{{ $any(operator)['op']['info']['name'] }}</h3>
+        <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['op']['info']['description']))"></div>
     </div>
 
-    <div *ngIf="($any(operator)['altClass'] | json) !== '{}'">
-        {{ $any(operator)['altClass']['info']['position'] }}
+    <div *ngIf="($any(operator)['altClass'] | json) !== '[]'">
+        <div *ngFor="let op of $any(operator)['altClass']">
+            {{ op['info']['position'] }}
+        </div>
     </div>
 
-    <div *ngIf="($any(operator)['altOps'] | json) !== '{}'">
+    <div *ngIf="($any(operator)['altOps'] | json) !== '[]'">
         <div *ngFor="let op of $any(operator)['altOps']">
             {{ op['name'] }}
         </div>
