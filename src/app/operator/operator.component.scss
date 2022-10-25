@@ -1,0 +1,32 @@
+@font-face {
+    font-family: slim-sans-serif;
+    src: url(../../assets/font/SlimSansSerif.ttf) format('truetype');
+}
+
+@font-face {
+    font-family: slim-sans-serif;
+    src: url(../../assets/font/SlimSansSerif-Bold.ttf) format('truetype');
+    font-weight: bold;
+}
+
+* {
+    font-family: 'slim-sans-serif', sans-serif;
+    font-size: large;
+}
+
+.mainpanel {
+    width: 80%;
+    margin: auto;
+}
+
+.opimage {
+    width: 60%;
+}
+
+.desc {
+    
+}
+
+.highlight{
+    color: rgb(0, 176, 255);
+}
