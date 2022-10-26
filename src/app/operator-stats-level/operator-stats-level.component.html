@@ -1,0 +1,14 @@
+<div>
+    <input (change)="sliderChange($event)" value="0" type="range" min="0" max="{{ $any(stats)['maxLevel'] - 1 }}" id="levelSlider">
+    <div>
+        <div>Level: {{ value }}</div>
+        <span>HP: {{ $any(displayStats)['hp'] }}</span> <br>
+        <span>Attack: {{ $any(displayStats)['atk'] }}</span> <br>
+        <span>Defense: {{ $any(displayStats)['def'] }}</span> <br>
+        <span>Resistance: {{ $any(displayStats)['res'] }}</span> <br>
+        <span>Cost: {{ $any(displayStats)['cost'] }}</span> <br>
+        <span>Block: {{ $any(displayStats)['block'] }}</span> <br>
+        <span>Attack Time: {{ $any(displayStats)['atkTime'] }}</span> <br>
+        <span>Respawn Time: {{ $any(displayStats)['respawn'] }}</span> <br>
+    </div>
+</div>

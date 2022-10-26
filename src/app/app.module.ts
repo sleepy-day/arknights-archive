@@ -7,13 +7,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OperatorsComponent } from './operators/operators.component';
 import { OperatorComponent } from './operator/operator.component';
+import { OperatorStatsComponent } from './operator-stats/operator-stats.component';
+import { OperatorStatsLevelComponent } from './operator-stats-level/operator-stats-level.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     OperatorsComponent,
-    OperatorComponent
+    OperatorComponent,
+    OperatorStatsComponent,
+    OperatorStatsLevelComponent
   ],
   imports: [
     BrowserModule,

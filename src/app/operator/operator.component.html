@@ -8,20 +8,20 @@
 
                 <div>
                     <h3>{{ $any(operator)['info']['name'] }}</h3>
+                    <div>{{ $any(operator)['info']['appellation'] }}</div> <br>
                     <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
+
+                    <div>{{ $any(group)['powerName'] }}</div>
+                    <div>Position: {{ $any(operator)['info']['position'].charAt(0) + $any(operator)['info']['position'].slice(1).toLowerCase() }}</div>
                     <div>
-                        <ng-container *ngIf="$any(operator)['info']['teamId'] === null && $any(operator)['info']['groupId'] === null; else team">
-                            {{ $any(operator)['info']['nationId'] }}
-                        </ng-container>
-                        <ng-template #team>
-                            <ng-container *ngIf="$any(operator)['info']['teamId'] !== null; else group">
-                                {{ $any(operator)['info']['teamId'] }}
-                            </ng-container>
-                        </ng-template>
-                        <ng-template #group>
-                            {{ $any(operator)['info']['groupId'] }}
-                        </ng-template>
+                        Tags: <ul>
+                            <li *ngFor="let tag of $any(operator)['info']['tagList']">
+                                {{ tag }}
+                            </li>
+                        </ul>
                     </div>
+                    <div>{{ professions.get($any(operator)['info']['profession']) }} -- {{ subProfName }}</div>
+                    <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
                 </div>
 
             </div>

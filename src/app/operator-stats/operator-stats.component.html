@@ -1,0 +1,9 @@
+<mat-tab-group mat-align-tabs="start">
+
+    <ng-component *ngFor="let s of $any(stats)">
+        <mat-tab label="b">
+            <app-operator-stats-level [stats]="s"></app-operator-stats-level>
+        </mat-tab>
+    </ng-component>
+
+</mat-tab-group>

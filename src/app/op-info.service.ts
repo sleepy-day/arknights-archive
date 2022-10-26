@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import operatorList from '../assets/json/character_table.json';
 import operatorPatchList from '../assets/json/char_patch_table.json';
 import operatorMeta from '../assets/json/char_meta_table.json';
+import teamHandbook from '../assets/json/handbook_team_table.json';
+import uniEquip from '../assets/json/uniequip_table.json';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +24,6 @@ export class OpInfoService {
       if (operatorList[key]["name"] === name) {
         id = key;
         info = operatorList[key];
-        console.log("Operator found:", name)
         return;
       }
     })
@@ -44,7 +45,6 @@ export class OpInfoService {
         metaChars[key].forEach((v) => {
           if (v !== id) {
             altIds.push(v);
-            console.log("alternate found:", v);
           }
         })
       }
@@ -91,4 +91,40 @@ export class OpInfoService {
 
     return { id: opId, info: info };
   }
+
+  getGroupById(operator: object): object {
+    let group = {};
+    let id = "";
+    if (operator["teamId" as keyof object] !== null) {
+      id = operator["teamId" as keyof object];
+    } else if (operator["groupId" as keyof object] !== null) {
+      id = operator["groupId" as keyof object];
+    } else {
+      id = operator["nationId" as keyof object];
+    }
+
+    (Object.keys(teamHandbook) as (keyof typeof teamHandbook)[]).forEach((key) => {
+      if (key === id) {
+        group = teamHandbook[key];
+        return;
+      }
+    })
+
+    return group;
+  }
+
+  getSubProfessionById(id: string): string {
+    let subProf = "";
+
+    let subProfDict = uniEquip["subProfDict"];
+    (Object.keys(subProfDict) as (keyof typeof subProfDict)[]).forEach((key) => {
+      if (key === id) {
+        subProf = subProfDict[key]["subProfessionName"];
+        return;
+      }
+    })
+
+    return subProf;
+  }
+
 }
