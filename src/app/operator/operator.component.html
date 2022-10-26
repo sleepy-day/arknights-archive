@@ -1,21 +1,49 @@
 <div class="mainpanel">
-    <img class="opimage" src="../../assets/img/operators/{{$any(operator)['op']['id']}}_1.png" />
+    <mat-tab-group mat-align-tabs="start">
+        
+        <mat-tab label="main">
+            <div class="tab-content">
 
-    <div>
-        <h3>{{ $any(operator)['op']['info']['name'] }}</h3>
-        <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['op']['info']['description']))"></div>
-    </div>
+                <img class="opimage" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
 
-    <div *ngIf="($any(operator)['altClass'] | json) !== '[]'">
-        <div *ngFor="let op of $any(operator)['altClass']">
-            {{ op['info']['position'] }}
-        </div>
-    </div>
+                <div>
+                    <h3>{{ $any(operator)['info']['name'] }}</h3>
+                    <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
+                    <div>
+                        <ng-container *ngIf="$any(operator)['info']['teamId'] === null && $any(operator)['info']['groupId'] === null; else team">
+                            {{ $any(operator)['info']['nationId'] }}
+                        </ng-container>
+                        <ng-template #team>
+                            <ng-container *ngIf="$any(operator)['info']['teamId'] !== null; else group">
+                                {{ $any(operator)['info']['teamId'] }}
+                            </ng-container>
+                        </ng-template>
+                        <ng-template #group>
+                            {{ $any(operator)['info']['groupId'] }}
+                        </ng-template>
+                    </div>
+                </div>
 
-    <div *ngIf="($any(operator)['altOps'] | json) !== '[]'">
-        <div *ngFor="let op of $any(operator)['altOps']">
-            {{ op['name'] }}
-        </div>
-    </div>
+            </div>
+        </mat-tab>
 
+        <mat-tab label="infrastructure">
+            <div class="tab-content">
+
+                <div *ngIf="($any(altClass) | json) !== '[]'">
+                    <div *ngFor="let op of $any(altClass)">
+                        {{ op['info']['position'] }}
+                    </div>
+                </div>
+
+                <div *ngIf="($any(altOps)['altOps'] | json) !== '[]'">
+                    <div *ngFor="let op of $any(altOps)">
+                        {{ op['name'] }}
+                    </div>
+                </div>
+
+            </div>
+        </mat-tab>
+
+    </mat-tab-group>
 </div>

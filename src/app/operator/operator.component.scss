@@ -9,6 +9,11 @@
     font-weight: bold;
 }
 
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
 * {
     font-family: 'slim-sans-serif', sans-serif;
     font-size: large;
@@ -25,4 +30,14 @@
 
 .highlight{
     color: rgb(0, 176, 255);
+}
+
+.mat-tab-label-active > .mat-tab-label-content {
+    animation: fadeIn .7s;
+}
+
+.tab-content {
+    display: flex;
+    flex-direction: row;
+    animation: fadeIn .2s;
 }

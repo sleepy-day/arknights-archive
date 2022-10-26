@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+
 import { OpInfoService } from '../op-info.service';
 
 @Component({
@@ -10,7 +11,9 @@ import { OpInfoService } from '../op-info.service';
   encapsulation: ViewEncapsulation.None,
 })
 export class OperatorComponent implements OnInit {
-  operator: object
+  operator: object;
+  altOps: object[];
+  altClass: object[];
 
   constructor(
     private route: ActivatedRoute,
@@ -22,17 +25,13 @@ export class OperatorComponent implements OnInit {
     this.route.paramMap
     this.route.params.subscribe(params => {
       let name = params['opName'];
-      let op = this.opService.getOperatorByName(name);
-      if (JSON.stringify(op) === "{}") {
+      this.operator = this.opService.getOperatorByName(name);
+      if (JSON.stringify(this.operator) === "{}") {
         console.log("Error loading operator:", name);
         return;
       }
-
-      let altClass = this.opService.getOperatorAltClassByName(name);
-      console.log(JSON.stringify(altClass));
-      let altOps = this.opService.getOperatorAlterById(op["id" as keyof object]);
-      this.operator = { op: op, altClass: altClass, altOps: altOps };
-      console.log(this.operator)
+      this.altClass = this.opService.getOperatorAltClassByName(name);
+      this.altOps = this.opService.getOperatorAlterById(this.operator["id" as keyof object]);
     })
   }
 
