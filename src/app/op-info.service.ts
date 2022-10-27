@@ -4,6 +4,7 @@ import operatorPatchList from '../assets/json/char_patch_table.json';
 import operatorMeta from '../assets/json/char_meta_table.json';
 import teamHandbook from '../assets/json/handbook_team_table.json';
 import uniEquip from '../assets/json/uniequip_table.json';
+import itemTable from '../assets/json/item_table.json';
 
 @Injectable({
   providedIn: 'root'
@@ -129,6 +130,10 @@ export class OpInfoService {
 
   parseTextToHtml(text: string): string {
     return "";
+  }
+
+  getAllItems(): object {
+    return itemTable["items"];
   }
 
 }
