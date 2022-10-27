@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { AKTextParserService } from '../aktext-parser.service';
 
 import { OpInfoService } from '../op-info.service';
 
@@ -31,8 +32,9 @@ export class OperatorComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private opService: OpInfoService,
     public sanitizer: DomSanitizer,
+    private opService: OpInfoService,
+    private textParser: AKTextParserService,
   ) { }
 
   ngOnInit(): void {
@@ -53,9 +55,7 @@ export class OperatorComponent implements OnInit {
   }
 
   parseDescription(desc: string) {
-    const r = new RegExp('(<@ba\.kw>)(.*)(<\/>)')
-    desc.replace(r, "<span class='highlight'>$2<\/span>")
-    return desc.replace(r, "<span class='highlight'>$2<\/span>")
+    return this.textParser.parseDescription(desc);
   }
 
 }

@@ -127,4 +127,8 @@ export class OpInfoService {
     return subProf;
   }
 
+  parseTextToHtml(text: string): string {
+    return "";
+  }
+
 }

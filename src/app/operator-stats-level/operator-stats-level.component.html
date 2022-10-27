@@ -1,5 +1,5 @@
 <div>
-    <input (change)="sliderChange($event)" value="0" type="range" min="0" max="{{ $any(stats)['maxLevel'] - 1 }}" id="levelSlider">
+    <input (input)="sliderChange($event)" value="0" type="range" min="0" max="{{ $any(stats)['maxLevel'] - 1 }}" id="levelSlider">
     <div>
         <div>Level: {{ value }}</div>
         <span>HP: {{ $any(displayStats)['hp'] }}</span> <br>

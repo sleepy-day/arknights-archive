@@ -18,6 +18,7 @@ export class OperatorStatsLevelComponent implements OnInit {
   ngOnInit(): void {
     this.minStats = this.stats["attributesKeyFrames" as keyof object][0];
     this.maxStats = this.stats["attributesKeyFrames" as keyof object][1];
+    this.value = 1;
     this.displayStats = {
       hp: this.stats["attributesKeyFrames" as keyof object][0]["data"]["maxHp"],
       atk: this.stats["attributesKeyFrames" as keyof object][0]["data"]["atk"],
@@ -25,7 +26,7 @@ export class OperatorStatsLevelComponent implements OnInit {
       res: this.stats["attributesKeyFrames" as keyof object][0]["data"]["magicResistance"],
       cost: this.stats["attributesKeyFrames" as keyof object][0]["data"]["cost"],
       block: this.stats["attributesKeyFrames" as keyof object][0]["data"]["blockCnt"],
-      atkTime: this.stats["attributesKeyFrames" as keyof object][0]["data"]["attackSpeed"],
+      atkTime: (this.stats["attributesKeyFrames" as keyof object][0]["data"]["attackSpeed"] / 100).toFixed(1),
       respawn: this.stats["attributesKeyFrames" as keyof object][0]["data"]["respawnTime"],
     }
   }
@@ -45,8 +46,8 @@ export class OperatorStatsLevelComponent implements OnInit {
                               [this.minStats["data" as keyof object]["cost"], [this.maxStats["data" as keyof object]["cost"]]])),
       block: Math.round(everpolate.linear([this.value], [this.minStats["level" as keyof object], this.maxStats["level" as keyof object]], 
                               [this.minStats["data" as keyof object]["blockCnt"], [this.maxStats["data" as keyof object]["blockCnt"]]])),
-      atkTime: Math.round(everpolate.linear([this.value], [this.minStats["level" as keyof object], this.maxStats["level" as keyof object]], 
-                                [this.minStats["data" as keyof object]["attackSpeed"], [this.maxStats["data" as keyof object]["attackSpeed"]]])),
+      atkTime: (Math.round(everpolate.linear([this.value], [this.minStats["level" as keyof object], this.maxStats["level" as keyof object]], 
+                                [this.minStats["data" as keyof object]["attackSpeed"], [this.maxStats["data" as keyof object]["attackSpeed"]]])) / 100).toFixed(1),
       respawn: Math.round(everpolate.linear([this.value], [this.minStats["level" as keyof object], this.maxStats["level" as keyof object]], 
                                 [this.minStats["data" as keyof object]["respawnTime"], [this.maxStats["data" as keyof object]["respawnTime"]]])),
     }
