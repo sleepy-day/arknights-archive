@@ -1,7 +1,7 @@
 <div>
-    <input (input)="sliderChange($event)" value="0" type="range" min="0" max="{{ $any(stats)['maxLevel'] - 1 }}" id="levelSlider">
+    <input [(ngModel)]="level" #ngVar="ngModel" (input)="updateStats()" (ngInit)="updateStats()" type="range" min="1" max="{{ $any(stats)['maxLevel'] }}" id="levelSlider">
     <div>
-        <div>Level: {{ value }}</div>
+        <div>Level: {{ level }}</div>
         <span>HP: {{ $any(displayStats)['hp'] }}</span> <br>
         <span>Attack: {{ $any(displayStats)['atk'] }}</span> <br>
         <span>Defense: {{ $any(displayStats)['def'] }}</span> <br>
