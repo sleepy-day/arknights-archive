@@ -1,1 +1,5 @@
-<p>operator-skills works!</p>
+<div *ngFor="let skill of skillInfo">
+    <div *ngFor="let level of $any(skill)['levels']">
+        <div [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText($any(level)))"></div>
+    </div>
+</div>

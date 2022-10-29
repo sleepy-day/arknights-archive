@@ -51,6 +51,7 @@ export class OperatorComponent implements OnInit {
       this.group = this.opService.getGroupById(this.operator["info" as keyof object]);
       this.subProfName = this.opService.getSubProfessionById(this.operator["info" as keyof object]["subProfessionId" as keyof string])
       console.log(this.group);
+      console.log(this.opService.listAllSkillKeys());
     })
   }
 

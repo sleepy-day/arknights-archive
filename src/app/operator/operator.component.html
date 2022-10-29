@@ -21,6 +21,7 @@
                         </ul>
                     </div>
                     <div>{{ professions.get($any(operator)['info']['profession']) }} -- {{ subProfName }}</div>
+                    <app-operator-skills [skills]="$any(operator)['info']['skills']"></app-operator-skills>
                     <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
                 </div>
 

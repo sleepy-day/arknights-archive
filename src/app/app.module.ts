@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -29,6 +30,7 @@ import { ItemsComponent } from './items/items.component';
     AppRoutingModule,
     NoopAnimationsModule,
     MatTabsModule,
+    MatTooltipModule,
     FormsModule,
   ],
   providers: [],

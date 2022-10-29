@@ -47,6 +47,36 @@ h3 {
     animation: fadeIn .2s;
 }
 
+.tooltip {
+    position: relative;
+}
+
+.tooltip > .tooltiptext {
+    visibility: hidden;
+    position: absolute;
+    width: max-content;
+    max-width: 200px;
+    z-index: 1;
+    background: #00B0FF;
+    color: black;
+    padding: 8px;
+    font-size: 1rem;
+    color: #fff;
+    border-radius: 2px;
+    animation: fadeIn 0.6s;
+    top: 100%;
+    transform: translate(-50%, 0px);
+    border-radius: 5px;
+}
+
+.tooltip:hover > .tooltiptext {
+    visibility: visible;
+}
+
+.tooltip:not(:hover) > .tooltiptext {
+    visibility: hidden;
+}
+
 .ba\.kw { color: #00B0FF; }
 .tu\.kw { color: #0098DC; }
 .tu\.imp { color: #FF0000; }

@@ -5,6 +5,7 @@ import operatorMeta from '../assets/json/char_meta_table.json';
 import teamHandbook from '../assets/json/handbook_team_table.json';
 import uniEquip from '../assets/json/uniequip_table.json';
 import itemTable from '../assets/json/item_table.json';
+import skillTable from '../assets/json/skill_table.json';
 
 @Injectable({
   providedIn: 'root'
@@ -134,6 +135,36 @@ export class OpInfoService {
 
   getAllItems(): object {
     return itemTable["items"];
+  }
+
+  listAllSkillKeys(): string[] {
+    let uniqueKeys: string[] = [];
+
+    (Object.keys(skillTable) as (keyof typeof skillTable)[]).forEach((key) => {
+      let levels: object[] = skillTable[key]["levels"];
+      for (var level of levels) {
+        let blackboard: object[] = level["blackboard" as keyof object];
+        for (var b of blackboard) {
+          if (!uniqueKeys.includes(b["key" as keyof object])) {
+            uniqueKeys.push(b["key" as keyof object]);
+          }
+        }
+      }
+    })
+
+    return uniqueKeys;
+  }
+
+  getSkillInfoById(id: string): object {
+    let skillInfo: object = {};
+
+    (Object.keys(skillTable) as (keyof typeof skillTable)[]).forEach((key) => {
+      if (key === id) {
+        skillInfo = skillTable[key];
+      }
+    })
+
+    return skillInfo;
   }
 
 }
