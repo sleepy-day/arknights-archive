@@ -13,6 +13,7 @@ import { OperatorStatsComponent } from './operator-stats/operator-stats.componen
 import { OperatorStatsLevelComponent } from './operator-stats-level/operator-stats-level.component';
 import { OperatorSkillsComponent } from './operator-skills/operator-skills.component';
 import { ItemsComponent } from './items/items.component';
+import { OperatorSkillsLevelComponent } from './operator-skills-level/operator-skills-level.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ItemsComponent } from './items/items.component';
     OperatorStatsComponent,
     OperatorStatsLevelComponent,
     OperatorSkillsComponent,
-    ItemsComponent
+    ItemsComponent,
+    OperatorSkillsLevelComponent
   ],
   imports: [
     BrowserModule,

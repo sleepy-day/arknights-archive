@@ -1,0 +1,6 @@
+<div class="tabs">
+    <button *ngFor="let level of $any(skill)['levels']; let i = index" (click)="selectTab($any(skill)['skillId'] + i)" >Level {{ i }}</button>
+    <div class="skilldesc" *ngFor="let level of $any(skill)['levels']; let i = index" [id]="$any(skill)['skillId'] + i">
+        <div *ngIf="currentDiv === $any(skill)['skillId'] + i" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText(level))"></div>
+    </div>
+</div>

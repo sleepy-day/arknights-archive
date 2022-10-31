@@ -77,10 +77,8 @@ export class AKTextParserService {
         if (objectKey.toLowerCase() === key.toLowerCase()) {
           if (negative) {
             value = Math.round(Math.abs(b["value" as keyof object] * 100));
-            console.log("key:", key, "value:", Math.abs(b["value" as keyof object]));
           } else {
             value = Math.round(b["value" as keyof object]);
-            console.log("key:", key, "value:", value);
           }
         }
       }
@@ -104,10 +102,8 @@ export class AKTextParserService {
         if (objectKey.toLowerCase() === key.toLowerCase()) {
           if (negative) {
             value = Math.round(Math.abs(b["value" as keyof object] * 100));
-            console.log("key:", key, "value:", Math.abs(b["value" as keyof object]));
           } else {
             value = Math.round(b["value" as keyof object] * 100);
-            console.log("key:", key, "value:", value);
           }
         }
       }
