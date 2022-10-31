@@ -1,5 +1,7 @@
-<div *ngFor="let skill of skillInfo">
-    <div *ngFor="let level of $any(skill)['levels']">
-        <div [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText($any(level)))"></div>
-    </div>
-</div>
+<mat-tab-group mat-align-tabs="start">
+    <mat-tab label="skill" *ngFor="let skill of skillInfo">
+        <div *ngFor="let level of $any(skill)['levels']">
+            <div [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText($any(level)))"></div>
+        </div>
+    </mat-tab>
+</mat-tab-group>

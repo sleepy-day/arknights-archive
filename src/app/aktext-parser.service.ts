@@ -57,29 +57,61 @@ export class AKTextParserService {
   }
 
   parseSkillDescription(skillInfo: object): string {
-    let skill1 = RegExp(/{([@\w]*?)(?!:0%)}/g);
-    let skill2 = RegExp(/{([@\w]*?):0%}/g);
+    let skill1 = RegExp(/{(-?[@\w\.\[\]]*?)(?!:0%)}/g);
+    let skill2 = RegExp(/{(-?[@\w\.\[\]]*?):0%}/g);
     let desc: string = skillInfo["description" as keyof object];
 
     desc = desc.replaceAll(skill1, function(_match, g1, _offset, _string) {
       let blackboard: object[] = skillInfo["blackboard" as keyof object];
       let value: number = 0;
+      let key: string = g1;
+      let negative: boolean = false;
+
+      if (key.charAt(0) === "-") {
+        key = key.substring(1);
+        negative = true;
+      }
+
       for (var b of blackboard) {
-        if (b["key" as keyof object] === g1) {
-          value = Math.round(b["value" as keyof object]);
+        let objectKey: string = b["key" as keyof object];
+        if (objectKey.toLowerCase() === key.toLowerCase()) {
+          if (negative) {
+            value = Math.round(Math.abs(b["value" as keyof object] * 100));
+            console.log("key:", key, "value:", Math.abs(b["value" as keyof object]));
+          } else {
+            value = Math.round(b["value" as keyof object]);
+            console.log("key:", key, "value:", value);
+          }
         }
       }
+
       return String(value);
     })
 
     desc = desc.replaceAll(skill2, function(_match, g1, _offset, _string) {
       let blackboard: object[] = skillInfo["blackboard" as keyof object];
       let value: number = 0;
+      let key: string = g1;
+      let negative: boolean = false;
+
+      if (key.charAt(0) === "-") {
+        key = key.substring(1);
+        negative = true;
+      }
+
       for (var b of blackboard) {
-        if (b["key" as keyof object] === g1) {
-          value = Math.round(b["value" as keyof object] * 100);
+        let objectKey: string = b["key" as keyof object];
+        if (objectKey.toLowerCase() === key.toLowerCase()) {
+          if (negative) {
+            value = Math.round(Math.abs(b["value" as keyof object] * 100));
+            console.log("key:", key, "value:", Math.abs(b["value" as keyof object]));
+          } else {
+            value = Math.round(b["value" as keyof object] * 100);
+            console.log("key:", key, "value:", value);
+          }
         }
       }
+
       return String(value) + "%";
     })
 
