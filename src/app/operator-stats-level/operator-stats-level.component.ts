@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { OpInfoService } from '../op-info.service';
 
 const everpolate = require('everpolate');
 
@@ -13,10 +14,14 @@ export class OperatorStatsLevelComponent implements OnInit {
   level: number;
   minStats: object;
   maxStats: object;
+  rangeGrid: number[][];
 
-  constructor() { }
+  constructor(
+    private opService: OpInfoService,
+  ) { }
 
   ngOnInit(): void {
+    this.rangeGrid = this.opService.getRangeInfo(this.stats["rangeId" as keyof object]);
     this.minStats = this.stats["attributesKeyFrames" as keyof object][0];
     this.maxStats = this.stats["attributesKeyFrames" as keyof object][1];
     this.level = 1;

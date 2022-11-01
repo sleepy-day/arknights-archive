@@ -11,4 +11,9 @@
         <span>Attack Time: {{ $any(displayStats)['atkTime'] }}</span> <br>
         <span>Respawn Time: {{ $any(displayStats)['respawn'] }}</span> <br>
     </div>
+    <div>
+        <div *ngFor="let row of rangeGrid" [ngClass]="'rangetablerow'">
+            <span *ngFor="let grid of row" [ngClass]="{ 'empty': grid === 0, 'attack': grid === 1, 'unit': grid === 2 }"></span>
+        </div>
+    </div>
 </div>
