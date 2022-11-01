@@ -6,6 +6,7 @@ import teamHandbook from '../assets/json/handbook_team_table.json';
 import uniEquip from '../assets/json/uniequip_table.json';
 import itemTable from '../assets/json/item_table.json';
 import skillTable from '../assets/json/skill_table.json';
+import rangeTable from '../assets/json/range_table.json';
 
 @Injectable({
   providedIn: 'root'
@@ -129,10 +130,6 @@ export class OpInfoService {
     return subProf;
   }
 
-  parseTextToHtml(text: string): string {
-    return "";
-  }
-
   getAllItems(): object {
     return itemTable["items"];
   }
@@ -161,10 +158,56 @@ export class OpInfoService {
     (Object.keys(skillTable) as (keyof typeof skillTable)[]).forEach((key) => {
       if (key === id) {
         skillInfo = skillTable[key];
+        return;
       }
     })
 
     return skillInfo;
+  }
+
+  getRangeInfo(id: string): number[][] {
+    let grids: object[] = [];
+    let rangeLayout: number[][] = [];
+
+    (Object.keys(rangeTable) as (keyof typeof rangeTable)[]).forEach((key) => {
+      if (key === id) {
+        grids = rangeTable[key]["grids"];
+        return;
+      }
+    })
+
+    let minRow: number = 0; let maxRow: number = 0;
+    let minCol: number = 0; let maxCol: number = 0;
+    
+    for (let grid of grids) {
+      if (grid["row" as keyof object] > maxRow) { maxRow = grid["row" as keyof object]; }
+      if (grid["row" as keyof object] < minRow) { minRow = grid["row" as keyof object]; }
+      if (grid["col" as keyof object] > maxCol) { maxCol = grid["col" as keyof object]; }
+      if (grid["col" as keyof object] < minCol) { minCol = grid["col" as keyof object]; }
+    }
+
+    let rowCount = Math.abs(minRow) + maxRow + 1;
+    let colCount = Math.abs(minCol) + maxCol + 1;
+
+    console.log("rowCount:", rowCount, "colCount:", colCount);
+    
+    for (let i = 0; i < rowCount; i++) {
+      rangeLayout.push(Array(colCount).fill(0));
+    }
+
+    console.log("range:", rangeLayout);
+
+    for (let grid of grids) {
+      let currRow = grid["row" as keyof object];
+      let currCol = grid["col" as keyof object];
+
+      console.log("Row:", currRow + Math.abs(minRow), "Col:", currCol + Math.abs(minCol));
+      rangeLayout[currRow + Math.abs(minRow)][currCol + Math.abs(minCol)] = 1;
+    }
+
+    rangeLayout[Math.abs(minRow)][Math.abs(minCol)] = 2;
+
+    return rangeLayout;
   }
 
 }

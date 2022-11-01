@@ -49,9 +49,7 @@ export class OperatorComponent implements OnInit {
       this.altClass = this.opService.getOperatorAltClassByName(name);
       this.altOps = this.opService.getOperatorAlterById(this.operator["id" as keyof object]);
       this.group = this.opService.getGroupById(this.operator["info" as keyof object]);
-      this.subProfName = this.opService.getSubProfessionById(this.operator["info" as keyof object]["subProfessionId" as keyof string])
-      console.log(this.group);
-      console.log(this.opService.listAllSkillKeys());
+      this.subProfName = this.opService.getSubProfessionById(this.operator["info" as keyof object]["subProfessionId" as keyof string]);
     })
   }
 
