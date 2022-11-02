@@ -1,11 +1,57 @@
-.stats {
+.mainbody {
     background-color: #2E2E2E;
+    color: white;
+}
+
+.slidercontainer {
+    padding-left: 5px;
+    padding-top: 8px;
+}
+
+.slider {
+    appearance: none;
+    width: 150px;
+    height: 20px;
+    opacity: 0.9;
+    transition: opacity .2s;
+    border-radius: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+}
+
+.slider:hover {
+    opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    height: 15px;
+    width: 15px;
+    border-radius: 3px;
+    background-color: #2E2E2E; 
+}
+
+.stats {
     display: flex;
     flex-direction: column;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    padding-right: 5px;
+    padding-top: 0px;
+}
+
+.level {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+.details {
+    display: flex;
 }
 
 .statcols {
     display: flex;
+    align-self: center;
 }
 
 .statcol {
@@ -17,7 +63,6 @@
     display: flex;
     align-items: center;
     align-content: center;
-    color: white;
 }
 
 .staticon {
@@ -26,12 +71,18 @@
     padding-right: 2px;
 }
 
+.rangedetails {
+    width: auto;
+    margin: auto;
+    text-align: center;
+}
+
 .rangedisplay {
     width: 100px;
+    height: 100px;
     background-color: #2E2E2E;
     display: flex;
     align-items: center;
-    height: auto;
 }
 
 .rangegrid {

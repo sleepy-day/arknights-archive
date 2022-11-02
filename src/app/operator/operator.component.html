@@ -1,50 +1,24 @@
-<div class="mainpanel">
-    <mat-tab-group mat-align-tabs="start">
-        
-        <mat-tab label="main">
-            <div class="tab-content">
+<div class="tab-content">
 
-                <img class="opimage" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
+    <img class="opimage" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
 
-                <div>
-                    <h3>{{ $any(operator)['info']['name'] }}</h3>
-                    <div>{{ $any(operator)['info']['appellation'] }}</div> <br>
-                    <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
+    <div [ngClass]="'opinfo'">
+        <h3>{{ $any(operator)['info']['name'] }}</h3>
+        <div>{{ $any(operator)['info']['appellation'] }}</div> <br>
+        <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
 
-                    <div>{{ $any(group)['powerName'] }}</div>
-                    <div>Position: {{ $any(operator)['info']['position'].charAt(0) + $any(operator)['info']['position'].slice(1).toLowerCase() }}</div>
-                    <div>
-                        Tags: <ul>
-                            <li *ngFor="let tag of $any(operator)['info']['tagList']">
-                                {{ tag }}
-                            </li>
-                        </ul>
-                    </div>
-                    <div>{{ professions.get($any(operator)['info']['profession']) }} -- {{ subProfName }}</div>
-                    <app-operator-skills [skills]="$any(operator)['info']['skills']"></app-operator-skills>
-                    <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
-                </div>
+        <div>{{ $any(group)['powerName'] }}</div>
+        <div>Position: {{ $any(operator)['info']['position'].charAt(0) + $any(operator)['info']['position'].slice(1).toLowerCase() }}</div>
+        <div>
+            Tags: <ul>
+                <li *ngFor="let tag of $any(operator)['info']['tagList']">
+                    {{ tag }}
+                </li>
+            </ul>
+        </div>
+        <div>{{ professions.get($any(operator)['info']['profession']) }} -- {{ subProfName }}</div>
+        <app-operator-skills [skills]="$any(operator)['info']['skills']"></app-operator-skills>
+        <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
+    </div>
 
-            </div>
-        </mat-tab>
-
-        <mat-tab label="infrastructure">
-            <div class="tab-content">
-
-                <div *ngIf="($any(altClass) | json) !== '[]'">
-                    <div *ngFor="let op of $any(altClass)">
-                        {{ op['info']['position'] }}
-                    </div>
-                </div>
-
-                <div *ngIf="($any(altOps)['altOps'] | json) !== '[]'">
-                    <div *ngFor="let op of $any(altOps)">
-                        {{ op['name'] }}
-                    </div>
-                </div>
-
-            </div>
-        </mat-tab>
-
-    </mat-tab-group>
 </div>

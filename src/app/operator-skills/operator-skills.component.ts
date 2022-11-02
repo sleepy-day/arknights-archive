@@ -11,6 +11,7 @@ import { OpInfoService } from '../op-info.service';
 export class OperatorSkillsComponent implements OnInit {
   @Input('skills') skills: object[];
   skillInfo: object[] = [];
+  currentDiv: string = "skill0";
 
   constructor(
     private opService: OpInfoService,
@@ -33,6 +34,10 @@ export class OperatorSkillsComponent implements OnInit {
 
   showTooltip(id: string): void {
     let tt = document.getElementById(id);
+  }
+
+  showTab(id: string): void {
+    this.currentDiv = id;
   }
 
 }

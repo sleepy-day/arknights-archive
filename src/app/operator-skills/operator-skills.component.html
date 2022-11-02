@@ -1,12 +1,20 @@
-<mat-tab-group mat-align-tabs="start">
-    <mat-tab label="Skill {{i + 1}}" *ngFor="let skill of skillInfo; let i=index">
-        <div class="skillinfotop">
-            <img *ngIf="$any(skill)['iconId'] !== null; else skillName" src="../../assets/img/skills/skill_icon_{{$any(skill)['iconId']}}.png">
-            <ng-template #skillName>
-                <img src="../../assets/img/skills/skill_icon_{{$any(skill)['skillId']}}.png" />
-            </ng-template> 
-            <div>{{$any(skill)['levels'][0]['name']}}</div>
+<div [ngClass]="'skillsbody'">
+
+    <button [ngClass]="{'active': currentDiv === 'skill' + i}" *ngFor="let skill of skillInfo; let i = index" (click)="showTab('skill' + i)">Skill {{ i + 1 }}</button>
+
+    <div *ngFor="let skill of skillInfo; let i = index">
+        <div *ngIf="currentDiv === 'skill' + i" class="skillinfo">
+
+            <div [ngClass]="'skillinfotop'">
+                <img [ngClass]="'skillimg'"  *ngIf="$any(skill)['iconId'] !== null; else skillName" src="../../assets/img/skills/skill_icon_{{$any(skill)['iconId']}}.png">
+                <ng-template #skillName>
+                    <img [ngClass]="'skillimg'" src="../../assets/img/skills/skill_icon_{{$any(skill)['skillId']}}.png" />
+                </ng-template> 
+                <div [ngClass]="'skillname'">{{$any(skill)['levels'][0]['name']}}</div>
+            </div>
+
+            <app-operator-skills-level [skill]="skill"></app-operator-skills-level>
+
         </div>
-        <app-operator-skills-level [skill]="skill"></app-operator-skills-level>
-    </mat-tab>
-</mat-tab-group>
+    </div>
+</div>

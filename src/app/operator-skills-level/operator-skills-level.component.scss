@@ -1,1 +1,35 @@
+* {
+    background-color: #2E2E2E;
+    color: white;
+}
 
+button {
+    border: none;
+    border-bottom: 2px solid #2E2E2E;
+    padding: 5px;
+    width: auto;
+}
+
+button.active {
+    border-bottom: 2px solid white;
+}
+
+.tabs {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+}
+
+button {
+    grid-column-end: span 1;
+}
+
+.skilldesccontainer {
+    max-height: 150px;
+}
+
+.skilldesc {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 100%;
+}

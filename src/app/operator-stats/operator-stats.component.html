@@ -1,9 +1,7 @@
-<mat-tab-group mat-align-tabs="start">
+<div [ngClass]="'tabs'">
+    <button *ngFor="let s of $any(stats); let i = index" [ngClass]="{'active': currentDiv === 'stats' + i}" (click)="selectTab('stats' + i)">E{{ i }}</button>
+    <div *ngFor="let s of $any(stats); let i = index">
+        <app-operator-stats-level [id]="'stats' + i" *ngIf="currentDiv === 'stats' + i" [stats]="s"></app-operator-stats-level>
+    </div>
+</div>
 
-    <ng-component *ngFor="let s of $any(stats)">
-        <mat-tab label="b">
-            <app-operator-stats-level [stats]="s"></app-operator-stats-level>
-        </mat-tab>
-    </ng-component>
-
-</mat-tab-group>
