@@ -3,7 +3,10 @@
 
     <div [ngClass]="'opimgname'">
         <div [ngClass]="'opname'">{{ $any(operator)['info']['name'] }} <span *ngIf="$any(operator)['info']['appellation']" >{{ $any(operator)['info']['appellation'] }}</span></div>
-        <img [ngClass]="'opimage'" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
+        <div [ngClass]="'opimages'">
+            <img [ngClass]="'logo'" src="../../assets/img/logos/logo_{{$any(group)['powerId']}}.png" />
+            <img [ngClass]="'opimage'" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
+        </div>
     </div>
 
     <div [ngClass]="'opinfo'">
