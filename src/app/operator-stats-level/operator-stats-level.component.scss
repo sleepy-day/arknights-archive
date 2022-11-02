@@ -1,6 +1,52 @@
+.stats {
+    background-color: #2E2E2E;
+    display: flex;
+    flex-direction: column;
+}
+
+.statcols {
+    display: flex;
+}
+
+.statcol {
+    display: flex;
+    flex-direction: column;
+}
+
+.statrow {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    color: white;
+}
+
+.staticon {
+    height: 15px;
+    padding-left: 4px;
+    padding-right: 2px;
+}
+
+.rangedisplay {
+    width: 100px;
+    background-color: #2E2E2E;
+    display: flex;
+    align-items: center;
+    height: auto;
+}
+
+.rangegrid {
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.rangegridrow {
+    display: flex;
+}
+
 .empty {
-    padding-left: 8px;
-    padding-right: 8px;
+    height: 10px;
+    width: 10px;
     margin-top: 1px;
     margin-bottom: 1px;
     margin-left: 1px;
@@ -8,21 +54,22 @@
 }
 
 .attack {
-    padding-left: 8px;
-    padding-right: 8px; 
+    height: 10px;
+    width: 10px;
     margin-top: 1px;
     margin-bottom: 1px;
     margin-left: 1px;
     margin-right: 1px;
-    border: 2px solid lightblue;
+    border: 2px solid #828282;
 }
 
 .unit {
-    padding-left: 8px;
-    padding-right: 8px;
+    height: 10px;
+    width: 10px;
     margin-top: 1px;
     margin-bottom: 1px;
     margin-left: 1px;
     margin-right: 1px;
-    border: 2px solid red;
+    border: 2px solid white;
+    background-color: white;
 }

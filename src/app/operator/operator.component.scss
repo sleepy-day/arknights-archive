@@ -1,12 +1,18 @@
 @font-face {
-    font-family: slim-sans-serif;
-    src: url(../../assets/font/SlimSansSerif.ttf) format('truetype');
+    font-family: 'roboto-condensed';
+    src: url(../../assets/font/Roboto_Condensed/RobotoCondensed-Regular.ttf);
 }
 
 @font-face {
-    font-family: slim-sans-serif;
-    src: url(../../assets/font/SlimSansSerif-Bold.ttf) format('truetype');
+    font-family: 'roboto-condensed';
+    src: url(../../assets/font/Roboto_Condensed/RobotoCondensed-Bold.ttf);
     font-weight: bold;
+}
+
+@font-face {
+    font-family: 'roboto-condensed';
+    src: url(../../assets/font/Roboto_Condensed/RobotoCondensed-Italic.ttf);
+    font-style: italic;
 }
 
 @keyframes fadeIn {
@@ -15,7 +21,7 @@
 }
 
 * {
-    font-family: 'slim-sans-serif', sans-serif;
+    font-family: 'roboto-condensed', sans-serif;
     font-size: large;
 }
 
