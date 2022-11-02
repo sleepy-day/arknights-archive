@@ -20,11 +20,41 @@
     100% { opacity: 1; }
 }
 
+@keyframes scrolling {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
 * {
     font-family: 'roboto-condensed', sans-serif;
     font-size: large;
+}
+
+.opimgname {
     background-color: #2E2E2E;
+    box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
+    padding: 5px;    
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 6px;
+    margin-right: 50px;
+}
+
+button {
+    font-size: medium;
+}
+
+body {
+    background-color: #eeeeee;
+    background: radial-gradient(#C2C2C2 2px, transparent 2px);
+    background-size : 30px 30px;
     color: white;
+    box-shadow: inset 2px 4px 80px 4px rgba(0, 0, 0, 0.582);
+    animation: scrolling 70s linear infinite;
 }
 
 .opinfo {
@@ -32,9 +62,14 @@
     width: 100%;
 }
 
-h3 {
-    margin: auto;
-    margin-top: 5px;
+.opdesc {
+    background-color: #2E2E2E;
+    box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
+    padding: 12px;
+    padding-left: 14px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    border-radius: 6px;
 }
 
 .mainpanel {
@@ -45,6 +80,17 @@ h3 {
 .opimage {
     height: 700px;
     width: auto;
+    background-color: rgb(59, 56, 56);
+    box-shadow: inset 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
+}
+
+.opname {
+    align-self: center;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .highlight{

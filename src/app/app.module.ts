@@ -14,6 +14,7 @@ import { OperatorStatsLevelComponent } from './operator-stats-level/operator-sta
 import { OperatorSkillsComponent } from './operator-skills/operator-skills.component';
 import { ItemsComponent } from './items/items.component';
 import { OperatorSkillsLevelComponent } from './operator-skills-level/operator-skills-level.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { OperatorSkillsLevelComponent } from './operator-skills-level/operator-s
     OperatorStatsLevelComponent,
     OperatorSkillsComponent,
     ItemsComponent,
-    OperatorSkillsLevelComponent
+    OperatorSkillsLevelComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,

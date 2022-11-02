@@ -1,10 +1,12 @@
 <div [ngClass]="'mainbody'">
-
-    <div [ngClass]="'slidercontainer'">
-        <input [ngClass]="'slider'" [(ngModel)]="level" #ngVar="ngModel" (input)="updateStats()" (ngInit)="updateStats()" type="range" min="1" max="{{ $any(stats)['maxLevel'] }}" id="levelSlider">
-    </div>
     <div [ngClass]="'stats'">
-        <div [ngClass]="'level'">Level: {{ level }}</div>
+
+        <div [ngClass]="'levelinfo'">
+            <div [ngClass]="'slidercontainer'">
+                <input [ngClass]="'slider'" [(ngModel)]="level" #ngVar="ngModel" (input)="updateStats()" (ngInit)="updateStats()" type="range" min="1" max="{{ $any(stats)['maxLevel'] }}" id="levelSlider">
+            </div>
+            <div [ngClass]="'level'">Level: {{ level }}</div>
+        </div>
         <div [ngClass]="'details'">
             <div [ngClass]="'statcols'">
 
@@ -49,7 +51,9 @@
             </div>
 
             <div [ngClass]="'rangedetails'">
-                RANGE
+                <div [ngClass]="'rangeheader'">
+                    RANGE
+                </div>
                 <div [ngClass]="'rangedisplay'">
                     <div [ngClass]="'rangegrid'">
             

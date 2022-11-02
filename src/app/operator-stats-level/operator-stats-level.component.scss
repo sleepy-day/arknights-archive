@@ -75,6 +75,8 @@
     width: auto;
     margin: auto;
     text-align: center;
+    border: 2px solid white;
+    border-radius: 4px;
 }
 
 .rangedisplay {
@@ -123,4 +125,15 @@
     margin-right: 1px;
     border: 2px solid white;
     background-color: white;
+}
+
+.levelinfo {
+    display: flex;
+    align-items: center;
+}
+
+.rangeheader {
+    background-color: white;
+    color: #2E2E2E;
+    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, 0.226);
 }
