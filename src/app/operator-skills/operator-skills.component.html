@@ -1,7 +1,10 @@
 <mat-tab-group mat-align-tabs="start">
     <mat-tab label="Skill {{i + 1}}" *ngFor="let skill of skillInfo; let i=index">
         <div class="skillinfotop">
-            <img src="../../assets/img/skills/skill_icon_{{$any(skill)['skillId']}}.png" /> 
+            <img *ngIf="$any(skill)['iconId'] !== null; else skillName" src="../../assets/img/skills/skill_icon_{{$any(skill)['iconId']}}.png">
+            <ng-template #skillName>
+                <img src="../../assets/img/skills/skill_icon_{{$any(skill)['skillId']}}.png" />
+            </ng-template> 
             <div>{{$any(skill)['levels'][0]['name']}}</div>
         </div>
         <app-operator-skills-level [skill]="skill"></app-operator-skills-level>
