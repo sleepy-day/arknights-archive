@@ -1,0 +1,7 @@
+<div [ngClass]="'potentials'">
+    <div [ngClass]="'title'">POTENTIAL</div>
+    <div *ngFor="let pot of $any(potentials); let i = index" [ngClass]="'potential'">
+        <img src="../../assets/img/ui/pot{{i+1}}m.png" />
+        <span [ngClass]="'pottext'">{{ pot['description'] }}</span>
+    </div>
+</div>

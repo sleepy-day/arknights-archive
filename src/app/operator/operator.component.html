@@ -1,34 +1,69 @@
-<app-navbar></app-navbar>
-<div class="tab-content">
+<div id="wrapper">
+    <app-navbar></app-navbar>
+    <div class="tab-content">
 
-    <div [ngClass]="'opimgname'">
-        <div [ngClass]="'opname'">{{ $any(operator)['info']['name'] }} <span *ngIf="$any(operator)['info']['appellation']" >{{ $any(operator)['info']['appellation'] }}</span></div>
-        <div [ngClass]="'opimages'">
-            <img [ngClass]="'logo'" src="../../assets/img/logos/logo_{{$any(group)['powerId']}}.png" />
-            <img [ngClass]="'opimage'" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
+        <div [ngClass]="'opleftcol'">
+            <div [ngClass]="'opimgname'">
+                <div [ngClass]="'opname'">{{ $any(operator)['info']['name'] }} <span *ngIf="$any(operator)['info']['appellation']" >{{ $any(operator)['info']['appellation'] }}</span></div>
+                <div [ngClass]="'opimages'">
+                    <img [ngClass]="'logo'" src="../../assets/img/logos/logo_{{$any(group)['powerId']}}.png" />
+                    <img [ngClass]="'opimage'" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
+                </div>
+            </div>
+
         </div>
-    </div>
 
-    <div [ngClass]="'opinfo'">
+        <div [ngClass]="'opinfo'">
 
-        <div [ngClass]="'opdesc'">
-            <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
+            <div [ngClass]="'opdesc'">
+                <div [style]="{'display': 'flex'}">
+                    <app-operator-class [profession]="$any(operator)['info']['profession']" [subProfession]="$any(operator)['info']['subProfessionId']"></app-operator-class>
+                </div>
+            </div>
 
-            <div>{{ $any(group)['powerName'] }}</div>
-            <div>Position: {{ $any(operator)['info']['position'].charAt(0) + $any(operator)['info']['position'].slice(1).toLowerCase() }}</div>
-            <div>
-                Tags: <ul>
+            <div [ngClass]="'opdesc'">
+                <div [ngClass]="'title'">TRAIT</div>
+                <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
+            </div>
+
+            <app-operator-skills [skills]="$any(operator)['info']['skills']"></app-operator-skills>
+            <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
+            <app-potential [potentials]="$any(operator)['info']['potentialRanks']"></app-potential>
+
+            <div [ngClass]="'opdesc'">
+                <div [ngClass]="'title'">PROFILE</div>
+
+                <div [ngStyle]="{'padding-bottom': '5px'}">
+                    <span [ngClass]="'singlerowtext'"><span [ngClass]="'singlerowfieldname'">BIO:</span> {{ $any(operator)['info']['itemUsage'] }}</span>
+                </div>
+
+                <div>
+                    <span [ngClass]="'singlerowtext'"><span [ngClass]="'singlerowfieldname'">AFFILIATION:</span> {{ $any(group)['powerName'].toUpperCase() }}</span>
+                </div>
+
+                <div [ngClass]="'tokendisplay'">
+                    <img [ngClass]="'tokenimg'" src="../../assets/img/items/{{ $any(operator)['info']['potentialItemId'] }}.png" />
+                    <div [ngClass]="'tokendesc'">
+                        <div [ngClass]="'tokentext'">{{ $any(token)['description'] }}</div>
+                    </div>
+                </div>
+                <div [ngClass]="'tokendisplay'">
+                    <img [ngClass]="'tokenimg'" src="../../assets/img/items/TKT_RECRUIT.png" />
+                    <div [ngClass]="'tokendesc'">
+                        <div [ngClass]="'tokentext'">{{ $any(operator)['info']['itemDesc'] }}</div>
+                    </div>
+                </div>
+            </div>
+        
+            <div [ngClass]="'opdesc'">
+                <div [ngClass]="'title'">TAGS</div> <ul>
                     <li *ngFor="let tag of $any(operator)['info']['tagList']">
                         {{ tag }}
                     </li>
                 </ul>
             </div>
-            <div>{{ professions.get($any(operator)['info']['profession']) }} -- {{ subProfName }}</div>
+
         </div>
 
-        <app-operator-skills [skills]="$any(operator)['info']['skills']"></app-operator-skills>
-        <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
-
     </div>
-
 </div>

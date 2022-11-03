@@ -205,4 +205,18 @@ export class OpInfoService {
     return rangeLayout;
   }
 
+  getItemById(id: string): object {
+    let item: object = {};
+    let items = itemTable["items"];
+
+    (Object.keys(items) as (keyof typeof items)[]).forEach((key) => {
+      if (key === id) {
+        item = items[id];
+        return;
+      }
+    })
+
+    return item;
+  }
+
 }

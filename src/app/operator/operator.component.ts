@@ -27,8 +27,8 @@ export class OperatorComponent implements OnInit {
   altOps: object[];
   altClass: object[];
   group: object;
-
   subProfName: string;
+  token: object;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,6 +50,7 @@ export class OperatorComponent implements OnInit {
       this.altOps = this.opService.getOperatorAlterById(this.operator["id" as keyof object]);
       this.group = this.opService.getGroupById(this.operator["info" as keyof object]);
       this.subProfName = this.opService.getSubProfessionById(this.operator["info" as keyof object]["subProfessionId" as keyof string]);
+      this.token = this.opService.getItemById(this.operator["info" as keyof object]["potentialItemId"]);
     })
   }
 
