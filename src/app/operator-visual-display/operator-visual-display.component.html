@@ -1,10 +1,23 @@
 <div [ngClass]="'opvisual'">
+
     <div [ngClass]="'opvisualtop'">
         <div [ngClass]="'opname'">{{ $any(operator)['info']['name'] }} <span *ngIf="$any(operator)['info']['appellation']" >{{ $any(operator)['info']['appellation'] }}</span></div>
         <app-operator-class [profession]="$any(operator)['info']['profession']" [subProfession]="$any(operator)['info']['subProfessionId']"></app-operator-class>
     </div>
+
     <div [ngClass]="'opimages'">
+
         <img [ngClass]="'logo'" src="../../assets/img/logos/logo_{{powerId}}.png" />
-        <img [ngClass]="'opimage'" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
+        <img [ngClass]="'opimage'" src="{{ '/assets/img/' + imgDirectory + '/' + imageName + '.png' }}" />
+        
+        <div [ngClass]="'buttons'"> 
+            <a (click)="getOpEvoImg(0)"><img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_ILLUST_1.png"  /></a>
+            <a *ngIf="$any(operator)['id'] === 'char_002_amiya'" (click)="getOpEvoImg(1)"><img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_ILLUST_1.png"  /></a>
+            <a (click)="getOpEvoImg(2)"><img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_ILLUST_2.png"  /></a>
+            <a (click)="getSkinImg($any(skin)['avatarId'])" *ngFor="let skin of skins">
+                <img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_{{ getSkinBrandIcon(skin) }}.png" />
+            </a> 
+        </div>
+        
     </div>
 </div>

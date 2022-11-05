@@ -7,6 +7,7 @@ import uniEquip from '../assets/json/uniequip_table.json';
 import itemTable from '../assets/json/item_table.json';
 import skillTable from '../assets/json/skill_table.json';
 import rangeTable from '../assets/json/range_table.json';
+import skinsTable from '../assets/json/skin_table.json';
 
 @Injectable({
   providedIn: 'root'
@@ -217,6 +218,33 @@ export class OpInfoService {
     })
 
     return item;
+  }
+
+  getSkinsForOperator(id: string): object[] {
+    let skins: object[] = [];
+    let charSkins = skinsTable["charSkins" as keyof object];
+
+    (Object.keys(charSkins) as (keyof typeof charSkins)[]).forEach((key) => {
+      if (charSkins[key]["charId"] === id && charSkins[key]["displaySkin"]["skinGroupName"] !== "Default Outfit") {
+        skins.push(charSkins[key]);
+      }
+    })
+
+    return skins;
+  }
+
+  getBrandForSkin(skinGroupId: string): string {
+    let brands = skinsTable["brandList"];
+    let brand = "";
+
+    (Object.keys(brands) as (keyof typeof brands)[]).forEach((key) => {
+      if (brands[key]["groupList"].includes(skinGroupId)) {
+        brand = key;
+        return;
+      }
+    })
+
+    return brand;
   }
 
 }
