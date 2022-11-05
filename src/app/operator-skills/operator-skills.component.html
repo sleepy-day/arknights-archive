@@ -6,17 +6,26 @@
         <div [ngClass]="{'hidden': currentDiv !== 'skill' + i}" class="skillinfo">
 
             <div [ngClass]="'skillinfotop'">
-                <div [ngClass]="'skillinfotopleft'">
-                    <img [ngClass]="'skillimg'"  *ngIf="$any(skill)['iconId'] !== null; else skillName" src="../../assets/img/skills/skill_icon_{{$any(skill)['iconId']}}.png">
-                    <ng-template #skillName>
-                        <img [ngClass]="'skillimg'" src="../../assets/img/skills/skill_icon_{{$any(skill)['skillId']}}.png" />
-                    </ng-template> 
-                    <div [ngClass]="'skillname'">{{$any(skill)['levels'][0]['name']}}</div>
+                <div [ngStyle]="{'display': 'flex'}">
+
+                    <div [ngClass]="'skillinfotopleft'">
+                        <img [ngClass]="'skillimg'"  *ngIf="$any(skill)['iconId'] !== null; else skillName" src="../../assets/img/skills/skill_icon_{{$any(skill)['iconId']}}.png">
+                        <ng-template #skillName>
+                            <img [ngClass]="'skillimg'" src="../../assets/img/skills/skill_icon_{{$any(skill)['skillId']}}.png" />
+                        </ng-template> 
+                        <div [ngClass]="'skillname'">{{$any(skill)['levels'][0]['name']}}</div>
+                    </div>
+
+                    <div [ngClass]="'skillinfotopright'">
+                        <div [ngClass]="'spstart'">Starting SP: {{ skillDetail.initSp }}</div>
+                        <div [ngClass]="'spcost'">Cost: {{ skillDetail.spCost }}</div>
+                    </div>
+
                 </div>
-                <div [ngClass]="'skillinfotopright'">
-                    <div [ngClass]="['sptype' + currentSpType, 'sp']">{{ spType[currentSpType] }}</div>
-                    <div [ngClass]="['skilltype', 'sp']">{{ skillType[currentSkillType] }}</div>
-                    <div *ngIf="currentDuration > 0" [ngClass]="['skilltype', 'sp']">{{ currentDuration }} Seconds</div>
+                <div [ngClass]="'skillinfoactiv'">
+                    <div [ngClass]="['sptype' + skillDetail.spType, 'sp']">{{ spType[skillDetail.spType] }}</div>
+                    <div [ngClass]="['skilltype', 'sp']">{{ skillType[skillDetail.skillType] }}</div>
+                    <div *ngIf="skillDetail.duration > 0" [ngClass]="['skilltype', 'sp']">{{ skillDetail.duration }} Seconds</div>
                 </div>
             </div>
             

@@ -14,20 +14,27 @@ export class OperatorSkillsComponent implements OnInit {
   currentDiv: string = "skill0";
   currentSkill: number = 0;
   currentLvlDisplay = [0, 0, 0];
-  currentSpType: number;
-  currentSkillType: number;
-  currentDuration: number;
+
   spType: { [key: number]: string; } = {
     1: "Auto Recovery",
     2: "Offensive Recovery",
     4: "Defensive Recovery",
     8: "Passive",
   };
+
   skillType: { [key: number]: string; } = {
     0: "",
     1: "Manual Activation",
     2: "Automatic Activation",
-  }
+  };
+
+  skillDetail = {
+    spType: 0,
+    skillType: 0,
+    duration: 0,
+    initSp: 0,
+    spCost: 0,
+  };
 
   constructor(
     private opService: OpInfoService,
@@ -65,10 +72,11 @@ export class OperatorSkillsComponent implements OnInit {
   }
 
   updateSkillInfo(): void {
-    this.currentSpType = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["spType"];
-    this.currentSkillType = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["skillType"];
-    this.currentDuration = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["duration"];
-    console.log(this.currentDuration);
+    this.skillDetail.spType = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["spType"];
+    this.skillDetail.skillType = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["skillType"];
+    this.skillDetail.duration = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["duration"];
+    this.skillDetail.initSp = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["initSp"];
+    this.skillDetail.spCost = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["spCost"];
   }
 
 }

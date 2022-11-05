@@ -19,6 +19,7 @@ button {
 
 .skillinfotop {
     display: flex;
+    flex-direction: column;
 }
 
 .skillinfotopleft {
@@ -28,10 +29,12 @@ button {
 }
 
 .skillinfotopright {
-    margin-left: auto;
-    margin-top: auto;
-    margin-bottom: auto;
-    padding-right: 10px;
+    margin: auto;
+}
+
+.skillinfoactiv {
+    display: flex;
+    margin: auto;
 }
 
 .skillimg {
@@ -53,17 +56,31 @@ button {
 }
 
 .sp {
-    padding-left: 6px;
-    padding-right: 6px;
-    padding-top: 1px;
-    padding-bottom: 1px;
+    padding: 1px 6px 1px 6px;
     margin-bottom: 4px;
     border-radius: 3px;
     width: fit-content;
+    margin-left: 5px;
+}
+
+.spstart {
+    background-color: #69ca19;
+    border-radius: 3px;
+    width: fit-content;
+    padding: 1px 6px 1px 6px;
+}
+
+.spcost {
+    background-color: white;
+    color: black;
+    border-radius: 3px;
+    width: fit-content;
+    padding: 1px 6px 1px 6px;
+    margin-top: 4px;
 }
 
 .sptype1 { background-color: #69ca19; }
 .sptype2 { background-color: #FC653E; }
 .sptype4 { background-color: #FFB400; }
 .sptype8 { background-color: #737373; }
-.skilltype { background-color: #737373; }
+.skilltype { background-color: white; color: black; }
