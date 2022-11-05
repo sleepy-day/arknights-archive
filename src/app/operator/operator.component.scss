@@ -39,7 +39,6 @@ li {
 }
 
 .opimgname {
-    position: relative;
     display: flex;
     flex-direction: column;
     background-color: #2E2E2E;
@@ -48,7 +47,7 @@ li {
     margin-bottom: 10px;
     margin-top: 20px;
     border-radius: 6px;
-    height: 760px;
+    height: max-content;
 }
 
 .powerpositioninfo {
@@ -83,6 +82,11 @@ button {
 html, body, #wrapper {
     height: 100%;
     width: 100%;
+}
+
+.optop {
+    display: flex;
+    flex-direction: column;
 }
 
 #wrapper {
@@ -148,6 +152,7 @@ html, body, #wrapper {
 }
 
 .opimages {
+    position: relative;
     background-color: rgb(59, 56, 56);
     box-shadow: inset 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
     height: 700px;
@@ -160,7 +165,7 @@ html, body, #wrapper {
     font-size: xx-large;
     font-weight: 700;
     padding-top: 10px;
-    padding-bottom: 10px;
+    padding-bottom: 5px;
 }
 
 .fullpage {
@@ -170,7 +175,6 @@ html, body, #wrapper {
 .logo {
     position: absolute;
     height: 300px;
-    top: 60px;
     z-index: 0;
 }
 

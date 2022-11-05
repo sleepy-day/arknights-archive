@@ -4,7 +4,12 @@
 
         <div [ngClass]="'opleftcol'">
             <div [ngClass]="'opimgname'">
-                <div [ngClass]="'opname'">{{ $any(operator)['info']['name'] }} <span *ngIf="$any(operator)['info']['appellation']" >{{ $any(operator)['info']['appellation'] }}</span></div>
+                <div [ngClass]="'optop'">
+                    <div [ngClass]="'opname'">{{ $any(operator)['info']['name'] }} <span *ngIf="$any(operator)['info']['appellation']" >{{ $any(operator)['info']['appellation'] }}</span></div>
+                    <div [ngClass]="'opprof'">
+                        <app-operator-class [profession]="$any(operator)['info']['profession']" [subProfession]="$any(operator)['info']['subProfessionId']"></app-operator-class>
+                    </div>
+                </div>
                 <div [ngClass]="'opimages'">
                     <img [ngClass]="'logo'" src="../../assets/img/logos/logo_{{$any(group)['powerId']}}.png" />
                     <img [ngClass]="'opimage'" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
@@ -14,12 +19,6 @@
         </div>
 
         <div [ngClass]="'opinfo'">
-
-            <div [ngClass]="'opdesc'">
-                <div [style]="{'display': 'flex'}">
-                    <app-operator-class [profession]="$any(operator)['info']['profession']" [subProfession]="$any(operator)['info']['subProfessionId']"></app-operator-class>
-                </div>
-            </div>
 
             <div [ngClass]="'opdesc'">
                 <div [ngClass]="'title'">TRAIT</div>
