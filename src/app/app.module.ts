@@ -18,6 +18,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { PotentialComponent } from './potential/potential.component';
 import { OperatorClassComponent } from './operator-class/operator-class.component';
 import { OperatorVisualDisplayComponent } from './operator-visual-display/operator-visual-display.component';
+import { TagListComponent } from './tag-list/tag-list.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { OperatorVisualDisplayComponent } from './operator-visual-display/operat
     NavbarComponent,
     PotentialComponent,
     OperatorClassComponent,
-    OperatorVisualDisplayComponent
+    OperatorVisualDisplayComponent,
+    TagListComponent
   ],
   imports: [
     BrowserModule,

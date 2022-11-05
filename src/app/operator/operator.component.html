@@ -15,7 +15,11 @@
 
             <app-operator-skills [skills]="$any(operator)['info']['skills']"></app-operator-skills>
             <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
-            <app-potential [potentials]="$any(operator)['info']['potentialRanks']"></app-potential>
+            
+            <div [ngClass]="'pottags'">
+                <app-potential [potentials]="$any(operator)['info']['potentialRanks']"></app-potential>
+                <app-tag-list [tags]="$any(operator)['info']['tagList']"></app-tag-list>
+            </div>
 
             <div [ngClass]="'opdesc'">
                 <div [ngClass]="'title'">PROFILE</div>
@@ -40,14 +44,6 @@
                         <div [ngClass]="'tokentext'">{{ $any(operator)['info']['itemDesc'] }}</div>
                     </div>
                 </div>
-            </div>
-        
-            <div [ngClass]="'opdesc'">
-                <div [ngClass]="'title'">TAGS</div> <ul>
-                    <li *ngFor="let tag of $any(operator)['info']['tagList']">
-                        {{ tag }}
-                    </li>
-                </ul>
             </div>
 
         </div>
