@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AKTextParserService } from '../aktext-parser.service';
 
@@ -9,6 +9,7 @@ import { AKTextParserService } from '../aktext-parser.service';
 })
 export class OperatorSkillsLevelComponent implements OnInit {
   @Input('skill') skill: object;
+  @Output() currentLvl = new EventEmitter<number>(); 
   currentDiv: string;
 
   constructor(
@@ -18,6 +19,7 @@ export class OperatorSkillsLevelComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentDiv = this.skill["skillId" as keyof object] + "0";
+    console.log(this.skill);
   }
 
   parseSkillText(skillInfo: object) {
@@ -26,6 +28,7 @@ export class OperatorSkillsLevelComponent implements OnInit {
 
   selectTab(id: string): void {
     this.currentDiv = id;
+    this.currentLvl.emit(Number(this.currentDiv.slice(-1)));
   }
 
 }

@@ -3,6 +3,10 @@
     color: white;
 }
 
+span {
+    display: inline-block;
+}
+
 button {
     border: none;
     border-bottom: 2px solid #2E2E2E;
@@ -37,4 +41,9 @@ button {
 .skilltext {
     padding-top: 5px;
     padding-bottom: 5px;
+    height: max-content;
+}
+
+.hl {
+    display: inline-block;
 }

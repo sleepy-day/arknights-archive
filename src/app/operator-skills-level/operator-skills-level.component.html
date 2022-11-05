@@ -4,10 +4,9 @@
         <button [ngClass]="{'active': currentDiv === $any(skill)['skillId'] + i}" *ngFor="let level of $any(skill)['levels']; let i = index" (click)="selectTab($any(skill)['skillId'] + i)" >Level {{ i + 1 }}</button>
     </div>
     
-    <div class="skilldesccontainer">
-        <div class="skilldesc" *ngFor="let level of $any(skill)['levels']; let i = index" [id]="$any(skill)['skillId'] + i">
-            <div [ngClass]="'skilltext'" *ngIf="currentDiv === $any(skill)['skillId'] + i" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText(level))"></div>
-        </div>
+    
+    <div class="skilldesc" *ngFor="let level of $any(skill)['levels']; let i = index" [id]="$any(skill)['skillId'] + i">
+        <div [ngClass]="'skilltext'" *ngIf="currentDiv === $any(skill)['skillId'] + i" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText(level))"></div>
     </div>
     
 </div>

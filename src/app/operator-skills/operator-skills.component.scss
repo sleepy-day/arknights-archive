@@ -13,9 +13,25 @@ button {
     border-bottom: 2px solid white;
 }
 
+.hidden {
+    display: none;
+}
+
 .skillinfotop {
     display: flex;
+}
+
+.skillinfotopleft {
+    display: flex;
     padding: 10px;
+    width: auto;
+}
+
+.skillinfotopright {
+    margin-left: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-right: 10px;
 }
 
 .skillimg {
@@ -35,3 +51,19 @@ button {
     margin-top: 20px;
     border-radius: 6px;
 }
+
+.sp {
+    padding-left: 6px;
+    padding-right: 6px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    border-radius: 3px;
+    width: fit-content;
+}
+
+.sptype1 { background-color: #69ca19; }
+.sptype2 { background-color: #FC653E; }
+.sptype4 { background-color: #FFB400; }
+.sptype8 { background-color: #737373; }
+.skilltype { background-color: #737373; }
