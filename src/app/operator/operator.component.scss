@@ -38,18 +38,6 @@ li {
     list-style-type: square;
 }
 
-.opimgname {
-    display: flex;
-    flex-direction: column;
-    background-color: #2E2E2E;
-    box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    padding: 5px;    
-    margin-bottom: 10px;
-    margin-top: 20px;
-    border-radius: 6px;
-    height: max-content;
-}
-
 .powerpositioninfo {
     margin-left: auto;
     padding-right: 5px;
@@ -82,11 +70,6 @@ button {
 html, body, #wrapper {
     height: 100%;
     width: 100%;
-}
-
-.optop {
-    display: flex;
-    flex-direction: column;
 }
 
 #wrapper {
@@ -144,38 +127,8 @@ html, body, #wrapper {
     padding-bottom: 5px;
 }
 
-.opimage {
-    position: relative;
-    height: 700px;
-    width: auto;
-    z-index: 4;
-}
-
-.opimages {
-    position: relative;
-    background-color: rgb(59, 56, 56);
-    box-shadow: inset 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    height: 700px;
-    width: 700px;
-}
-
-.opname {
-    align-self: center;
-    text-align: center;
-    font-size: xx-large;
-    font-weight: 700;
-    padding-top: 10px;
-    padding-bottom: 5px;
-}
-
 .fullpage {
     display: flex;
-}
-
-.logo {
-    position: absolute;
-    height: 300px;
-    z-index: 0;
 }
 
 .highlight{

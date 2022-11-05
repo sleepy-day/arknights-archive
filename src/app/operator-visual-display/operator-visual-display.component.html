@@ -1,0 +1,10 @@
+<div [ngClass]="'opvisual'">
+    <div [ngClass]="'opvisualtop'">
+        <div [ngClass]="'opname'">{{ $any(operator)['info']['name'] }} <span *ngIf="$any(operator)['info']['appellation']" >{{ $any(operator)['info']['appellation'] }}</span></div>
+        <app-operator-class [profession]="$any(operator)['info']['profession']" [subProfession]="$any(operator)['info']['subProfessionId']"></app-operator-class>
+    </div>
+    <div [ngClass]="'opimages'">
+        <img [ngClass]="'logo'" src="../../assets/img/logos/logo_{{powerId}}.png" />
+        <img [ngClass]="'opimage'" src="../../assets/img/operators/{{$any(operator)['id']}}_1.png" />
+    </div>
+</div>

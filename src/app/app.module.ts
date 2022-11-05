@@ -17,6 +17,7 @@ import { OperatorSkillsLevelComponent } from './operator-skills-level/operator-s
 import { NavbarComponent } from './navbar/navbar.component';
 import { PotentialComponent } from './potential/potential.component';
 import { OperatorClassComponent } from './operator-class/operator-class.component';
+import { OperatorVisualDisplayComponent } from './operator-visual-display/operator-visual-display.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { OperatorClassComponent } from './operator-class/operator-class.componen
     OperatorSkillsLevelComponent,
     NavbarComponent,
     PotentialComponent,
-    OperatorClassComponent
+    OperatorClassComponent,
+    OperatorVisualDisplayComponent
   ],
   imports: [
     BrowserModule,
