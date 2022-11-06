@@ -10,11 +10,14 @@ import { OpInfoService } from '../op-info.service';
 })
 export class OperatorSkillsComponent implements OnInit {
   @Input('skills') skills: object[];
+  @Input('skillLvlCost') skillLvlCost: object[];
   skillInfo: object[] = [];
+  skillCost: object[][] = [];
   currentDiv: string = "skill0";
   currentSkill: number = 0;
   currentLvlDisplay = [0, 0, 0];
   showSkillDetail: boolean = false;
+  showSkillCost: boolean = false;
 
   spType: { [key: number]: string; } = {
     1: "Auto Recovery",
@@ -44,12 +47,14 @@ export class OperatorSkillsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    for (var skill of this.skills) {
+    for (var [i, skill] of this.skills.entries()) {
       var id = skill["skillId" as keyof object];
       console.log(id);
-      this.skillInfo.push(this.opService.getSkillInfoById(String(id)))
+      this.skillInfo.push(this.opService.getSkillInfoById(String(id)));
+      this.skillCost[i] = [...this.skillLvlCost, ...skill["levelUpCostCond" as keyof object]];
     }
     console.log(this.skillInfo);
+    console.log(this.skillCost);
     this.updateSkillInfo();
   }
 
@@ -82,6 +87,10 @@ export class OperatorSkillsComponent implements OnInit {
 
   toggleSkillDisplay(): void {
     this.showSkillDetail = !this.showSkillDetail;
+  }
+
+  toggleSkillCost(): void {
+    this.showSkillCost = !this.showSkillCost;
   }
 
 }

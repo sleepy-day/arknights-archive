@@ -247,4 +247,27 @@ export class OpInfoService {
     return brand;
   }
 
+  getItemsForSkillCost(costs: object[][]): object[] {
+    let items: object[] = []
+    let allItems = itemTable["items"];
+
+    for (let cost of costs) {
+      let entry: object[] = [];
+
+      console.log("cost:", cost);
+
+      (Object.keys(allItems) as (keyof typeof allItems)[]).forEach((key) => {
+        for (let item of cost) {
+          if (allItems[key]["itemId"] === item["id" as keyof object]) {
+            entry.push({ item: allItems[key], count: item["count" as keyof object] });
+          }
+        }
+      }) 
+
+      items.push({ items: entry });
+    }
+
+    return items;
+  }
+
 }

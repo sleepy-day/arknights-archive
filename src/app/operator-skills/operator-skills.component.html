@@ -3,6 +3,11 @@
     <div>
         <button [ngClass]="{'active': currentDiv === 'skill' + i}" *ngFor="let skill of skillInfo; let i = index" (click)="showTab('skill' + i)">Skill {{ i + 1 }}</button>
         <label [ngClass]="'checkbox'">
+            <input (click)="toggleSkillCost()" type="checkbox">
+            <span [ngClass]="'check'"></span>
+             Show Skill Upgrade Cost  
+        </label>
+        <label [ngClass]="'checkbox'">
             <input (click)="toggleSkillDisplay()" type="checkbox">
             <span [ngClass]="'check'"></span>
              Show Skill Stats  
@@ -39,7 +44,13 @@
             </div>
             
 
-            <app-operator-skills-level [skillDetailDisplay]="showSkillDetail" [skill]="skill" (currentLvl)="getSkillLvl($event)"></app-operator-skills-level>
+            <app-operator-skills-level 
+                [skillCostDisplay]="showSkillCost" 
+                [skillDetailDisplay]="showSkillDetail" 
+                [skill]="skill" 
+                [skillCost]="$any(skillCost)[i]"
+                (currentLvl)="getSkillLvl($event)">
+            </app-operator-skills-level>
 
         </div>
     </div>
