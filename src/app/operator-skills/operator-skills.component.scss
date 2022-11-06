@@ -9,6 +9,44 @@ button {
     width: 60px;
 }
 
+.checkbox {
+    display: block;
+    position: relative;
+    float: right;
+    padding: 8px 8px 5px 20px;
+    font-size: smaller;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    input:checked ~ .check {
+        background-color: white;
+    }
+}
+
+
+.check {
+    position: absolute;
+    margin-right: 10px;
+    border: 2px solid white;
+    width: 10px;
+    height: 10px;
+    left: 2px;
+    top: 10px;
+    border-radius: 3px;
+    background-color: #2E2E2E;
+}
+
 .active {
     border-bottom: 2px solid white;
 }
@@ -20,6 +58,7 @@ button {
 .skillinfotop {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .skillinfotopleft {

@@ -9,6 +9,7 @@ import { AKTextParserService } from '../aktext-parser.service';
 })
 export class OperatorSkillsLevelComponent implements OnInit {
   @Input('skill') skill: object;
+  @Input('skillDetailDisplay') skillDetailDisplay: boolean;
   @Output() currentLvl = new EventEmitter<number>(); 
   currentDiv: string;
 
@@ -20,6 +21,7 @@ export class OperatorSkillsLevelComponent implements OnInit {
   ngOnInit(): void {
     this.currentDiv = this.skill["skillId" as keyof object] + "0";
     console.log(this.skill);
+    console.log(this.skillDetailDisplay);
   }
 
   parseSkillText(skillInfo: object) {

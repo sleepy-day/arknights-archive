@@ -14,6 +14,7 @@ export class OperatorSkillsComponent implements OnInit {
   currentDiv: string = "skill0";
   currentSkill: number = 0;
   currentLvlDisplay = [0, 0, 0];
+  showSkillDetail: boolean = false;
 
   spType: { [key: number]: string; } = {
     1: "Auto Recovery",
@@ -77,6 +78,10 @@ export class OperatorSkillsComponent implements OnInit {
     this.skillDetail.duration = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["duration"];
     this.skillDetail.initSp = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["initSp"];
     this.skillDetail.spCost = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["spCost"];
+  }
+
+  toggleSkillDisplay(): void {
+    this.showSkillDetail = !this.showSkillDetail;
   }
 
 }

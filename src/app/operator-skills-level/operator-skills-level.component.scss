@@ -47,3 +47,38 @@ button {
 .hl {
     display: inline-block;
 }
+
+.skilldetailbtn {
+    font-size: medium;
+    width: 100%;
+    padding: 0;
+    background-color: white;
+    color: #2E2E2E;
+    margin: auto;
+}
+
+.skillstatrows {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    padding: 3px 0px;
+}
+
+.skillstatentry {
+    min-width: 20%;
+}
+
+.key {
+    background-color: white;
+    color: #2E2E2E;
+    border-radius: 3px 0px 0px 3px;
+    padding: 1px 4px;
+    border: 1px solid white;
+}
+
+.keyvalue {
+    border: 2px solid white;
+    border-radius: 0px 3px 3px 0px;
+    padding: 0px 5px;
+    left: -3px;
+}
