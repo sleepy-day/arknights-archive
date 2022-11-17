@@ -13,7 +13,7 @@
         <div [ngClass]="'buttons'"> 
             <a (click)="getOpEvoImg(0)"><img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_ILLUST_1.png"  /></a>
             <a *ngIf="$any(operator)['id'] === 'char_002_amiya'" (click)="getOpEvoImg(1)"><img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_ILLUST_1.png"  /></a>
-            <a (click)="getOpEvoImg(2)"><img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_ILLUST_2.png"  /></a>
+            <a (click)="getOpEvoImg(2)" *ngIf="$any(operator)['info']['rarity'] > 2"><img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_ILLUST_2.png"  /></a>
             <a (click)="getSkinImg($any(skin)['avatarId'])" *ngFor="let skin of skins">
                 <img [ngClass]="'artbutton'" src="../../assets/img/ui/brand_{{ getSkinBrandIcon(skin) }}.png" />
             </a> 
