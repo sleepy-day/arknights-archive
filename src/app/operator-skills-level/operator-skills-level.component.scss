@@ -59,13 +59,14 @@ button {
 
 .skillstatrows {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    flex-wrap: wrap;
     padding: 3px 0px;
 }
 
 .skillstatentry {
     min-width: 20%;
+    padding-bottom: 4px;
 }
 
 .key {
@@ -85,23 +86,8 @@ button {
 
 .skillcost {
     padding: 5px;
-    display: flex;
-    flex-wrap: wrap;
 }
 
-.item {
-    display: flex;
-    align-items: center;
-    padding-bottom: 3px;
-    padding-right: 10px;
-    padding-left: 5px;
-}
-
-.itemicon {
-    width: 50px;
-    padding-right: 3px;
-    margin: auto;
-}
 
 .hidden {
     display: none;

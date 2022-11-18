@@ -49,12 +49,9 @@ export class OperatorSkillsComponent implements OnInit {
   ngOnInit(): void {
     for (var [i, skill] of this.skills.entries()) {
       var id = skill["skillId" as keyof object];
-      console.log(id);
       this.skillInfo.push(this.opService.getSkillInfoById(String(id)));
       this.skillCost[i] = [...this.skillLvlCost, ...skill["levelUpCostCond" as keyof object]];
     }
-    console.log(this.skillInfo);
-    console.log(this.skillCost);
     this.updateSkillInfo();
   }
 

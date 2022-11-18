@@ -254,8 +254,6 @@ export class OpInfoService {
     for (let cost of costs) {
       let entry: object[] = [];
 
-      console.log("cost:", cost);
-
       (Object.keys(allItems) as (keyof typeof allItems)[]).forEach((key) => {
         for (let item of cost) {
           if (allItems[key]["itemId"] === item["id" as keyof object]) {
