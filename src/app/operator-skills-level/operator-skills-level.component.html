@@ -9,12 +9,7 @@
 
             <div [ngClass]="'skilltext'" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText(level))"></div>
         
-            <div [ngClass]="'skillcost'" *ngIf="skillCostDisplay && i > 0">
-                <div [ngClass]="'item'" *ngFor="let item of $any(items)[i - 1]['items']">
-                    <img [ngClass]="'itemicon'" src="../../assets/img/items/{{ item['item']['iconId'] }}.png" />
-                    <div>{{ item['count'] }}x {{ item['item']['name'] }}</div>
-                </div>
-            </div>
+            
 
             <div [ngClass]="'skillstatrows'" *ngIf="skillDetailDisplay">
                 <div [ngClass]="'skillstatentry'" *ngFor="let b of $any(level)['blackboard']"><span [ngClass]="'key'">{{ b['key'] }}</span> <span [ngClass]="'keyvalue'">{{ b['value'] }}</span> </div>

@@ -23,35 +23,47 @@
                 <div [ngStyle]="{'display': 'flex'}">
 
                     <div [ngClass]="'skillinfotopleft'">
+
                         <img [ngClass]="'skillimg'"  *ngIf="$any(skill)['iconId'] !== null; else skillName" src="../../assets/img/skills/skill_icon_{{$any(skill)['iconId']}}.png">
                         <ng-template #skillName>
                             <img [ngClass]="'skillimg'" src="../../assets/img/skills/skill_icon_{{$any(skill)['skillId']}}.png" />
                         </ng-template> 
                         <div [ngClass]="'skillname'">{{$any(skill)['levels'][0]['name']}}</div>
+
                     </div>
 
                     <div [ngClass]="'skillinfotopright'">
+
                         <div [ngClass]="'spstart'">Starting SP: {{ skillDetail.initSp }}</div>
                         <div [ngClass]="'spcost'">Cost: {{ skillDetail.spCost }}</div>
+
                     </div>
 
                 </div>
+
                 <div [ngClass]="'skillinfoactiv'">
+
                     <div [ngClass]="['sptype' + skillDetail.spType, 'sp']">{{ spType[skillDetail.spType] }}</div>
                     <div [ngClass]="['skilltype', 'sp']">{{ skillType[skillDetail.skillType] }}</div>
                     <div *ngIf="skillDetail.duration > 0" [ngClass]="['skilltype', 'sp']">{{ skillDetail.duration }} Seconds</div>
+
                 </div>
             </div>
             
 
-            <app-operator-skills-level 
-                [skillCostDisplay]="showSkillCost" 
+            <app-operator-skills-level  
                 [skillDetailDisplay]="showSkillDetail" 
                 [skill]="skill" 
-                [skillCost]="$any(skillCost)[i]"
                 (currentLvl)="getSkillLvl($event)">
             </app-operator-skills-level>
 
         </div>
     </div>
 </div>
+
+<app-operator-skills-cost 
+    [skillCostDisplay]="showSkillCost"
+    [skillCosts]="$any(skillCost)"
+    [currentSkill]="currentSkill"
+    [currentSkillLvl]="currentLvlDisplay[currentSkill]">
+</app-operator-skills-cost>
