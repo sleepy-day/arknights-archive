@@ -10,6 +10,7 @@ const everpolate = require('everpolate');
 })
 export class OperatorStatsLevelComponent implements OnInit {
   @Input('stats') stats: object;
+  @Input('rarity') rarity: number;
   displayStats: object;
   level: number;
   minStats: object;

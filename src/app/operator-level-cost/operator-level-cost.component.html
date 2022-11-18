@@ -1,0 +1,19 @@
+<div [ngClass]="'ecost'">
+    <div [ngClass]="'evocosttitle'">E{{ evoLvl + 1 }} Upgrade Cost</div>
+
+    <div [ngClass]="'items'">
+
+        <div [ngClass]="'item'">
+            <div [ngClass]="'lmdcount'">{{ evolveGoldCost[rarity][evoLvl] }}x </div>
+            <img [ngClass]="'itemicon'" src="../../assets/img/items/GOLD.png" />
+        </div>
+
+        <div [ngClass]="'item'" *ngFor="let item of $any(evoCost)['items']">
+            <div [ngClass]="'count'">{{ item['count'] }}x </div>
+            <img [ngClass]="'itemicon'" src="../../assets/img/items/{{ item['item']['iconId'] }}.png" />
+        </div>
+
+    </div>  
+</div>
+
+

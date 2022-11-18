@@ -13,7 +13,7 @@ button {
     display: block;
     position: relative;
     float: right;
-    padding: 8px 8px 5px 20px;
+    padding: 5px 5px 5px 20px;
     font-size: smaller;
     cursor: pointer;
     -webkit-user-select: none;
@@ -39,10 +39,10 @@ button {
     position: absolute;
     margin-right: 10px;
     border: 2px solid white;
-    width: 10px;
-    height: 10px;
-    left: 2px;
-    top: 10px;
+    width: 8px;
+    height: 8px;
+    left: 4px;
+    top: 8px;
     border-radius: 3px;
     background-color: #2E2E2E;
 }
@@ -89,8 +89,8 @@ button {
 .skillsbody {
     box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
     padding: 5px;    
-    margin-bottom: 20px;
-    margin-top: 20px;
+    margin-bottom: 12px;
+    margin-top: 12px;
     border-radius: 6px;
 }
 

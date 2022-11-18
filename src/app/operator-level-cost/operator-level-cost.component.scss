@@ -1,16 +1,10 @@
-.skillcosts {
-    background-color: #2E2E2E;
+.ecost {
+    padding: 12px;
     box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    padding: 12px 1px 7px 12px;  
-    margin-bottom: 12px;  
     border-radius: 6px;
 }
 
-.hidden {
-    display: none !important;
-}
-
-.costtitle {
+.evocosttitle {
     padding: 2px 5px 2px 5px;
     margin-bottom: 3px;
     width: fit-content;
@@ -21,8 +15,9 @@
 }
 
 .items {
-    padding: 3px 5px 0px 5px;
+    padding-top: 5px;
     display: flex;
+
 }
 
 .item {
@@ -30,6 +25,14 @@
     align-items: center;
     padding-bottom: 3px;
     padding-right: 5px;
+    padding-left: 5px;
+}
+
+.lmdcount {
+    padding-right: 5px;
+    min-width: 62px;
+    font-size: large;
+    text-align: center;
 }
 
 .count {

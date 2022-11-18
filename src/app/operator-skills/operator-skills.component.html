@@ -44,7 +44,7 @@
                 <div [ngClass]="'skillinfoactiv'">
 
                     <div [ngClass]="['sptype' + skillDetail.spType, 'sp']">{{ spType[skillDetail.spType] }}</div>
-                    <div [ngClass]="['skilltype', 'sp']">{{ skillType[skillDetail.skillType] }}</div>
+                    <div *ngIf="skillDetail.skillType !== 0" [ngClass]="['skilltype', 'sp']">{{ skillType[skillDetail.skillType] }}</div>
                     <div *ngIf="skillDetail.duration > 0" [ngClass]="['skilltype', 'sp']">{{ skillDetail.duration }} Seconds</div>
 
                 </div>

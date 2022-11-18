@@ -9,7 +9,7 @@
         <div [ngClass]="'opinfo'">
 
             <div [ngClass]="'opdesc'">
-                <div [ngClass]="'title'">TRAIT</div>
+                <div [ngClass]="'title'">Trait</div>
                 <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
             </div>
 
@@ -22,7 +22,7 @@
             </div>
 
             <div [ngClass]="'opdesc'">
-                <div [ngClass]="'title'">PROFILE</div>
+                <div [ngClass]="'title'">Profile</div>
 
                 <div [ngStyle]="{'padding-bottom': '5px'}">
                     <span [ngClass]="'singlerowtext'"><span [ngClass]="'singlerowfieldname'">BIO:</span> {{ $any(operator)['info']['itemUsage'] }}</span>

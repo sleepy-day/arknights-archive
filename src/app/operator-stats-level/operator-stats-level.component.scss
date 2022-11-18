@@ -4,14 +4,15 @@
     display: flex;
     flex-direction: column;
     padding-left: 4px;
+    padding-bottom: 3px;
 }
 
 .stats {
     display: flex;
     flex-direction: column;
-    padding: 5px 0px 5px 0px;
+    
     width: 300px;
-    margin-bottom: auto;
+    margin: 4px auto auto 0px;
 }
 
 .slidercontainer {
@@ -75,7 +76,7 @@
 
 .rangedetails {
     max-width: 100px;
-    margin: 10px auto;
+    margin: 2px auto 2px 0px;
     text-align: center;
     border: 2px solid white;
     border-radius: 4px;
@@ -133,7 +134,7 @@
 .levelinfo {
     display: flex;
     align-items: center;
-    margin: 0px 0px 3px 6px;
+    margin: 0px auto 3px 15px;
 }
 
 .rangeheader {

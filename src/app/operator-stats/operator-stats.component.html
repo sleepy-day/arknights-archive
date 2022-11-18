@@ -1,7 +1,30 @@
 <div [ngClass]="'tabs'">
+    
     <button *ngFor="let s of $any(stats); let i = index" [ngClass]="{'active': currentDiv === 'stats' + i}" (click)="selectTab('stats' + i)">E{{ i }}</button>
+    
+    <label [ngClass]="'checkbox'">
+        <input (click)="toggleCostDisplay()" type="checkbox">
+        <span [ngClass]="'check'"></span>
+         Show Upgrade Cost  
+    </label>
+
     <div *ngFor="let s of $any(stats); let i = index">
-        <app-operator-stats-level [id]="'stats' + i" *ngIf="currentDiv === 'stats' + i" [stats]="s"></app-operator-stats-level>
+        <app-operator-stats-level 
+            [id]="'stats' + i" 
+            [ngClass]="{ 'hidden': currentDiv !== 'stats' + i } " 
+            [stats]="s" 
+            [rarity]="rarity">
+        </app-operator-stats-level>
     </div>
 </div>
+
+<div [ngClass]="'evocost'" *ngFor="let e of evolveCost; let i = index">
+    <app-operator-level-cost
+        [ngClass]="{ 'hidden': currentDiv !== 'stats' + (i + 1) || !showUpgradeCost }"
+        [rarity]="rarity"
+        [evoLvl]="i"
+        [evoCost]="e">
+    </app-operator-level-cost>
+</div>
+
 
