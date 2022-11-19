@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { OpInfoService } from '../op-info.service';
+import { OpInfoService } from '../../../services/op-info/op-info.service';
 
 @Component({
   selector: 'app-operators',

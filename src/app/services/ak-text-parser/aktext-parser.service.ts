@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import gameDataConst from '../assets/json/gamedata_const.json';
+import gameDataConst from '../../../assets/json/gamedata_const.json';
 
 @Injectable({
   providedIn: 'root'

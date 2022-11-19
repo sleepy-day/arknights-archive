@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
-import operatorList from '../assets/json/character_table.json';
-import operatorPatchList from '../assets/json/char_patch_table.json';
-import operatorMeta from '../assets/json/char_meta_table.json';
-import teamHandbook from '../assets/json/handbook_team_table.json';
-import uniEquip from '../assets/json/uniequip_table.json';
-import itemTable from '../assets/json/item_table.json';
-import skillTable from '../assets/json/skill_table.json';
-import rangeTable from '../assets/json/range_table.json';
-import skinsTable from '../assets/json/skin_table.json';
+import operatorList from '../../../assets/json/character_table.json';
+import operatorPatchList from '../../../assets/json/char_patch_table.json';
+import operatorMeta from '../../../assets/json/char_meta_table.json';
+import teamHandbook from '../../../assets/json/handbook_team_table.json';
+import uniEquip from '../../../assets/json/uniequip_table.json';
+import itemTable from '../../../assets/json/item_table.json';
+import skillTable from '../../../assets/json/skill_table.json';
+import rangeTable from '../../../assets/json/range_table.json';
+import skinsTable from '../../../assets/json/skin_table.json';
 
 @Injectable({
   providedIn: 'root'

@@ -1,9 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { AKTextParserService } from '../aktext-parser.service';
+import { AKTextParserService } from '../../../services/ak-text-parser/aktext-parser.service';
 
-import { OpInfoService } from '../op-info.service';
+import { OpInfoService } from '../../../services/op-info/op-info.service';
 
 @Component({
   selector: 'app-operator',

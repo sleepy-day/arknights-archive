@@ -29,6 +29,17 @@
     }
 }
 
+@media only screen and (max-width: 1260px) and (min-width: 700px) {
+    .tab-content {
+        flex-direction: column;
+    }
+
+    .opleftcol {
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}
+
 * {
     font-family: 'roboto-condensed', sans-serif;
 }
@@ -59,7 +70,7 @@ li {
     display: flex;
     flex-direction: column;
     margin-left: auto;
-    margin-right: 50px;
+    margin-right: 30px;
 }
 
 button {
@@ -160,7 +171,6 @@ html, body, #wrapper {
 
 .tab-content {
     display: flex;
-    flex-direction: row;
     animation: fadeIn .2s;
     margin-left: auto;
     margin-right: auto;

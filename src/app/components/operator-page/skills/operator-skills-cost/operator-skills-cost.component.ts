@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { OpInfoService } from '../op-info.service';
+import { OpInfoService } from '../../../../services/op-info/op-info.service';
 
 @Component({
   selector: 'app-operator-skills-cost',

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AKTextParserService } from '../aktext-parser.service';
-import { OpInfoService } from '../op-info.service';
+import { AKTextParserService } from '../../../../services/ak-text-parser/aktext-parser.service';
+import { OpInfoService } from '../../../../services/op-info/op-info.service';
 
 @Component({
   selector: 'app-operator-skills',

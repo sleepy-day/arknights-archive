@@ -7,20 +7,20 @@ import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { OperatorsComponent } from './operators/operators.component';
-import { OperatorComponent } from './operator/operator.component';
-import { OperatorStatsComponent } from './operator-stats/operator-stats.component';
-import { OperatorStatsLevelComponent } from './operator-stats-level/operator-stats-level.component';
-import { OperatorSkillsComponent } from './operator-skills/operator-skills.component';
-import { ItemsComponent } from './items/items.component';
-import { OperatorSkillsLevelComponent } from './operator-skills-level/operator-skills-level.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { PotentialComponent } from './potential/potential.component';
-import { OperatorClassComponent } from './operator-class/operator-class.component';
-import { OperatorVisualDisplayComponent } from './operator-visual-display/operator-visual-display.component';
-import { TagListComponent } from './tag-list/tag-list.component';
-import { OperatorSkillsCostComponent } from './operator-skills-cost/operator-skills-cost.component';
-import { OperatorLevelCostComponent } from './operator-level-cost/operator-level-cost.component';
+import { OperatorsComponent } from './components/operators-page/operators/operators.component';
+import { OperatorComponent } from './components/operator-page/operator/operator.component';
+import { OperatorStatsComponent } from './components/operator-page/stats/operator-stats/operator-stats.component';
+import { OperatorStatsLevelComponent } from './components/operator-page/stats/operator-stats-level/operator-stats-level.component';
+import { OperatorSkillsComponent } from './components/operator-page/skills/operator-skills/operator-skills.component';
+import { ItemsComponent } from './components/items-page/items/items.component';
+import { OperatorSkillsLevelComponent } from './components/operator-page/skills/operator-skills-level/operator-skills-level.component';
+import { NavbarComponent } from './components/shared-components/navbar/navbar.component';
+import { PotentialComponent } from './components/operator-page/misc-info/potential/potential.component';
+import { OperatorClassComponent } from './components/operator-page/misc-info/operator-class/operator-class.component';
+import { OperatorVisualDisplayComponent } from './components/operator-page/misc-info/operator-visual-display/operator-visual-display.component';
+import { TagListComponent } from './components/operator-page/misc-info/tag-list/tag-list.component';
+import { OperatorSkillsCostComponent } from './components/operator-page/skills/operator-skills-cost/operator-skills-cost.component';
+import { OperatorLevelCostComponent } from './components/operator-page/stats/operator-level-cost/operator-level-cost.component';
 
 
 @NgModule({
