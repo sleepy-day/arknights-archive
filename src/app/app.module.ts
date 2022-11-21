@@ -21,6 +21,7 @@ import { OperatorVisualDisplayComponent } from './components/operator-page/misc-
 import { TagListComponent } from './components/operator-page/misc-info/tag-list/tag-list.component';
 import { OperatorSkillsCostComponent } from './components/operator-page/skills/operator-skills-cost/operator-skills-cost.component';
 import { OperatorLevelCostComponent } from './components/operator-page/stats/operator-level-cost/operator-level-cost.component';
+import { TalentsComponent } from './components/operator-page/misc-info/talents/talents.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { OperatorLevelCostComponent } from './components/operator-page/stats/ope
     OperatorVisualDisplayComponent,
     TagListComponent,
     OperatorSkillsCostComponent,
-    OperatorLevelCostComponent
+    OperatorLevelCostComponent,
+    TalentsComponent
   ],
   imports: [
     BrowserModule,

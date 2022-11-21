@@ -13,6 +13,8 @@
                 <div class="desc" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription($any(operator)['info']['description']))"></div>
             </div>
 
+            <app-talents [talents]="$any(operator)['info']['talents']"></app-talents>
+
             <app-operator-skills *ngIf="($any(operator)['info']['skills'] | json) !== '[]'" [skills]="$any(operator)['info']['skills']" [skillLvlCost]="$any(operator)['info']['allSkillLvlup']"></app-operator-skills>
             <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
             
