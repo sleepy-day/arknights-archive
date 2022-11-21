@@ -28,8 +28,8 @@
     position: relative;
     background-color: rgb(59, 56, 56);
     box-shadow: inset 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    height: 700px;
-    width: 700px;
+    height: 750px;
+    width: 750px;
 }
 
 .opimage {
@@ -37,6 +37,8 @@
     height: 700px;
     width: auto;
     z-index: 4;
+    top: 25px;
+    left: 25px;
 }
 
 .logo {
