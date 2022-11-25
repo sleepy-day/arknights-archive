@@ -1,0 +1,157 @@
+<div [ngClass]="'opdesc'">
+
+    <div [ngClass]="'modtop'">
+        <div [ngClass]="'title'">Modules</div>
+
+        <label [ngClass]="'checkbox'">
+            <input (click)="toggleCN()" type="checkbox">
+            <span [ngClass]="'check'"></span>
+            Display CN Modules  
+        </label>
+    </div>
+    
+
+    <div [ngClass]="{ 'hidden': showCN }">
+        <div [ngClass]="'modulebuttons'">
+            <div *ngFor="let mod of moduleDetails; let i = index">
+                <button [ngClass]="{ 'modbutton': true, 'pressed': currentModule === i }" *ngIf="($any(mod)['details'] | json) !== '{}'" (click)="toggleModule(i)">{{ $any(mod)["details"]["typeName"] }}</button>
+            </div>
+        </div>
+
+        <div [ngClass]="{ 'hidden': currentModule !== i }" *ngFor="let mod of moduleDetails; let i = index">
+            <div *ngIf="($any(mod)['details'] | json) !== '{}'">
+
+                <div [ngClass]="{ 'hidden': $any(mod)['battleDetails'].length <= 1}">
+                    <button [ngClass]="{ 'modbutton': true, 'pressed': currentModuleLevel === i }" *ngFor="let level of $any(mod)['battleDetails']; let i = index">Lvl. {{ i + 1 }}</button>
+                </div>
+
+                <div [ngClass]="{ 'hidden': currentModuleLevel !== i, 'moduleinfo': true }">
+
+                    <div [ngClass]="'talentstraits'">
+                        <div *ngIf="($any(mod)['battleDetails'][0]['trait'] | json) !== '[]' ">
+                            <div [ngClass]="'traittalenttitle'">Trait</div>
+                            <div [ngClass]="'traittalenttdetails'">
+                                <div [ngClass]="'modulevalue'" *ngIf="$any(mod)['battleDetails'][0]['trait'][0]['overrideDescription'] !== undefined">
+                                    <span [ngClass]="'fieldname'">Description</span>
+                                    <span [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescriptionValues($any(mod)['battleDetails'][0]['trait'][0]['overrideDescription'], $any(mod)['battleDetails'][0]['trait'][0]['blackboard']))"></span>
+                                </div>
+    
+                                <div [ngClass]="'modulevalue'" *ngIf="$any(mod)['battleDetails'][0]['trait'][0]['additionalDescription'] !== undefined">
+                                    <span [ngClass]="'fieldname'">Additional Description</span>
+                                    <span [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescriptionValues($any(mod)['battleDetails'][0]['trait'][0]['additionalDescription'], $any(mod)['battleDetails'][0]['trait'][0]['blackboard']))"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div [ngClass]="'rangestats'">
+                        <div [ngClass]="'modstats'">
+                            <div [ngClass]="'traittalenttitle'">Stats</div>
+                            <div [ngClass]="{ 'traittalenttdetails': true, 'statrows': true }">
+                                <span *ngFor="let attribute of $any(mod)['battleDetails'][0]['attributes']">
+                                    {{ $any(stats).get(attribute['key']) }}: {{ $any(attribute)['value'] }}
+                                </span>
+                            </div>
+                        </div>
+        
+                        <div [ngClass]="'rangestats'">
+                            <div *ngIf="$any(mod)['battleDetails'][0]['rangeId'] !== ''" [ngClass]="'rangedetails'">
+                                <div [ngClass]="'rangeheader'">RANGE</div>
+                                <div [ngClass]="'rangedisplay'">
+                                    <div [ngClass]="'rangegrid'">
+                                        <div *ngFor="let row of $any(mod)['battleDetails'][0]['rangeGrid']" [ngClass]="'rangegridrow'">
+                                            <div *ngFor="let grid of row" [ngClass]="{ 'empty': grid === 0, 'attack': grid === 1, 'unit': grid === 2 }"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div [ngClass]="{ 'hidden': !showCN }">
+        <div [ngClass]="'modulebuttons'">
+            <button [ngClass]="{ 'modbutton': true, 'pressed': currentModuleCN === i }" *ngFor="let mod of moduleDetails; let i = index" (click)="toggleModuleCN(i)">{{ $any(mod)["detailsCN"]["typeName1"] }}-{{ $any(mod)["detailsCN"]["typeName2"] }}</button>
+        </div>
+
+        <div [ngClass]="{ 'hidden': currentModuleCN !== i }" *ngFor="let mod of moduleDetails; let i = index">
+
+            <div [ngClass]="{ 'hidden': $any(mod)['battleDetailsCN'].length <= 1}">
+                <button [ngClass]="{ 'modbutton': true, 'pressed': currentModuleLevel === i }" *ngFor="let level of $any(mod)['battleDetailsCN']; let i = index" (click)="changeModuleLevel(i)">Lvl. {{ i + 1 }}</button>
+            </div>
+
+            <div [ngClass]="{ 'hidden': currentModuleLevel !== ii, 'moduleinfo': true}" *ngFor="let m of $any(mod)['battleDetailsCN']; let ii = index">
+
+                <div [ngClass]="'talentstraits'">
+                    <div *ngIf="(m['trait'] | json) !== '[]' ">
+                        <div [ngClass]="'traittalenttitle'">Trait</div>
+                        
+                        <div [ngClass]="'traittalenttdetails'">
+                            <div [ngClass]="'modulevalue'" *ngIf="m['trait'][0]['overrideDescription'] !== undefined">
+                                <span [ngClass]="'fieldname'">Description</span> 
+                                <span [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescriptionValues(m['trait'][0]['overrideDescription'], m['trait'][0]['blackboard']))"></span>
+                            </div>
+
+                            <div [ngClass]="'modulevalue'" *ngIf="m['trait'][0]['additionalDescription'] !== undefined">
+                                <span [ngClass]="'fieldname'">Additional Description</span>
+                                <span [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescriptionValues(m['trait'][0]['additionalDescription'], m['trait'][0]['blackboard']))"></span>
+                            </div>
+                        </div>
+
+                    </div>
+    
+                    <div *ngIf="(m['talent'] | json) !== '[]'">
+                        <div [ngClass]="'traittalenttitle'">Talent</div>
+                        
+                        <div [ngClass]="'traittalenttdetails'">
+                            <div [ngClass]="'modulevalue'"><span [ngClass]="'fieldname'">Name</span> {{ m['talent'][0]['name'] }}</div>
+
+                            <div [ngClass]="'modulevalue'">
+                                <span [ngClass]="'fieldname'">Description</span>
+                                <span [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescriptionValues(m['talent'][0]['upgradeDescription'], m['talent'][0]['blackboard']))"></span>
+                            </div>
+
+                            <div [ngClass]="'modulevalue'" *ngIf="m['talent'][0]['additionalDescription'] !== undefined && m['talent'][0]['additionalDescription'] !== null">
+                                <span [ngClass]="'fieldname'">Additional Description</span>
+                                <span [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescriptionValues(m['talent'][0]['additionalDescription'], m['talent'][0]['blackboard']))"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div [ngClass]="'rangestats'">
+
+                    <div [ngClass]="'modstats'">
+                        <div [ngClass]="'traittalenttitle'">Stats</div>
+                        <div [ngClass]="{ 'traittalenttdetails': true, 'statrows': true }">
+                            <span *ngFor="let attribute of m['attributes']">
+                                {{ $any(stats).get(attribute['key']) }}: {{ $any(attribute)['value'] }}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div *ngIf="m['rangeId'] !== ''" [ngClass]="'rangedetails'">
+                        <div [ngClass]="'rangeheader'">
+                            RANGE
+                        </div>
+                        <div [ngClass]="'rangedisplay'">
+                            <div [ngClass]="'rangegrid'">
+                    
+                                <div *ngFor="let row of m['rangeGrid']" [ngClass]="'rangegridrow'">
+                                    <div *ngFor="let grid of row" [ngClass]="{ 'empty': grid === 0, 'attack': grid === 1, 'unit': grid === 2 }"></div>
+                                </div>
+                    
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

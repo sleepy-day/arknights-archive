@@ -3,7 +3,10 @@ import operatorList from '../../../assets/json/character_table.json';
 import operatorPatchList from '../../../assets/json/char_patch_table.json';
 import operatorMeta from '../../../assets/json/char_meta_table.json';
 import teamHandbook from '../../../assets/json/handbook_team_table.json';
-import uniEquip from '../../../assets/json/uniequip_table.json';
+import equipTable from '../../../assets/json/uniequip_table.json';
+import equipTableCN from '../../../assets/json/cn/uniequip_table.json';
+import battleEquipTable from '../../../assets/json/battle_equip_table.json';
+import battleEquipTableCN from '../../../assets/json/cn/battle_equip_table.json';
 import itemTable from '../../../assets/json/item_table.json';
 import skillTable from '../../../assets/json/skill_table.json';
 import rangeTable from '../../../assets/json/range_table.json';
@@ -120,7 +123,7 @@ export class OpInfoService {
   getSubProfessionById(id: string): string {
     let subProf = "";
 
-    let subProfDict = uniEquip["subProfDict"];
+    let subProfDict = equipTable["subProfDict"];
     (Object.keys(subProfDict) as (keyof typeof subProfDict)[]).forEach((key) => {
       if (key === id) {
         subProf = subProfDict[key]["subProfessionName"];
@@ -266,6 +269,31 @@ export class OpInfoService {
     }
 
     return items;
+  }
+
+  getModulesForOperator(id: string): object {
+    let defaultModule: object = {};
+    let moduleInfo: object[] = [];
+    let equipDict = equipTable["equipDict" as keyof object];
+    let equipDictCN = equipTableCN["equipDict" as keyof object];
+
+
+    (Object.keys(equipDictCN) as (keyof typeof equipDict)[]).forEach((key) => {
+      if (equipDictCN[key]["charId"] === id) {
+        if (equipDictCN[key]["type"] === "INITIAL") {
+          defaultModule = equipDict[key];
+        } else {
+          moduleInfo.push({ 
+            details: equipDict[key as keyof object], 
+            detailsCN: equipDictCN[key], 
+            battleDetails: battleEquipTable[key as keyof object], 
+            battleDetailsCN: battleEquipTableCN[key as keyof object] 
+          });
+        }
+      }
+    })
+
+    return { defModule: defaultModule, modInfo: moduleInfo };
   }
 
 }

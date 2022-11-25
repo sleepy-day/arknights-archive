@@ -57,13 +57,32 @@ export class AKTextParserService {
   }
 
   parseSkillDescription(skillInfo: object): string {
+    let desc: string = skillInfo["description" as keyof object];
+    desc = this.parseValuesInDescription(desc, skillInfo["blackboard" as keyof object]);
+
+    return this.parseDescription(desc);
+  }
+
+  getTermDescription(term: string): string {
+    let termDict = gameDataConst["termDescriptionDict"];
+    let desc = "";
+
+    (Object.keys(termDict) as (keyof typeof termDict)[]).forEach((key) => {
+      if (key === term) {
+        desc = termDict[key]["description"];
+        return;
+      }
+    })
+
+    return desc;
+  }
+
+  parseValuesInDescription(desc: string, blackboard: object[]): string {
     let skill1 = RegExp(/{(-?[@\w\.\[\]]*?)(?!:0)}/g);
     let skill2 = RegExp(/{(-?[@\w\.\[\]]*?):0(%)?}/g);
     let skill3 = RegExp(/{(-?[@\w\.\[\]]*?):0.0(%)?}/g);
-    let desc: string = skillInfo["description" as keyof object];
 
     desc = desc.replaceAll(skill1, function(_match, g1, _offset, _string) {
-      let blackboard: object[] = skillInfo["blackboard" as keyof object];
       let value: number = 0;
       let key: string = g1;
       let negative: boolean = false;
@@ -88,7 +107,6 @@ export class AKTextParserService {
     })
 
     desc = desc.replaceAll(skill2, function(_match, g1, g2, _offset, _string) {
-      let blackboard: object[] = skillInfo["blackboard" as keyof object];
       let value: string = "";
       let key: string = g1;
       let negative: boolean = false;
@@ -121,7 +139,6 @@ export class AKTextParserService {
     })
 
     desc = desc.replaceAll(skill3, function(_match, g1, g2, _offset, _string) {
-      let blackboard: object[] = skillInfo["blackboard" as keyof object];
       let value: string = "";
       let key: string = g1;
       let negative: boolean = false;
@@ -154,20 +171,6 @@ export class AKTextParserService {
     })
 
     return this.parseDescription(desc);
-  }
-
-  getTermDescription(term: string): string {
-    let termDict = gameDataConst["termDescriptionDict"];
-    let desc = "";
-
-    (Object.keys(termDict) as (keyof typeof termDict)[]).forEach((key) => {
-      if (key === term) {
-        desc = termDict[key]["description"];
-        return;
-      }
-    })
-
-    return desc;
   }
 
 }

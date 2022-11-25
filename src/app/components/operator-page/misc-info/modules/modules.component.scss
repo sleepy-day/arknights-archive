@@ -1,0 +1,180 @@
+.hidden {
+    display: none !important;
+}
+
+.moduleinfo {
+    display: flex;
+}
+
+.modtop {
+    display: flex;
+}
+
+.title {
+    margin-right: auto;
+}
+
+.modbutton {
+    appearance: none;
+    background-color: #2E2E2E;
+    font-size: medium;
+    color: white;
+    width: fit-content;
+    min-width: 50px;
+    height: 30px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    padding: 2px 5px 2px;
+    cursor: pointer;
+
+    &.pressed {
+        border-bottom: 2px solid white;
+    }
+}
+
+.rangeheader {
+    background-color: white;
+    color: #2E2E2E;
+    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, 0.226);
+}
+
+.modstats {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 5px;
+    width: 100px;
+}
+
+.talentstraits {
+    flex-grow: 1;
+    margin-right: 5px;
+}
+
+.fieldname {
+    background-color: white;
+    color: #2E2E2E;
+    border: 2px solid white;
+    border-radius: 3px;
+    margin-right: 3px;
+}
+
+.modulevalue {
+    padding: 2px;
+}
+
+.statrows {
+    display: flex;
+    flex-direction: column;
+}
+
+.traittalenttitle {
+    width: fit-content;
+    background-color: white;
+    color: #2E2E2E;
+    border: 2px solid white;
+    border-bottom: none;
+    border-radius: 3px 3px 0px 0px;
+    font-size: large;
+    padding: 1px 5px 1px 5px;
+    margin-top: 10px;
+}
+
+.traittalenttdetails {
+    border: 2px solid white;
+    border-radius: 0px 5px 5px 5px;
+    padding: 5px;
+}
+
+.rangedetails {
+    max-width: 100px;
+    margin: 2px auto 2px 0px;
+    text-align: center;
+    border: 2px solid white;
+    border-radius: 4px;
+}
+
+.rangedisplay {
+    width: 100px;
+    height: 100px;
+    background-color: #2E2E2E;
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+
+.rangegrid {
+    margin: auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.rangegridrow {
+    display: flex;
+}
+
+.empty {
+    height: 10px;
+    width: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.attack {
+    height: 10px;
+    width: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: 2px solid #828282;
+}
+
+.unit {
+    height: 10px;
+    width: 10px;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    margin-left: 1px;
+    margin-right: 1px;
+    border: 2px solid white;
+    background-color: white;
+}
+
+.checkbox {
+    display: block;
+    position: relative;
+    float: right;
+    padding: 5px 5px 5px 20px;
+    font-size: smaller;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    input:checked ~ .check {
+        background-color: white;
+    }
+}
+
+.check {
+    position: absolute;
+    margin-right: 10px;
+    border: 2px solid white;
+    width: 8px;
+    height: 8px;
+    left: 4px;
+    top: 8px;
+    border-radius: 3px;
+    background-color: #2E2E2E;
+}

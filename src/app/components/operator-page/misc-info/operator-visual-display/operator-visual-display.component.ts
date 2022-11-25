@@ -23,7 +23,6 @@ export class OperatorVisualDisplayComponent implements OnInit {
     this.imgDirectory = "operators";
     this.skins = this.opService.getSkinsForOperator(this.operator["id" as keyof object]);
     this.preloadImages();
-    console.log(this.skins)
   }
 
   getOpEvoImg(lvl: number): void {

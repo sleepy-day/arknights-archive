@@ -38,8 +38,6 @@ export class OperatorLevelCostComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.evoLvl, this.rarity);
-  }
+  ngOnInit(): void {}
 
 }

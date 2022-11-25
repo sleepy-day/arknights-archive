@@ -21,12 +21,10 @@ export class OperatorStatsComponent implements OnInit {
     let cost: object[][] = [];
     for (let stat of this.stats) {
       if (stat["evolveCost" as keyof object] !== null) {
-        console.log("stat", stat["evolveCost" as keyof object]);
         cost.push(stat["evolveCost" as keyof object]);
       }
     }
     this.evolveCost = this.opService.getItemsForSkillCost(cost);
-    console.log(this.evolveCost);
   }
 
   selectTab(id: string): void {

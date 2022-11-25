@@ -29,6 +29,7 @@ export class OperatorComponent implements OnInit {
   group: object;
   subProfName: string;
   token: object;
+  modules: object;
 
   constructor(
     private route: ActivatedRoute,
@@ -51,6 +52,7 @@ export class OperatorComponent implements OnInit {
       this.group = this.opService.getGroupById(this.operator["info" as keyof object]);
       this.subProfName = this.opService.getSubProfessionById(this.operator["info" as keyof object]["subProfessionId" as keyof string]);
       this.token = this.opService.getItemById(this.operator["info" as keyof object]["potentialItemId"]);
+      this.modules = this.opService.getModulesForOperator(this.operator["id" as keyof object]);
     })
   }
 

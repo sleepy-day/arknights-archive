@@ -32,8 +32,6 @@ export class OperatorSkillsCostComponent implements OnInit {
 
       this.items.push(this.opService.getItemsForSkillCost(itemInfo));
     }
-
-    console.log(this.items);
   }
 
 }
