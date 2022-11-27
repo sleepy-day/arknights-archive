@@ -9,6 +9,7 @@ import { AKTextParserService } from 'src/app/services/ak-text-parser/aktext-pars
 })
 export class TalentsComponent implements OnInit {
   @Input('talents') talents: object[];
+  amiyaCandidates: object[] = [];
   talentLevels: object[] = [];
   currentLevel: number[] = [];
   evoIncrements: number[] = [];
@@ -22,6 +23,10 @@ export class TalentsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    if (this.talents[0]["candidates" as keyof object][0]["name"] === "？？？") {
+      let c: object[] = this.talents[0]["candidates" as keyof object];
+      this.amiyaCandidates = c.slice(1);
+    }
     this.getTalentLevels();
     this.getIncrements();
   }
@@ -30,7 +35,11 @@ export class TalentsComponent implements OnInit {
     for (let talent of this.talents) {
       let evo: number[] = [];
       let pot: number = 0;
-      let candidates: object[] = talent["candidates" as keyof object]; 
+      let candidates: object[] = talent["candidates" as keyof object];
+      if (this.amiyaCandidates.length > 0) {
+        candidates = this.amiyaCandidates;
+      }
+       
       
       for (let candidate of candidates) {
         let c = candidate["unlockCondition" as keyof object];
@@ -52,6 +61,9 @@ export class TalentsComponent implements OnInit {
     for (let talent of this.talents) {
       let evo: object[] = this.talentLevels[index]["evo" as keyof object];
       let candidates: object[] = talent["candidates" as keyof object];
+      if (this.amiyaCandidates.length > 0) {
+        candidates = this.amiyaCandidates;
+      }
       this.evoIncrements.push(candidates.length / evo.length);
 
       if (this.talentLevels[index]["potential" as keyof object] > 0) {
