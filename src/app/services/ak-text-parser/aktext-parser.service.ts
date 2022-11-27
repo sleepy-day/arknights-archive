@@ -58,13 +58,13 @@ export class AKTextParserService {
 
   parseSkillDescription(skillInfo: object): string {
     let desc: string = skillInfo["description" as keyof object];
-    desc = this.parseValuesInDescription(desc, skillInfo["blackboard" as keyof object]);
 
-    return this.parseDescription(desc);
+    return this.parseValuesInDescription(desc, skillInfo["blackboard" as keyof object]);
   }
 
   getTermDescription(term: string): string {
     let termDict = gameDataConst["termDescriptionDict"];
+    let regexRemoveFormatting = RegExp(/(<\$([\w\.]+)>)(.*?)(<\/>)/);
     let desc = "";
 
     (Object.keys(termDict) as (keyof typeof termDict)[]).forEach((key) => {
@@ -73,6 +73,10 @@ export class AKTextParserService {
         return;
       }
     })
+
+    while (regexRemoveFormatting.exec(desc) !== null) {
+      desc = desc.replace(regexRemoveFormatting, '$3');
+    }
 
     return desc;
   }

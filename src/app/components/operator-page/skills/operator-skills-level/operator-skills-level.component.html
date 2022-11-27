@@ -9,8 +9,6 @@
 
             <div [ngClass]="'skilltext'" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText(level))"></div>
         
-            
-
             <div [ngClass]="'skillstatrows'" *ngIf="skillDetailDisplay">
                 <div [ngClass]="'skillstatentry'" *ngFor="let b of $any(level)['blackboard']"><span [ngClass]="'key'">{{ b['key'] }}</span> <span [ngClass]="'keyvalue'">{{ b['value'] }}</span> </div>
             </div>
