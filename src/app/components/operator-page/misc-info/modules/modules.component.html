@@ -12,7 +12,7 @@
     </div>
     
 
-    <div [ngClass]="{ 'hidden': showCN }">
+    <div *ngIf="$any(moduleDetails)['details'] !== undefined" [ngClass]="{ 'hidden': showCN }">
         <div [ngClass]="'modulebuttons'">
             <div *ngFor="let mod of moduleDetails; let i = index">
                 <button [ngClass]="{ 'modbutton': true, 'pressed': currentModule === i }" *ngIf="($any(mod)['details'] | json) !== '{}'" (click)="toggleModule(i)">{{ $any(mod)["details"]["typeName"] }}</button>
