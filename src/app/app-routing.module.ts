@@ -7,7 +7,7 @@ import { ItemsComponent } from './components/items-page/items/items.component';
 const routes: Routes = [
   { path: '', redirectTo: 'operators', pathMatch: 'full' },
   { path: 'operators', component: OperatorsComponent },
-  { path: 'operators/:opName', component: OperatorComponent },
+  { path: 'operator/:opName', component: OperatorComponent },
   { path: 'items', component: ItemsComponent },
 ];
 
