@@ -10,7 +10,7 @@
     <div [ngClass]="'operators'">
         <div *ngFor="let operator of operators | keyvalue">
             <span *ngIf="operator.value['profession'] !== 'TRAP' && operator.value['profession'] !== 'TOKEN'">
-                <a [ngClass]="{ 'hidden': search !== '' && !$any(operator)['value']['name'].toLowerCase().startsWith(search.toLowerCase()), 'operator': true }" [routerLink]="['/operators', operator.value['name']]">
+                <a [ngClass]="{ 'hidden': search !== '' && !$any(operator)['value']['name'].toLowerCase().startsWith(search.toLowerCase()), 'operator': true }" [routerLink]="['/operator', operator.value['name']]">
                     {{ operator.value["name"] }}
                 </a> 
             </span>
