@@ -1,9 +1,20 @@
-<h3>Operators</h3>
+<div id="wrapper">
+    <app-navbar></app-navbar>
+    <h3>Operators</h3>
 
-<div *ngFor="let operator of operators | keyvalue">
-    <span *ngIf="operator.value['profession'] !== 'TRAP' && operator.value['profession'] !== 'TOKEN'">
-        <a [routerLink]="['/operators', operator.value['name']]">
-            {{ operator.value["name"] }}
-        </a> 
-    </span>
+    <div [ngClass]="'searchcontainer'">
+        <label for="search">Search: </label>
+        <input id="search" [(ngModel)]="search" (ngModelChange)="logChange()">
+    </div>
+
+    <div [ngClass]="'operators'">
+        <div *ngFor="let operator of operators | keyvalue">
+            <span *ngIf="operator.value['profession'] !== 'TRAP' && operator.value['profession'] !== 'TOKEN'">
+                <a [ngClass]="{ 'hidden': search !== '' && !$any(operator)['value']['name'].toLowerCase().startsWith(search.toLowerCase()), 'operator': true }" [routerLink]="['/operators', operator.value['name']]">
+                    {{ operator.value["name"] }}
+                </a> 
+            </span>
+        </div>
+    </div>
+    
 </div>

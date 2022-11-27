@@ -8,11 +8,17 @@ import { OpInfoService } from '../../../services/op-info/op-info.service';
 })
 export class OperatorsComponent implements OnInit {  
   operators = this.opService.getAllOperators();
+  search: string = "";
   
   constructor(private opService: OpInfoService) { }
 
   ngOnInit(): void {
     console.log(this.operators)
+    console.log(this.search);
+  }
+
+  logChange(): void {
+    console.log(this.search);
   }
 
 }
