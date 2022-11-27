@@ -2,7 +2,7 @@
 
 Live version hosted at https://ak.sleepy.day
 
-A site for the mobile game Arknights, so far it has functionality implemented for the character information pages though it requires more polish. All the information is pulled from the games extracted .json files with no modifications.
+A site for the mobile game Arknights made in Angular/Typescript, so far it has functionality implemented for the character information pages though it requires more polish. All the information is pulled from the games extracted .json files with no modifications.
 
 Additional features and optimization are planned as well, a showcase of some of the functionality is shown below.
 
