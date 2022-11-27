@@ -4,7 +4,8 @@
         <div [ngClass]="'title'">Modules</div>
 
         <label [ngClass]="'checkbox'">
-            <input (click)="toggleCN()" type="checkbox">
+            <input *ngIf="showCN" (click)="toggleCN()" type="checkbox" checked="checked">
+            <input *ngIf="!showCN" (click)="toggleCN()" type="checkbox">
             <span [ngClass]="'check'"></span>
             Display CN Modules  
         </label>

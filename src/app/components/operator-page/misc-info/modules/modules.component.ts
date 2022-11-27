@@ -57,7 +57,11 @@ export class ModulesComponent implements OnInit {
                                 battleDetails: battleDetails,
                                 detailsCN: module["detailsCN" as keyof object],
                                 battleDetailsCN: battleDetailsCN });      
-    } 
+    }
+
+    if (Array(this.moduleDetails["battleDetails" as keyof object]).length === 0) {
+      this.showCN = true;
+    }
 
     console.log(this.moduleDetails);
   }
