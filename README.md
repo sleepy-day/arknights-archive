@@ -1,6 +1,8 @@
 # Arknights Archive
 
-Live version hosted at https://ak.sleepy.day
+Live version hosted at https://ak.sleepy.day, it's being hosted on an Ubuntu VPS using Nginx to serve the static files (some images may be missing as there were some I didn't rip yet, some content may not be the latest available as well)
+
+Json files used are from https://github.com/Kengxxiao/ArknightsGameData
 
 A site for the mobile game Arknights made in Angular/Typescript, so far it has functionality implemented for the character information pages though it requires more polish. All the information is pulled from the games extracted .json files with no modifications.
 
