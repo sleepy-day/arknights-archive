@@ -1,0 +1,53 @@
+<div [ngClass]="{ 'hidden': currentModuleLevel !== ii, 'moduleinfo': true}" *ngFor="let m of $any(module); let ii = index">
+    <div [ngClass]="'talentstraits'">
+        <div *ngIf="(m['trait'] | json) !== '[]' ">
+            <div [ngClass]="'traittalenttitle'">Trait</div>
+            
+            <div [ngClass]="'traittalenttdetails'">
+                <app-module-description
+                    *ngIf="m['trait'][0]['overrideDescription'] !== undefined"
+                    [fieldName]="'Description'"
+                    [desc]="m['trait'][0]['overrideDescription']"
+                    [blackboard]="m['trait'][0]['blackboard']">
+                </app-module-description>
+
+                <app-module-description
+                    *ngIf="m['trait'][0]['additionalDescription'] !== undefined"
+                    [fieldName]="'Additional Description'"
+                    [desc]="m['trait'][0]['additionalDescription']"
+                    [blackboard]="m['trait'][0]['blackboard']">
+                </app-module-description>
+            </div>
+        </div>
+
+        <div *ngIf="(m['talent'] | json) !== '[]'">
+            <div [ngClass]="'traittalenttitle'">Talent</div>
+            
+            <div [ngClass]="'traittalenttdetails'">
+                <div [ngClass]="'modulevalue'"><span [ngClass]="'fieldname'">Name</span> {{ m['talent'][0]['name'] }}</div>
+
+                <app-module-description
+                    [fieldName]="'Description'"
+                    [desc]="m['talent'][0]['upgradeDescription']"
+                    [blackboard]="m['talent'][0]['blackboard']">
+                </app-module-description>
+                
+                <app-module-description
+                    *ngIf="m['talent'][0]['additionalDescription'] !== undefined && m['talent'][0]['additionalDescription'] !== null"
+                    [fieldName]="'Additional Description'"
+                    [desc]="m['talent'][0]['additionalDescription']"
+                    [blackboard]="m['talent'][0]['blackboard']">
+                </app-module-description>
+            </div>
+        </div>
+    </div>
+
+    <div [ngClass]="'rangestats'">
+        <app-module-stats [attributes]="m['attributes']"></app-module-stats>
+
+        <app-range-display
+            *ngIf="m['rangeId'] !== ''"
+            [rangeGrid]="m['rangeGrid']">
+        </app-range-display>
+    </div>
+</div>

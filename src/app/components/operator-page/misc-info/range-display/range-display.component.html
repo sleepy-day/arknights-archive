@@ -1,0 +1,10 @@
+<div [ngClass]="'rangedetails'">
+    <div [ngClass]="'rangeheader'">RANGE</div>
+    <div [ngClass]="'rangedisplay'">
+        <div [ngClass]="'rangegrid'">
+            <div *ngFor="let row of rangeGrid" [ngClass]="'rangegridrow'">
+                <div *ngFor="let grid of row" [ngClass]="{ 'empty': grid === 0, 'attack': grid === 1, 'unit': grid === 2 }"></div>
+            </div>
+        </div>
+    </div>
+</div>

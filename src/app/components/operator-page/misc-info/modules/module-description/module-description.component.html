@@ -1,0 +1,4 @@
+<div [ngClass]="'modulevalue'">
+    <span [ngClass]="'fieldname'">{{ fieldName }}</span>
+    <span [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescriptionValues(desc, blackboard))"></span>
+</div>

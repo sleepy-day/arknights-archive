@@ -1,3 +1,20 @@
+@font-face {
+    font-family: 'roboto-condensed';
+    src: url(../../../../assets/font/Roboto_Condensed/RobotoCondensed-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'roboto-condensed';
+    src: url(../../../../assets/font/Roboto_Condensed/RobotoCondensed-Bold.ttf);
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'roboto-condensed';
+    src: url(../../../../assets/font/Roboto_Condensed/RobotoCondensed-Italic.ttf);
+    font-style: italic;
+}
+
 @keyframes scrolling {
     from {
         background-position: 0 0;
@@ -5,6 +22,10 @@
     to {
         background-position: 1000% 1000%;
     }
+}
+
+* {
+    font-family: 'roboto-condensed', sans-serif;
 }
 
 .hidden {

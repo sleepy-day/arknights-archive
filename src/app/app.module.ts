@@ -23,6 +23,11 @@ import { OperatorSkillsCostComponent } from './components/operator-page/skills/o
 import { OperatorLevelCostComponent } from './components/operator-page/stats/operator-level-cost/operator-level-cost.component';
 import { TalentsComponent } from './components/operator-page/misc-info/talents/talents.component';
 import { ModulesComponent } from './components/operator-page/misc-info/modules/modules.component';
+import { ModuleDescriptionComponent } from './components/operator-page/misc-info/modules/module-description/module-description.component';
+import { RangeDisplayComponent } from './components/operator-page/misc-info/range-display/range-display.component';
+import { ModuleENComponent } from './components/operator-page/misc-info/modules/module-en/module-en.component';
+import { ModuleCNComponent } from './components/operator-page/misc-info/modules/module-cn/module-cn.component';
+import { ModuleStatsComponent } from './components/operator-page/misc-info/modules/module-stats/module-stats.component';
 
 
 @NgModule({
@@ -43,7 +48,12 @@ import { ModulesComponent } from './components/operator-page/misc-info/modules/m
     OperatorSkillsCostComponent,
     OperatorLevelCostComponent,
     TalentsComponent,
-    ModulesComponent
+    ModulesComponent,
+    ModuleDescriptionComponent,
+    RangeDisplayComponent,
+    ModuleENComponent,
+    ModuleCNComponent,
+    ModuleStatsComponent
   ],
   imports: [
     BrowserModule,
