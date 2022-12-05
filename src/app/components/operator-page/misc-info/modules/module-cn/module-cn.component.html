@@ -24,7 +24,7 @@
             <div [ngClass]="'traittalenttitle'">Talent</div>
             
             <div [ngClass]="'traittalenttdetails'">
-                <div [ngClass]="'modulevalue'"><span [ngClass]="'fieldname'">Name</span> {{ m['talent'][0]['name'] }}</div>
+                <div [ngClass]="'modulevalue'"><span [ngClass]="'fieldname'">Name</span> <span [ngClass]="'fieldtext'">{{ m['talent'][0]['name'] }}</span> </div>
 
                 <app-module-description
                     [fieldName]="'Description'"

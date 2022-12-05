@@ -1,8 +1,8 @@
 .fieldname {
     background-color: white;
     color: #2e2e2e;
-    border-radius: 3px;
-    padding: 1px;
+    border-radius: 3px 3px 0px 0px;
+    padding: 1px 4px 1px 4px;
     width: fit-content;
     margin-top: 1px;
 }
@@ -10,5 +10,11 @@
 .modulevalue {
     display: flex;
     flex-direction: column;
-    font-size: 14px;
+    font-size: 15px;
+}
+
+.fieldtext {
+    padding: 2px 4px 2px 4px;
+    background-color: #1d1d1d;
+    border-radius: 0px 3px 3px 3px;
 }

@@ -48,6 +48,7 @@
     border: 2px solid white;
     border-radius: 0px 5px 5px 5px;
     padding: 5px;
+    width: 350px;
 }
 
 .statrows {
@@ -57,4 +58,26 @@
 
 .moduleinfo {
     display: flex;
+}
+
+.fieldname {
+    background-color: white;
+    color: #2e2e2e;
+    border-radius: 3px 3px 0px 0px;
+    padding: 1px 4px 1px 4px;
+    width: fit-content;
+    margin-top: 1px;
+}
+
+.modulevalue {
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+}
+
+.fieldtext {
+    padding: 2px 4px 2px 4px;
+    background-color: #1d1d1d;
+    border-radius: 0px 3px 3px 3px;
+    width: fit-content;
 }
