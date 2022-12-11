@@ -1,26 +1,30 @@
 import { Injectable } from '@angular/core';
 import operatorList from '../../../assets/json/character_table.json';
+import operatorListCN from '../../../assets/json/cn/character_table.json';
 import operatorPatchList from '../../../assets/json/char_patch_table.json';
 import operatorMeta from '../../../assets/json/char_meta_table.json';
 import teamHandbook from '../../../assets/json/handbook_team_table.json';
+import teamHandbookCN from '../../../assets/json/cn/handbook_team_table.json';
 import equipTable from '../../../assets/json/uniequip_table.json';
 import equipTableCN from '../../../assets/json/cn/uniequip_table.json';
 import battleEquipTable from '../../../assets/json/battle_equip_table.json';
 import battleEquipTableCN from '../../../assets/json/cn/battle_equip_table.json';
 import itemTable from '../../../assets/json/item_table.json';
 import skillTable from '../../../assets/json/skill_table.json';
+import skillTableCN from '../../../assets/json/cn/skill_table.json';
 import rangeTable from '../../../assets/json/range_table.json';
 import skinsTable from '../../../assets/json/skin_table.json';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class OpInfoService {
   altClassOps: string[] = ["Amiya"];
   constructor() { }
 
   getAllOperators(): object {
-    return operatorList;
+    return operatorListCN;
   }
 
   getOperatorByName(name: string): object {
@@ -34,6 +38,16 @@ export class OpInfoService {
         return;
       }
     })
+
+    if (id === "") {
+      (Object.keys(operatorListCN) as (keyof typeof operatorListCN)[]).forEach((key) => {
+        if (operatorListCN[key]["appellation"] === name) {
+          id = key;
+          info = operatorListCN[key];
+          return;
+        }
+      })
+    }
 
     if (id === "") {
       return {};
@@ -96,6 +110,16 @@ export class OpInfoService {
       }
     })
 
+    if (opId === "") {
+      (Object.keys(operatorListCN) as (keyof typeof operatorListCN)[]).forEach((key) => {
+        if (key === id) {
+          opId = key;
+          info = operatorListCN[key];
+          return;
+        }
+      })
+    }
+
     return { id: opId, info: info };
   }
 
@@ -117,6 +141,16 @@ export class OpInfoService {
       }
     })
 
+    if (!group) {
+      (Object.keys(teamHandbookCN) as (keyof typeof teamHandbookCN)[]).forEach((key) => {
+        if (key === id) {
+          group = teamHandbookCN[key];
+          return;
+        }
+      })
+    }
+
+    console.log(group);
     return group;
   }
 
@@ -165,6 +199,17 @@ export class OpInfoService {
         return;
       }
     })
+
+    if (Object.keys(skillInfo).length === 0) {
+      (Object.keys(skillTableCN) as (keyof typeof skillTableCN)[]).forEach((key) => {
+        if (key === id) {
+          skillInfo = skillTableCN[key];
+          return;
+        }
+      })
+    }
+
+    console.log(skillInfo);
 
     return skillInfo;
   }

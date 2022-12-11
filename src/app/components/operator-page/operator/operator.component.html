@@ -3,7 +3,10 @@
     <div class="tab-content">
 
         <div [ngClass]="'opleftcol'">
-            <app-operator-visual-display [operator]="operator" [powerId]="$any(group)['powerId']"></app-operator-visual-display>
+            <app-operator-visual-display 
+                [operator]="operator" 
+                [powerId]="$any(group)['powerId']">
+            </app-operator-visual-display>
         </div>
 
         <div [ngClass]="'opinfo'">
@@ -15,8 +18,16 @@
 
             <app-talents [talents]="$any(operator)['info']['talents']"></app-talents>
 
-            <app-operator-skills *ngIf="($any(operator)['info']['skills'] | json) !== '[]'" [skills]="$any(operator)['info']['skills']" [skillLvlCost]="$any(operator)['info']['allSkillLvlup']"></app-operator-skills>
-            <app-operator-stats [rarity]="$any(operator)['info']['rarity']" [stats]="$any(operator)['info']['phases']"></app-operator-stats>
+            <app-operator-skills 
+                *ngIf="($any(operator)['info']['skills'] | json) !== '[]'" 
+                [skills]="$any(operator)['info']['skills']" 
+                [skillLvlCost]="$any(operator)['info']['allSkillLvlup']">
+            </app-operator-skills>
+
+            <app-operator-stats 
+                [rarity]="$any(operator)['info']['rarity']" 
+                [stats]="$any(operator)['info']['phases']">
+            </app-operator-stats>
             
             <div [ngClass]="'pottags'">
                 <app-potential [potentials]="$any(operator)['info']['potentialRanks']"></app-potential>
@@ -29,11 +40,15 @@
                 <div [ngClass]="'title'">Profile</div>
 
                 <div [ngStyle]="{'padding-bottom': '5px'}">
-                    <span [ngClass]="'singlerowtext'"><span [ngClass]="'singlerowfieldname'">BIO:</span> {{ $any(operator)['info']['itemUsage'] }}</span>
+                    <span [ngClass]="'singlerowtext'">
+                        <span [ngClass]="'singlerowfieldname'">BIO:</span> {{ $any(operator)['info']['itemUsage'] }}
+                    </span>
                 </div>
 
-                <div>
-                    <span [ngClass]="'singlerowtext'"><span [ngClass]="'singlerowfieldname'">AFFILIATION:</span> {{ $any(group)['powerName'].toUpperCase() }}</span>
+                <div *ngIf="$any(group)['powerName'] !== undefined">
+                    <span [ngClass]="'singlerowtext'">
+                        <span [ngClass]="'singlerowfieldname'">AFFILIATION:</span> {{ $any(group)['powerName'].toUpperCase() }}
+                    </span>
                 </div>
 
                 <div [ngClass]="'tokendisplay'">

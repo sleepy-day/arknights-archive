@@ -74,33 +74,6 @@
     padding-right: 2px;
 }
 
-.rangedetails {
-    max-width: 100px;
-    margin: 2px auto 2px 0px;
-    text-align: center;
-    border: 2px solid white;
-    border-radius: 4px;
-}
-
-.rangedisplay {
-    width: 100px;
-    height: 100px;
-    background-color: #2E2E2E;
-    display: flex;
-    align-items: center;
-    margin: auto;
-}
-
-.rangegrid {
-    margin: auto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-}
-
-.rangegridrow {
-    display: flex;
-}
-
 .empty {
     height: 10px;
     width: 10px;
@@ -138,8 +111,6 @@
     margin: 0px auto 3px 15px;
 }
 
-.rangeheader {
-    background-color: white;
-    color: #2E2E2E;
-    box-shadow: inset 1px 1px 3px 0 rgba(0, 0, 0, 0.226);
+.range {
+    margin-right: 20px;
 }
