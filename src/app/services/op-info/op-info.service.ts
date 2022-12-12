@@ -14,6 +14,7 @@ import skillTable from '../../../assets/json/skill_table.json';
 import skillTableCN from '../../../assets/json/cn/skill_table.json';
 import rangeTable from '../../../assets/json/range_table.json';
 import skinsTable from '../../../assets/json/skin_table.json';
+import skinsTableCN from '../../../assets/json/cn/skin_table.json';
 
 @Injectable({
   providedIn: 'root'
@@ -270,10 +271,11 @@ export class OpInfoService {
 
   getSkinsForOperator(id: string): object[] {
     let skins: object[] = [];
-    let charSkins = skinsTable["charSkins" as keyof object];
+    let charSkins = skinsTableCN["charSkins" as keyof object];
+    let defaultSkinIds: string[] = ["ILLUST_0", "ILLUST_1", "ILLUST_2"];
 
     (Object.keys(charSkins) as (keyof typeof charSkins)[]).forEach((key) => {
-      if (charSkins[key]["charId"] === id && charSkins[key]["displaySkin"]["skinGroupName"] !== "Default Outfit") {
+      if (charSkins[key]["charId"] === id && !defaultSkinIds.includes(charSkins[key]["displaySkin"]["skinGroupId"])) {
         skins.push(charSkins[key]);
       }
     })
@@ -282,7 +284,7 @@ export class OpInfoService {
   }
 
   getBrandForSkin(skinGroupId: string): string {
-    let brands = skinsTable["brandList"];
+    let brands = skinsTableCN["brandList"];
     let brand = "";
 
     (Object.keys(brands) as (keyof typeof brands)[]).forEach((key) => {
