@@ -28,6 +28,26 @@ export class OpInfoService {
     return operatorListCN;
   }
 
+  getAllOperatorNames(): string[] {
+    let opNames: string[] = [];
+    let opIds: string[] = [];
+
+    (Object.keys(operatorList) as (keyof typeof operatorList)[]).forEach((key) => {
+      if (operatorList[key]["profession"] !== "TRAP" && operatorList[key]["profession"] !== "TOKEN") {
+        opIds.push(key);
+        opNames.push(operatorList[key]["name"]);
+      }
+    });
+
+    (Object.keys(operatorListCN) as (keyof typeof operatorListCN)[]).forEach((key) => {
+      if (!opIds.includes(key) && (operatorListCN[key]["profession"] !== "TRAP" && operatorListCN[key]["profession"] !== "TOKEN")) {
+        opNames.push(operatorListCN[key]["appellation"]);
+      }
+    });
+
+    return opNames;
+  }
+
   getOperatorByName(name: string): object {
     let id = "";
     let info = {};

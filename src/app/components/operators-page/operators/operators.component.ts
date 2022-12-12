@@ -7,18 +7,11 @@ import { OpInfoService } from '../../../services/op-info/op-info.service';
   styleUrls: ['./operators.component.scss']
 })
 export class OperatorsComponent implements OnInit {  
-  operators = this.opService.getAllOperators();
+  operatorNames = this.opService.getAllOperatorNames();
   search: string = "";
   
   constructor(private opService: OpInfoService) { }
 
-  ngOnInit(): void {
-    console.log(this.operators)
-    console.log(this.search);
-  }
-
-  logChange(): void {
-    console.log(this.search);
-  }
+  ngOnInit(): void {}
 
 }

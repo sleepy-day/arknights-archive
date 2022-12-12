@@ -4,14 +4,14 @@
 
     <div [ngClass]="'searchcontainer'">
         <label for="search">Search: </label>
-        <input id="search" [(ngModel)]="search" (ngModelChange)="logChange()">
+        <input id="search" [(ngModel)]="search">
     </div>
 
     <div [ngClass]="'operators'">
-        <div *ngFor="let operator of operators | keyvalue">
-            <span *ngIf="operator.value['profession'] !== 'TRAP' && operator.value['profession'] !== 'TOKEN'">
-                <a [ngClass]="{ 'hidden': search !== '' && !$any(operator)['value']['appellation'].toLowerCase().startsWith(search.toLowerCase()), 'operator': true }" [routerLink]="['/operator', operator.value['appellation']]">
-                    {{ operator.value["appellation"] }}
+        <div *ngFor="let operator of operatorNames">
+            <span>
+                <a [ngClass]="{ 'hidden': search !== '' && !operator.toLowerCase().startsWith(search.toLowerCase()), 'operator': true }" [routerLink]="['/operator', operator]">
+                    {{ operator }}
                 </a> 
             </span>
         </div>
