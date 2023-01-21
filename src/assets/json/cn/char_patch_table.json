@@ -1,10 +1,7 @@
 {
   "infos": {
     "char_002_amiya": {
-      "tmplIds": [
-        "char_002_amiya",
-        "char_1001_amiya2"
-      ],
+      "tmplIds": ["char_002_amiya", "char_1001_amiya2"],
       "default": "char_002_amiya"
     }
   },
@@ -23,10 +20,7 @@
       "tokenKey": null,
       "appellation": "Amiya",
       "position": "MELEE",
-      "tagList": [
-        "输出",
-        "支援"
-      ],
+      "tagList": ["输出", "支援"],
       "itemUsage": "罗德岛公开领导人阿米娅，将与你并肩作战。",
       "itemDesc": "加油，博士。",
       "itemObtainApproach": "主线剧情",

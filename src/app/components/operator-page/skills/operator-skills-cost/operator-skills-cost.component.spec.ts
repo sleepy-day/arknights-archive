@@ -8,9 +8,8 @@ describe('OperatorSkillsCostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OperatorSkillsCostComponent ]
-    })
-    .compileComponents();
+      declarations: [OperatorSkillsCostComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OperatorSkillsCostComponent);
     component = fixture.componentInstance;

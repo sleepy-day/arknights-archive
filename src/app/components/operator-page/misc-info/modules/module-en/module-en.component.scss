@@ -1,61 +1,61 @@
 .modbutton {
-    appearance: none;
-    background-color: #2E2E2E;
-    font-size: medium;
-    color: white;
-    width: fit-content;
-    min-width: 50px;
-    height: 30px;
-    border: none;
-    border-bottom: 2px solid transparent;
-    padding: 2px 5px 2px;
-    cursor: pointer;
+  appearance: none;
+  background-color: #2e2e2e;
+  font-size: medium;
+  color: white;
+  width: fit-content;
+  min-width: 50px;
+  height: 30px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 2px 5px 2px;
+  cursor: pointer;
 
-    &.pressed {
-        border-bottom: 2px solid white;
-    }
+  &.pressed {
+    border-bottom: 2px solid white;
+  }
 }
 
 .modstats {
-    display: flex;
-    flex-direction: column;
-    padding-bottom: 5px;
-    width: 100px;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 5px;
+  width: 100px;
 }
 
 .talentstraits {
-    flex-grow: 1;
-    margin-right: 5px;
+  flex-grow: 1;
+  margin-right: 5px;
 }
 
 .traittalenttitle {
-    width: fit-content;
-    background-color: white;
-    color: #2E2E2E;
-    border: 2px solid white;
-    border-bottom: none;
-    border-radius: 3px 3px 0px 0px;
-    font-size: large;
-    padding: 1px 5px 1px 5px;
-    margin-top: 10px;
+  width: fit-content;
+  background-color: white;
+  color: #2e2e2e;
+  border: 2px solid white;
+  border-bottom: none;
+  border-radius: 3px 3px 0px 0px;
+  font-size: large;
+  padding: 1px 5px 1px 5px;
+  margin-top: 10px;
 }
 
 .traittalenttdetails {
-    border: 2px solid white;
-    border-radius: 0px 5px 5px 5px;
-    padding: 5px;
-    width: 350px;
+  border: 2px solid white;
+  border-radius: 0px 5px 5px 5px;
+  padding: 5px;
+  width: 350px;
 }
 
 .statrows {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .moduleinfo {
-    display: flex;
+  display: flex;
 }
 
 .rangestats {
-    width: 105px;
+  width: 105px;
 }

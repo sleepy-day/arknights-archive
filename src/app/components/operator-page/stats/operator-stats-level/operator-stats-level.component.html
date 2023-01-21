@@ -1,60 +1,70 @@
 <div [ngClass]="'mainbody'">
-        
-        <div [ngClass]="'details'">
-            <div [ngClass]="'stats'">
-
-                <div [ngClass]="'levelinfo'">
-                    <div [ngClass]="'slidercontainer'">
-                        <input [ngClass]="'slider'" [(ngModel)]="level" #ngVar="ngModel" (input)="updateStats()" (ngInit)="updateStats()" type="range" min="1" max="{{ $any(stats)['maxLevel'] }}" id="levelSlider">
-                    </div>
-                    <div [ngClass]="'level'">Level: {{ level }}</div>
-                </div>
-
-                <div [ngClass]="'statcols'">
-
-                    <div [ngClass]="'statcol'">
-                        <div [ngClass]="'statrow'">
-                            <img [ngClass]="'staticon'" src='../../assets/img/ui/hp.png' /> 
-                            <span>HP: {{ $any(displayStats)['hp'] }}</span>
-                        </div>
-                        <div [ngClass]="'statrow'">
-                            <img [ngClass]="'staticon'" src='../../assets/img/ui/atk.png' />
-                            <span>Attack: {{ $any(displayStats)['atk'] }}</span>
-                        </div>
-                        <div [ngClass]="'statrow'">
-                            <img [ngClass]="'staticon'" src='../../assets/img/ui/def.png' />
-                            <span>Defense: {{ $any(displayStats)['def'] }}</span>
-                        </div>
-                        <div [ngClass]="'statrow'">
-                            <img [ngClass]="'staticon'" src='../../assets/img/ui/res.png' />
-                            <span>Resistance: {{ $any(displayStats)['res'] }}</span>
-                        </div>
-                    </div>
-    
-                    <div [ngClass]="'statcol'">
-                        <div [ngClass]="'statrow'">
-                            <img [ngClass]="'staticon'" src='../../assets/img/ui/respawn.png' />
-                            <span>Respawn Time: {{ $any(displayStats)['respawn'] }}</span>
-                        </div>
-                        <div [ngClass]="'statrow'">
-                            <img [ngClass]="'staticon'" src='../../assets/img/ui/cost.png' />
-                            <span>Cost: {{ $any(displayStats)['cost'] }}</span>
-                        </div>
-                        <div [ngClass]="'statrow'">
-                            <img [ngClass]="'staticon'" src='../../assets/img/ui/block.png' />
-                            <span>Block: {{ $any(displayStats)['block'] }}</span>
-                        </div>
-                        <div [ngClass]="'statrow'">
-                            <img [ngClass]="'staticon'" src='../../assets/img/ui/atkspeed.png' />
-                            <span>Attack Speed: {{ $any(displayStats)['atkTime'] }}</span>
-                        </div>   
-                    </div>
-    
-                </div>
-
-            </div>
-
-            <app-range-display [ngClass]="'range'" [rangeGrid]="rangeGrid"></app-range-display>
+  <div [ngClass]="'details'">
+    <div [ngClass]="'stats'">
+      <div [ngClass]="'levelinfo'">
+        <div [ngClass]="'slidercontainer'">
+          <input
+            [ngClass]="'slider'"
+            [(ngModel)]="level"
+            #ngVar="ngModel"
+            (input)="updateStats()"
+            (ngInit)="updateStats()"
+            type="range"
+            min="1"
+            max="{{ $any(stats)['maxLevel'] }}"
+            id="levelSlider"
+          />
         </div>
-    
+        <div [ngClass]="'level'">Level: {{ level }}</div>
+      </div>
+
+      <div [ngClass]="'statcols'">
+        <div [ngClass]="'statcol'">
+          <div [ngClass]="'statrow'">
+            <img [ngClass]="'staticon'" src="../../assets/img/ui/hp.png" />
+            <span>HP: {{ $any(displayStats)["hp"] }}</span>
+          </div>
+          <div [ngClass]="'statrow'">
+            <img [ngClass]="'staticon'" src="../../assets/img/ui/atk.png" />
+            <span>Attack: {{ $any(displayStats)["atk"] }}</span>
+          </div>
+          <div [ngClass]="'statrow'">
+            <img [ngClass]="'staticon'" src="../../assets/img/ui/def.png" />
+            <span>Defense: {{ $any(displayStats)["def"] }}</span>
+          </div>
+          <div [ngClass]="'statrow'">
+            <img [ngClass]="'staticon'" src="../../assets/img/ui/res.png" />
+            <span>Resistance: {{ $any(displayStats)["res"] }}</span>
+          </div>
+        </div>
+
+        <div [ngClass]="'statcol'">
+          <div [ngClass]="'statrow'">
+            <img [ngClass]="'staticon'" src="../../assets/img/ui/respawn.png" />
+            <span>Respawn Time: {{ $any(displayStats)["respawn"] }}</span>
+          </div>
+          <div [ngClass]="'statrow'">
+            <img [ngClass]="'staticon'" src="../../assets/img/ui/cost.png" />
+            <span>Cost: {{ $any(displayStats)["cost"] }}</span>
+          </div>
+          <div [ngClass]="'statrow'">
+            <img [ngClass]="'staticon'" src="../../assets/img/ui/block.png" />
+            <span>Block: {{ $any(displayStats)["block"] }}</span>
+          </div>
+          <div [ngClass]="'statrow'">
+            <img
+              [ngClass]="'staticon'"
+              src="../../assets/img/ui/atkspeed.png"
+            />
+            <span>Attack Speed: {{ $any(displayStats)["atkTime"] }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <app-range-display
+      [ngClass]="'range'"
+      [rangeGrid]="rangeGrid"
+    ></app-range-display>
+  </div>
 </div>

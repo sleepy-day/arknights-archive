@@ -8,9 +8,8 @@ describe('OperatorVisualDisplayComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OperatorVisualDisplayComponent ]
-    })
-    .compileComponents();
+      declarations: [OperatorVisualDisplayComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OperatorVisualDisplayComponent);
     component = fixture.componentInstance;

@@ -1,96 +1,95 @@
 * {
-    background-color: #2E2E2E;
-    color: white;
+  background-color: #2e2e2e;
+  color: white;
 }
 
 span {
-    display: inline-block;
+  display: inline-block;
 }
 
 button {
-    border: none;
-    border-bottom: 2px solid #2E2E2E;
-    padding: 5px;
-    width: auto;
+  border: none;
+  border-bottom: 2px solid #2e2e2e;
+  padding: 5px;
+  width: auto;
 }
 
 button.active {
-    border-bottom: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
 .tabs {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 }
 
 button {
-    grid-column-end: span 1;
+  grid-column-end: span 1;
 }
 
 .skilldesccontainer {
-    max-height: 150px;
+  max-height: 150px;
 }
 
 .skilldesc {
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 100%;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 100%;
 }
 
 .skilltext {
-    padding-top: 5px;
-    padding-bottom: 5px;
-    height: max-content;
-    font-size: 17px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  height: max-content;
+  font-size: 17px;
 }
 
 .hl {
-    display: inline-block;
-    font-size: 17px;
+  display: inline-block;
+  font-size: 17px;
 }
 
 .skilldetailbtn {
-    font-size: medium;
-    width: 100%;
-    padding: 0;
-    background-color: white;
-    color: #2E2E2E;
-    margin: auto;
+  font-size: medium;
+  width: 100%;
+  padding: 0;
+  background-color: white;
+  color: #2e2e2e;
+  margin: auto;
 }
 
 .skillstatrows {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding: 3px 0px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 3px 0px;
 }
 
 .skillstatentry {
-    min-width: 20%;
-    padding-bottom: 4px;
+  min-width: 20%;
+  padding-bottom: 4px;
 }
 
 .key {
-    background-color: white;
-    color: #2E2E2E;
-    border-radius: 3px 0px 0px 3px;
-    padding: 1px 4px;
-    border: 1px solid white;
+  background-color: white;
+  color: #2e2e2e;
+  border-radius: 3px 0px 0px 3px;
+  padding: 1px 4px;
+  border: 1px solid white;
 }
 
 .keyvalue {
-    border: 2px solid white;
-    border-radius: 0px 3px 3px 0px;
-    padding: 0px 5px;
-    left: -3px;
+  border: 2px solid white;
+  border-radius: 0px 3px 3px 0px;
+  padding: 0px 5px;
+  left: -3px;
 }
 
 .skillcost {
-    padding: 5px;
+  padding: 5px;
 }
 
-
 .hidden {
-    display: none;
+  display: none;
 }

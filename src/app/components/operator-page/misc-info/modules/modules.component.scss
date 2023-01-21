@@ -1,66 +1,66 @@
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
 .modtop {
-    display: flex;
+  display: flex;
 }
 
 .title {
-    margin-right: auto;
+  margin-right: auto;
 }
 
 .modbutton {
-    appearance: none;
-    background-color: #2E2E2E;
-    font-size: medium;
-    color: white;
-    width: fit-content;
-    min-width: 50px;
-    height: 30px;
-    border: none;
-    border-bottom: 2px solid transparent;
-    padding: 2px 5px 2px;
-    cursor: pointer;
+  appearance: none;
+  background-color: #2e2e2e;
+  font-size: medium;
+  color: white;
+  width: fit-content;
+  min-width: 50px;
+  height: 30px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 2px 5px 2px;
+  cursor: pointer;
 
-    &.pressed {
-        border-bottom: 2px solid white;
-    }
+  &.pressed {
+    border-bottom: 2px solid white;
+  }
 }
 
 .checkbox {
-    display: block;
-    position: relative;
-    float: right;
-    padding: 5px 5px 5px 20px;
-    font-size: smaller;
+  display: block;
+  position: relative;
+  float: right;
+  padding: 5px 5px 5px 20px;
+  font-size: smaller;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    height: 0;
+    width: 0;
+  }
 
-    input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
-
-    input:checked ~ .check {
-        background-color: white;
-    }
+  input:checked ~ .check {
+    background-color: white;
+  }
 }
 
 .check {
-    position: absolute;
-    margin-right: 10px;
-    border: 2px solid white;
-    width: 8px;
-    height: 8px;
-    left: 4px;
-    top: 8px;
-    border-radius: 3px;
-    background-color: #2E2E2E;
+  position: absolute;
+  margin-right: 10px;
+  border: 2px solid white;
+  width: 8px;
+  height: 8px;
+  left: 4px;
+  top: 8px;
+  border-radius: 3px;
+  background-color: #2e2e2e;
 }

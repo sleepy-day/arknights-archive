@@ -1,116 +1,116 @@
 .mainbody {
-    background-color: #2E2E2E;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    padding-left: 4px;
-    padding-bottom: 3px;
+  background-color: #2e2e2e;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-left: 4px;
+  padding-bottom: 3px;
 }
 
 .stats {
-    display: flex;
-    flex-direction: column;
-    
-    width: 300px;
-    margin: 4px auto auto 0px;
+  display: flex;
+  flex-direction: column;
+
+  width: 300px;
+  margin: 4px auto auto 0px;
 }
 
 .slidercontainer {
-    padding-left: 5px;
-    padding-top: 8px;
+  padding-left: 5px;
+  padding-top: 8px;
 }
 
 .slider {
-    appearance: none;
-    width: 150px;
-    height: 20px;
-    opacity: 0.9;
-    transition: opacity .2s;
-    border-radius: 3px;
-    padding: 2px;
+  appearance: none;
+  width: 150px;
+  height: 20px;
+  opacity: 0.9;
+  transition: opacity 0.2s;
+  border-radius: 3px;
+  padding: 2px;
 }
 
 .slider:hover {
-    opacity: 1;
+  opacity: 1;
 }
 
 .slider::-webkit-slider-thumb {
-    appearance: none;
-    height: 15px;
-    width: 15px;
-    border-radius: 3px;
-    background-color: #2E2E2E; 
+  appearance: none;
+  height: 15px;
+  width: 15px;
+  border-radius: 3px;
+  background-color: #2e2e2e;
 }
 
 .level {
-    padding-left: 10px;
-    padding-top: 5px;
+  padding-left: 10px;
+  padding-top: 5px;
 }
 
 .details {
-    display: flex;
+  display: flex;
 }
 
 .statcols {
-    display: flex;
-    align-self: center;
+  display: flex;
+  align-self: center;
 }
 
 .statcol {
-    display: flex;
-    flex-direction: column;
-    margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-right: 10px;
 }
 
 .statrow {
-    display: flex;
-    align-items: center;
-    align-content: center;
+  display: flex;
+  align-items: center;
+  align-content: center;
 }
 
 .staticon {
-    height: 15px;
-    padding-left: 4px;
-    padding-right: 2px;
+  height: 15px;
+  padding-left: 4px;
+  padding-right: 2px;
 }
 
 .empty {
-    height: 10px;
-    width: 10px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    margin-left: 1px;
-    margin-right: 1px;
-    border: 2px solid transparent;
+  height: 10px;
+  width: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 1px;
+  margin-right: 1px;
+  border: 2px solid transparent;
 }
 
 .attack {
-    height: 10px;
-    width: 10px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    margin-left: 1px;
-    margin-right: 1px;
-    border: 2px solid #828282;
+  height: 10px;
+  width: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 1px;
+  margin-right: 1px;
+  border: 2px solid #828282;
 }
 
 .unit {
-    height: 10px;
-    width: 10px;
-    margin-top: 1px;
-    margin-bottom: 1px;
-    margin-left: 1px;
-    margin-right: 1px;
-    border: 2px solid white;
-    background-color: white;
+  height: 10px;
+  width: 10px;
+  margin-top: 1px;
+  margin-bottom: 1px;
+  margin-left: 1px;
+  margin-right: 1px;
+  border: 2px solid white;
+  background-color: white;
 }
 
 .levelinfo {
-    display: flex;
-    align-items: center;
-    margin: 0px auto 3px 15px;
+  display: flex;
+  align-items: center;
+  margin: 0px auto 3px 15px;
 }
 
 .range {
-    margin-right: 20px;
+  margin-right: 20px;
 }

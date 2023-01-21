@@ -1,34 +1,46 @@
 <div *ngIf="$any(module).length > 1">
-    <button [ngClass]="{ 'modbutton': true, 'pressed': currentModuleLevel === i }" *ngFor="let level of $any(module); let i = index">Lvl. {{ i + 1 }}</button>
+  <button
+    [ngClass]="{ modbutton: true, pressed: currentModuleLevel === i }"
+    *ngFor="let level of $any(module); let i = index"
+  >
+    Lvl. {{ i + 1 }}
+  </button>
 </div>
 
 <div [ngClass]="'moduleinfo'">
+  <div
+    [ngClass]="'talentstraits'"
+    *ngIf="($any(module)['trait'] | json) !== '[]'"
+  >
+    <div [ngClass]="'traittalenttitle'">Trait</div>
+    <div [ngClass]="'traittalenttdetails'">
+      <app-module-description
+        *ngIf="$any(module)['trait'][0]['overrideDescription'] !== undefined"
+        [fieldName]="'Description'"
+        [desc]="$any(module)['trait'][0]['overrideDescription']"
+        [blackboard]="$any(module)['trait'][0]['blackboard']"
+      >
+      </app-module-description>
 
-    <div [ngClass]="'talentstraits'" *ngIf="($any(module)['trait'] | json) !== '[]' ">
-        <div [ngClass]="'traittalenttitle'">Trait</div>
-        <div [ngClass]="'traittalenttdetails'">
-            <app-module-description 
-                *ngIf="$any(module)['trait'][0]['overrideDescription'] !== undefined"
-                [fieldName]="'Description'"
-                [desc]="$any(module)['trait'][0]['overrideDescription']"
-                [blackboard]="$any(module)['trait'][0]['blackboard']">
-            </app-module-description>
-            
-            <app-module-description
-                *ngIf="$any(module)['trait'][0]['additionalDescription'] !== undefined"
-                [fieldName]="'Additional Description'"
-                [desc]="$any(module)['trait'][0]['additionalDescription']"
-                [blackboard]="$any(module)['trait'][0]['blackboard']">
-            </app-module-description>
-        </div>
+      <app-module-description
+        *ngIf="$any(module)['trait'][0]['additionalDescription'] !== undefined"
+        [fieldName]="'Additional Description'"
+        [desc]="$any(module)['trait'][0]['additionalDescription']"
+        [blackboard]="$any(module)['trait'][0]['blackboard']"
+      >
+      </app-module-description>
     </div>
+  </div>
 
-    <div [ngClass]="'rangestats'">
-        <app-module-stats [attributes]="$any(module)['attributes']"></app-module-stats>
+  <div [ngClass]="'rangestats'">
+    <app-module-stats
+      [attributes]="$any(module)['attributes']"
+    ></app-module-stats>
 
-        <app-range-display
-            *ngIf="$any(module)['rangeId'] !== ''"
-            [rangeGrid]="$any(module)['rangeGrid']">
-        </app-range-display>
-    </div>
+    <app-range-display
+      *ngIf="$any(module)['rangeId'] !== ''"
+      [rangeGrid]="$any(module)['rangeGrid']"
+    >
+    </app-range-display>
+  </div>
 </div>

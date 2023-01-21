@@ -1,40 +1,58 @@
 <div [ngClass]="'opdesc'">
-    <div [ngClass]="'title'">Talents</div>
-    <div *ngFor="let talent of talents; let i = index">
-
-        <div *ngIf="amiyaCandidates.length === 0" [ngClass]="'talentname'">{{ $any(talent)['candidates'][0]['name'] }}</div>
-        <div *ngIf="amiyaCandidates.length > 0" [ngClass]="'talentname'">{{ $any(amiyaCandidates)[0]['name'] }}</div>
-
-        <div [ngClass]="'talentdetails'">
-
-            <div [ngClass]="'talentbuttons'">
-
-                <button [ngClass]="{ 'evobutton': true, 'pressed': activeButton[i] === ii }" 
-                        *ngFor="let level of $any(talentLevels)[i]['evo']; let ii = index" 
-                        (click)="changeSelectedTalent(i, ii)"> E{{level['phase']}} {{ level['level'] > 1 ? 'Lvl. ' + level['level'] : '' }}
-                </button>
-
-                <a (click)="togglePotential(i)" 
-                   *ngIf="$any(talentLevels)[i]['potential'] > 0">
-                   <img [ngClass]="{ 'potentialtoggle': true, 'pressed': potToggled[i] }" src="/assets/img/ui/pot{{$any(talentLevels)[i]['potential']}}.png" /> 
-                </a>    
-            
-            </div>
-
-            <div *ngIf="amiyaCandidates.length > 0">
-                <div [ngClass]="{ 'hidden': ii !== currentLevel[i], 'talentdesc': true }" 
-                     *ngFor="let candidate of $any(amiyaCandidates); let ii = index" 
-                     [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription(candidate['description']))">
-                </div>
-            </div>
-
-            <div *ngIf="amiyaCandidates.length === 0">
-                <div [ngClass]="{ 'hidden': ii !== currentLevel[i], 'talentdesc': true }" 
-                     *ngFor="let candidate of $any(talent)['candidates']; let ii = index" 
-                     [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseDescription(candidate['description']))">
-                </div>
-            </div>
-            
-        </div>
+  <div [ngClass]="'title'">Talents</div>
+  <div *ngFor="let talent of talents; let i = index">
+    <div *ngIf="amiyaCandidates.length === 0" [ngClass]="'talentname'">
+      {{ $any(talent)["candidates"][0]["name"] }}
     </div>
+    <div *ngIf="amiyaCandidates.length > 0" [ngClass]="'talentname'">
+      {{ $any(amiyaCandidates)[0]["name"] }}
+    </div>
+
+    <div [ngClass]="'talentdetails'">
+      <div [ngClass]="'talentbuttons'">
+        <button
+          [ngClass]="{ evobutton: true, pressed: activeButton[i] === ii }"
+          *ngFor="let level of $any(talentLevels)[i]['evo']; let ii = index"
+          (click)="changeSelectedTalent(i, ii)"
+        >
+          E{{ level["phase"] }}
+          {{ level["level"] > 1 ? "Lvl. " + level["level"] : "" }}
+        </button>
+
+        <a
+          (click)="togglePotential(i)"
+          *ngIf="$any(talentLevels)[i]['potential'] > 0"
+        >
+          <img
+            [ngClass]="{ potentialtoggle: true, pressed: potToggled[i] }"
+            src="/assets/img/ui/pot{{ $any(talentLevels)[i]['potential'] }}.png"
+          />
+        </a>
+      </div>
+
+      <div *ngIf="amiyaCandidates.length > 0">
+        <div
+          [ngClass]="{ hidden: ii !== currentLevel[i], talentdesc: true }"
+          *ngFor="let candidate of $any(amiyaCandidates); let ii = index"
+          [innerHtml]="
+            this.sanitizer.bypassSecurityTrustHtml(
+              parseDescription(candidate['description'])
+            )
+          "
+        ></div>
+      </div>
+
+      <div *ngIf="amiyaCandidates.length === 0">
+        <div
+          [ngClass]="{ hidden: ii !== currentLevel[i], talentdesc: true }"
+          *ngFor="let candidate of $any(talent)['candidates']; let ii = index"
+          [innerHtml]="
+            this.sanitizer.bypassSecurityTrustHtml(
+              parseDescription(candidate['description'])
+            )
+          "
+        ></div>
+      </div>
+    </div>
+  </div>
 </div>

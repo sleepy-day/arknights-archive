@@ -5,7 +5,7 @@ import { AKTextParserService } from 'src/app/services/ak-text-parser/aktext-pars
 @Component({
   selector: 'app-talents',
   templateUrl: './talents.component.html',
-  styleUrls: ['./talents.component.scss']
+  styleUrls: ['./talents.component.scss'],
 })
 export class TalentsComponent implements OnInit {
   @Input('talents') talents: object[];
@@ -19,12 +19,12 @@ export class TalentsComponent implements OnInit {
 
   constructor(
     private textParser: AKTextParserService,
-    public sanitizer: DomSanitizer,
-  ) { }
+    public sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
-    if (this.talents[0]["candidates" as keyof object][0]["name"] === "？？？") {
-      let c: object[] = this.talents[0]["candidates" as keyof object];
+    if (this.talents[0]['candidates' as keyof object][0]['name'] === '？？？') {
+      let c: object[] = this.talents[0]['candidates' as keyof object];
       this.amiyaCandidates = c.slice(1);
     }
     this.getTalentLevels();
@@ -35,38 +35,37 @@ export class TalentsComponent implements OnInit {
     for (let talent of this.talents) {
       let evo: number[] = [];
       let pot: number = 0;
-      let candidates: object[] = talent["candidates" as keyof object];
+      let candidates: object[] = talent['candidates' as keyof object];
       if (this.amiyaCandidates.length > 0) {
         candidates = this.amiyaCandidates;
       }
-       
-      
+
       for (let candidate of candidates) {
-        let c = candidate["unlockCondition" as keyof object];
+        let c = candidate['unlockCondition' as keyof object];
 
         if (!evo.some((e) => JSON.stringify(e) === JSON.stringify(c))) {
           evo.push(c);
         }
-        if (+candidate["requiredPotentialRank" as keyof object] > 0) {
-          pot = +candidate["requiredPotentialRank" as keyof object];
+        if (+candidate['requiredPotentialRank' as keyof object] > 0) {
+          pot = +candidate['requiredPotentialRank' as keyof object];
         }
       }
 
-      this.talentLevels.push( { evo: evo, potential: pot } );
+      this.talentLevels.push({ evo: evo, potential: pot });
     }
   }
 
   getIncrements(): void {
     let index = 0;
     for (let talent of this.talents) {
-      let evo: object[] = this.talentLevels[index]["evo" as keyof object];
-      let candidates: object[] = talent["candidates" as keyof object];
+      let evo: object[] = this.talentLevels[index]['evo' as keyof object];
+      let candidates: object[] = talent['candidates' as keyof object];
       if (this.amiyaCandidates.length > 0) {
         candidates = this.amiyaCandidates;
       }
       this.evoIncrements.push(candidates.length / evo.length);
 
-      if (this.talentLevels[index]["potential" as keyof object] > 0) {
+      if (this.talentLevels[index]['potential' as keyof object] > 0) {
         this.potIncrements.push(1);
       } else {
         this.potIncrements.push(0);
@@ -81,7 +80,8 @@ export class TalentsComponent implements OnInit {
 
   changeSelectedTalent(talent: number, level: number): void {
     if (this.potToggled[talent]) {
-      this.currentLevel[talent] = level * this.evoIncrements[talent] + this.potIncrements[talent];
+      this.currentLevel[talent] =
+        level * this.evoIncrements[talent] + this.potIncrements[talent];
     } else {
       this.currentLevel[talent] = level * this.evoIncrements[talent];
     }
@@ -100,5 +100,4 @@ export class TalentsComponent implements OnInit {
   parseDescription(desc: string) {
     return this.textParser.parseDescription(desc);
   }
-
 }

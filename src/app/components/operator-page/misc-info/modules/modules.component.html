@@ -1,48 +1,81 @@
 <div [ngClass]="'opdesc'">
+  <div [ngClass]="'modtop'">
+    <div [ngClass]="'title'">Modules</div>
 
-    <div [ngClass]="'modtop'">
-        <div [ngClass]="'title'">Modules</div>
+    <label [ngClass]="'checkbox'">
+      <input
+        *ngIf="showCN"
+        (click)="toggleCN()"
+        type="checkbox"
+        checked="checked"
+      />
+      <input *ngIf="!showCN" (click)="toggleCN()" type="checkbox" />
+      <span [ngClass]="'check'"></span>
+      Display CN Modules
+    </label>
+  </div>
 
-        <label [ngClass]="'checkbox'">
-            <input *ngIf="showCN" (click)="toggleCN()" type="checkbox" checked="checked">
-            <input *ngIf="!showCN" (click)="toggleCN()" type="checkbox">
-            <span [ngClass]="'check'"></span>
-            Display CN Modules  
-        </label>
+  <div
+    *ngIf="$any(moduleDetails)[0]['details'] !== undefined"
+    [ngClass]="{ hidden: showCN }"
+  >
+    <div [ngClass]="'modulebuttons'">
+      <div *ngFor="let mod of moduleDetails; let i = index">
+        <button
+          [ngClass]="{ modbutton: true, pressed: currentModule === i }"
+          *ngIf="($any(mod)['details'] | json) !== '{}'"
+          (click)="toggleModule(i)"
+        >
+          {{ $any(mod)["details"]["typeName"] }}
+        </button>
+      </div>
     </div>
-    
 
-    <div *ngIf="$any(moduleDetails)[0]['details'] !== undefined" [ngClass]="{ 'hidden': showCN }">
-        <div [ngClass]="'modulebuttons'">
-            <div *ngFor="let mod of moduleDetails; let i = index">
-                <button [ngClass]="{ 'modbutton': true, 'pressed': currentModule === i }" *ngIf="($any(mod)['details'] | json) !== '{}'" (click)="toggleModule(i)">{{ $any(mod)["details"]["typeName"] }}</button>
-            </div>
-        </div>
+    <div
+      [ngClass]="{ hidden: currentModule !== i }"
+      *ngFor="let mod of moduleDetails; let i = index"
+    >
+      <app-module-en
+        *ngIf="($any(mod)['details'] | json) !== '{}'"
+        [currModLvl]="currentModuleLevel"
+        [module]="$any(mod)['battleDetails'][0]"
+      >
+      </app-module-en>
+    </div>
+  </div>
 
-        <div [ngClass]="{ 'hidden': currentModule !== i }" *ngFor="let mod of moduleDetails; let i = index">
-            <app-module-en 
-                *ngIf="($any(mod)['details'] | json) !== '{}'"
-                [currModLvl]="currentModuleLevel"
-                [module]="$any(mod)['battleDetails'][0]">
-            </app-module-en>
-        </div>
+  <div [ngClass]="{ hidden: !showCN }">
+    <div [ngClass]="'modulebuttons'">
+      <button
+        [ngClass]="{ modbutton: true, pressed: currentModuleCN === i }"
+        *ngFor="let mod of moduleDetails; let i = index"
+        (click)="toggleModuleCN(i)"
+      >
+        {{ $any(mod)["detailsCN"]["typeName1"] }}-{{
+          $any(mod)["detailsCN"]["typeName2"]
+        }}
+      </button>
     </div>
 
-    <div [ngClass]="{ 'hidden': !showCN }">
-        <div [ngClass]="'modulebuttons'">
-            <button [ngClass]="{ 'modbutton': true, 'pressed': currentModuleCN === i }" *ngFor="let mod of moduleDetails; let i = index" (click)="toggleModuleCN(i)">{{ $any(mod)["detailsCN"]["typeName1"] }}-{{ $any(mod)["detailsCN"]["typeName2"] }}</button>
-        </div>
+    <div
+      [ngClass]="{ hidden: currentModuleCN !== i }"
+      *ngFor="let mod of moduleDetails; let i = index"
+    >
+      <div [ngClass]="{ hidden: $any(mod)['battleDetailsCN'].length <= 1 }">
+        <button
+          [ngClass]="{ modbutton: true, pressed: currentModuleLevel === i }"
+          *ngFor="let level of $any(mod)['battleDetailsCN']; let i = index"
+          (click)="changeModuleLevel(i)"
+        >
+          Lvl. {{ i + 1 }}
+        </button>
+      </div>
 
-        <div [ngClass]="{ 'hidden': currentModuleCN !== i }" *ngFor="let mod of moduleDetails; let i = index">
-
-            <div [ngClass]="{ 'hidden': $any(mod)['battleDetailsCN'].length <= 1}">
-                <button [ngClass]="{ 'modbutton': true, 'pressed': currentModuleLevel === i }" *ngFor="let level of $any(mod)['battleDetailsCN']; let i = index" (click)="changeModuleLevel(i)">Lvl. {{ i + 1 }}</button>
-            </div>
-
-            <app-module-cn
-                [module]="$any(mod)['battleDetailsCN']"
-                [currModLvl]="currentModuleLevel">
-            </app-module-cn>
-        </div>
+      <app-module-cn
+        [module]="$any(mod)['battleDetailsCN']"
+        [currModLvl]="currentModuleLevel"
+      >
+      </app-module-cn>
     </div>
+  </div>
 </div>

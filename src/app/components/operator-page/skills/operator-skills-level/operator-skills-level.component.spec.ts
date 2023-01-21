@@ -8,9 +8,8 @@ describe('OperatorSkillsLevelComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OperatorSkillsLevelComponent ]
-    })
-    .compileComponents();
+      declarations: [OperatorSkillsLevelComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OperatorSkillsLevelComponent);
     component = fixture.componentInstance;

@@ -1,10 +1,18 @@
 <div [ngClass]="'classinfo'">
-    <div [ngClass]="'classrow'">
-        <img [ngClass]="'classicon'" src="../../assets/img/ui/{{profession}}.png" />
-        <span [ngClass]="'classname'">{{ $any(professions).get(profession).toUpperCase() }}</span>
-    </div>
-    <div [ngClass]="'classrow'">
-        <img [ngClass]="'classicon'" src="../../assets/img/ui/sub_{{subProfession}}_icon.png" />
-        <span [ngClass]="'classname'">{{ subProfName.toUpperCase() }}</span>
-    </div>
+  <div [ngClass]="'classrow'">
+    <img
+      [ngClass]="'classicon'"
+      src="../../assets/img/ui/{{ profession }}.png"
+    />
+    <span [ngClass]="'classname'">{{
+      $any(professions).get(profession).toUpperCase()
+    }}</span>
+  </div>
+  <div [ngClass]="'classrow'">
+    <img
+      [ngClass]="'classicon'"
+      src="../../assets/img/ui/sub_{{ subProfession }}_icon.png"
+    />
+    <span [ngClass]="'classname'">{{ subProfName.toUpperCase() }}</span>
+  </div>
 </div>

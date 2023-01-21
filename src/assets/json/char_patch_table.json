@@ -1,10 +1,7 @@
 {
   "infos": {
     "char_002_amiya": {
-      "tmplIds": [
-        "char_002_amiya",
-        "char_1001_amiya2"
-      ],
+      "tmplIds": ["char_002_amiya", "char_1001_amiya2"],
       "default": "char_002_amiya"
     }
   },
@@ -21,10 +18,7 @@
       "tokenKey": null,
       "appellation": " ",
       "position": "MELEE",
-      "tagList": [
-        "DPS",
-        "Support"
-      ],
+      "tagList": ["DPS", "Support"],
       "itemUsage": "Amiya, leader of Rhodes Island, will fight alongside you.",
       "itemDesc": "Keep fighting, Doctor.",
       "itemObtainApproach": "Main Story",

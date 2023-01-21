@@ -1,20 +1,36 @@
 <div [ngClass]="'skilllvlbody'">
+  <div [ngClass]="'tabs'">
+    <button
+      [ngClass]="{ active: currentDiv === $any(skill)['skillId'] + i }"
+      *ngFor="let level of $any(skill)['levels']; let i = index"
+      (click)="selectTab($any(skill)['skillId'] + i)"
+    >
+      Level {{ i + 1 }}
+    </button>
+  </div>
 
-    <div [ngClass]="'tabs'">
-        <button [ngClass]="{'active': currentDiv === $any(skill)['skillId'] + i}" *ngFor="let level of $any(skill)['levels']; let i = index" (click)="selectTab($any(skill)['skillId'] + i)" >Level {{ i + 1 }}</button>
-    </div>
-    
-    <div class="skilldesc" *ngFor="let level of $any(skill)['levels']; let i = index" [id]="$any(skill)['skillId'] + i">
-        <div [ngClass]="{'hidden': currentDiv !== $any(skill)['skillId'] + i}">
+  <div
+    class="skilldesc"
+    *ngFor="let level of $any(skill)['levels']; let i = index"
+    [id]="$any(skill)['skillId'] + i"
+  >
+    <div [ngClass]="{ hidden: currentDiv !== $any(skill)['skillId'] + i }">
+      <div
+        [ngClass]="'skilltext'"
+        [innerHtml]="
+          this.sanitizer.bypassSecurityTrustHtml(parseSkillText(level))
+        "
+      ></div>
 
-            <div [ngClass]="'skilltext'" [innerHtml]="this.sanitizer.bypassSecurityTrustHtml(parseSkillText(level))"></div>
-        
-            <div [ngClass]="'skillstatrows'" *ngIf="skillDetailDisplay">
-                <div [ngClass]="'skillstatentry'" *ngFor="let b of $any(level)['blackboard']"><span [ngClass]="'key'">{{ b['key'] }}</span> <span [ngClass]="'keyvalue'">{{ b['value'] }}</span> </div>
-            </div>
-
+      <div [ngClass]="'skillstatrows'" *ngIf="skillDetailDisplay">
+        <div
+          [ngClass]="'skillstatentry'"
+          *ngFor="let b of $any(level)['blackboard']"
+        >
+          <span [ngClass]="'key'">{{ b["key"] }}</span>
+          <span [ngClass]="'keyvalue'">{{ b["value"] }}</span>
         </div>
+      </div>
     </div>
-
-    
+  </div>
 </div>

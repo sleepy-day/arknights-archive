@@ -1,64 +1,64 @@
 .opvisual {
-    display: flex;
-    flex-direction: column;
-    background-color: #2E2E2E;
-    box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    padding: 5px;    
-    margin-bottom: 10px;
-    margin-top: 12px;
-    border-radius: 6px;
-    height: max-content;
+  display: flex;
+  flex-direction: column;
+  background-color: #2e2e2e;
+  box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
+  padding: 5px;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  border-radius: 6px;
+  height: max-content;
 }
 
 .opvisualtop {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .opname {
-    align-self: center;
-    text-align: center;
-    font-size: xx-large;
-    font-weight: 700;
-    padding-top: 10px;
-    padding-bottom: 5px;
+  align-self: center;
+  text-align: center;
+  font-size: xx-large;
+  font-weight: 700;
+  padding-top: 10px;
+  padding-bottom: 5px;
 }
 
 .opimages {
-    position: relative;
-    background-color: rgb(59, 56, 56);
-    box-shadow: inset 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    height: 750px;
-    width: 750px;
+  position: relative;
+  background-color: rgb(59, 56, 56);
+  box-shadow: inset 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
+  height: 750px;
+  width: 750px;
 }
 
 .opimage {
-    position: relative;
-    height: 700px;
-    width: auto;
-    z-index: 4;
-    top: 25px;
-    left: 25px;
+  position: relative;
+  height: 700px;
+  width: auto;
+  z-index: 4;
+  top: 25px;
+  left: 25px;
 }
 
 .logo {
-    position: absolute;
-    height: 300px;
-    z-index: 0;
+  position: absolute;
+  height: 300px;
+  z-index: 0;
 }
 
 .buttons {
-    position: absolute;
-    bottom: 0;
-    z-index: 10;
-    display: flex;
-    flex-direction: column-reverse;
-    padding-left: 5px;
-    padding-bottom: 3px;
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column-reverse;
+  padding-left: 5px;
+  padding-bottom: 3px;
 }
 
 .artbutton {
-    width: 40px;
-    padding-bottom: 2px;
-    cursor: pointer;
+  width: 40px;
+  padding-bottom: 2px;
+  cursor: pointer;
 }

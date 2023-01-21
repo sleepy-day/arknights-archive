@@ -3,14 +3,12 @@ import { Component, OnInit, Input } from '@angular/core';
 @Component({
   selector: 'app-potential',
   templateUrl: './potential.component.html',
-  styleUrls: ['./potential.component.scss']
+  styleUrls: ['./potential.component.scss'],
 })
 export class PotentialComponent implements OnInit {
   @Input('potentials') potentials: object;
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

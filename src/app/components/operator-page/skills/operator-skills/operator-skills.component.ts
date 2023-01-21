@@ -6,30 +6,30 @@ import { OpInfoService } from '../../../../services/op-info/op-info.service';
 @Component({
   selector: 'app-operator-skills',
   templateUrl: './operator-skills.component.html',
-  styleUrls: ['./operator-skills.component.scss']
+  styleUrls: ['./operator-skills.component.scss'],
 })
 export class OperatorSkillsComponent implements OnInit {
   @Input('skills') skills: object[];
   @Input('skillLvlCost') skillLvlCost: object[];
   skillInfo: object[] = [];
   skillCost: object[][] = [];
-  currentDiv: string = "skill0";
+  currentDiv: string = 'skill0';
   currentSkill: number = 0;
   currentLvlDisplay = [0, 0, 0];
   showSkillDetail: boolean = false;
   showSkillCost: boolean = false;
 
-  spType: { [key: number]: string; } = {
-    1: "Auto Recovery",
-    2: "Offensive Recovery",
-    4: "Defensive Recovery",
-    8: "Passive",
+  spType: { [key: number]: string } = {
+    1: 'Auto Recovery',
+    2: 'Offensive Recovery',
+    4: 'Defensive Recovery',
+    8: 'Passive',
   };
 
-  skillType: { [key: number]: string; } = {
-    0: "",
-    1: "Manual Activation",
-    2: "Automatic Activation",
+  skillType: { [key: number]: string } = {
+    0: '',
+    1: 'Manual Activation',
+    2: 'Automatic Activation',
   };
 
   skillDetail = {
@@ -43,14 +43,17 @@ export class OperatorSkillsComponent implements OnInit {
   constructor(
     private opService: OpInfoService,
     private textParser: AKTextParserService,
-    public sanitizer: DomSanitizer,
-  ) { }
+    public sanitizer: DomSanitizer
+  ) {}
 
   ngOnInit(): void {
     for (var [i, skill] of this.skills.entries()) {
-      var id = skill["skillId" as keyof object];
+      var id = skill['skillId' as keyof object];
       this.skillInfo.push(this.opService.getSkillInfoById(String(id)));
-      this.skillCost[i] = [...this.skillLvlCost, ...skill["levelUpCostCond" as keyof object]];
+      this.skillCost[i] = [
+        ...this.skillLvlCost,
+        ...skill['levelUpCostCond' as keyof object],
+      ];
     }
     this.updateSkillInfo();
   }
@@ -75,11 +78,26 @@ export class OperatorSkillsComponent implements OnInit {
   }
 
   updateSkillInfo(): void {
-    this.skillDetail.spType = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["spType"];
-    this.skillDetail.skillType = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["skillType"];
-    this.skillDetail.duration = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["duration"];
-    this.skillDetail.initSp = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["initSp"];
-    this.skillDetail.spCost = this.skillInfo[Number(this.currentDiv.slice(-1))]["levels" as keyof object][this.currentLvlDisplay[this.currentSkill]]["spData"]["spCost"];
+    this.skillDetail.spType =
+      this.skillInfo[Number(this.currentDiv.slice(-1))][
+        'levels' as keyof object
+      ][this.currentLvlDisplay[this.currentSkill]]['spData']['spType'];
+    this.skillDetail.skillType =
+      this.skillInfo[Number(this.currentDiv.slice(-1))][
+        'levels' as keyof object
+      ][this.currentLvlDisplay[this.currentSkill]]['skillType'];
+    this.skillDetail.duration =
+      this.skillInfo[Number(this.currentDiv.slice(-1))][
+        'levels' as keyof object
+      ][this.currentLvlDisplay[this.currentSkill]]['duration'];
+    this.skillDetail.initSp =
+      this.skillInfo[Number(this.currentDiv.slice(-1))][
+        'levels' as keyof object
+      ][this.currentLvlDisplay[this.currentSkill]]['spData']['initSp'];
+    this.skillDetail.spCost =
+      this.skillInfo[Number(this.currentDiv.slice(-1))][
+        'levels' as keyof object
+      ][this.currentLvlDisplay[this.currentSkill]]['spData']['spCost'];
   }
 
   toggleSkillDisplay(): void {
@@ -89,5 +107,4 @@ export class OperatorSkillsComponent implements OnInit {
   toggleSkillCost(): void {
     this.showSkillCost = !this.showSkillCost;
   }
-
 }

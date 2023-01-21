@@ -5,7 +5,7 @@ import { AKTextParserService } from 'src/app/services/ak-text-parser/aktext-pars
 @Component({
   selector: 'app-module-description',
   templateUrl: './module-description.component.html',
-  styleUrls: ['./module-description.component.scss']
+  styleUrls: ['./module-description.component.scss'],
 })
 export class ModuleDescriptionComponent implements OnInit {
   @Input('fieldName') fieldName: string;
@@ -14,14 +14,12 @@ export class ModuleDescriptionComponent implements OnInit {
 
   constructor(
     public sanitizer: DomSanitizer,
-    private textParser: AKTextParserService,
-  ) { }
+    private textParser: AKTextParserService
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   parseDescriptionValues(desc: string, blackboard: object[]): string {
     return this.textParser.parseValuesInDescription(desc, blackboard);
   }
-
 }

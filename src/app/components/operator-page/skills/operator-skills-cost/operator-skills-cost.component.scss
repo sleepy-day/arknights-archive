@@ -1,45 +1,45 @@
 .skillcosts {
-    background-color: #2E2E2E;
-    box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    padding: 12px 1px 7px 12px;  
-    margin-bottom: 12px;  
-    border-radius: 6px;
+  background-color: #2e2e2e;
+  box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
+  padding: 12px 1px 7px 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
 
 .costtitle {
-    padding: 2px 5px 2px 5px;
-    margin-bottom: 3px;
-    width: fit-content;
-    border-left: 2px solid white;
-    font-size: medium;
-    background-color: #505050;
-    border-radius: 0px 3px 3px 0px;
+  padding: 2px 5px 2px 5px;
+  margin-bottom: 3px;
+  width: fit-content;
+  border-left: 2px solid white;
+  font-size: medium;
+  background-color: #505050;
+  border-radius: 0px 3px 3px 0px;
 }
 
 .items {
-    padding: 3px 5px 0px 5px;
-    display: flex;
+  padding: 3px 5px 0px 5px;
+  display: flex;
 }
 
 .item {
-    display: flex;
-    align-items: center;
-    padding-bottom: 3px;
-    padding-right: 5px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 3px;
+  padding-right: 5px;
 }
 
 .count {
-    padding-right: 5px;
-    min-width: 26px;
-    font-size: large;
-    text-align: center;
+  padding-right: 5px;
+  min-width: 26px;
+  font-size: large;
+  text-align: center;
 }
 
 .itemicon {
-    height: 60px;
-    padding-right: 3px;
+  height: 60px;
+  padding-right: 3px;
 }

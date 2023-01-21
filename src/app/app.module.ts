@@ -29,7 +29,6 @@ import { ModuleENComponent } from './components/operator-page/misc-info/modules/
 import { ModuleCNComponent } from './components/operator-page/misc-info/modules/module-cn/module-cn.component';
 import { ModuleStatsComponent } from './components/operator-page/misc-info/modules/module-stats/module-stats.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -53,7 +52,7 @@ import { ModuleStatsComponent } from './components/operator-page/misc-info/modul
     RangeDisplayComponent,
     ModuleENComponent,
     ModuleCNComponent,
-    ModuleStatsComponent
+    ModuleStatsComponent,
   ],
   imports: [
     BrowserModule,
@@ -64,6 +63,6 @@ import { ModuleStatsComponent } from './components/operator-page/misc-info/modul
     FormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

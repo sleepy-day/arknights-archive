@@ -1,8 +1,9 @@
 <div [ngClass]="'modstats'">
-    <div [ngClass]="'traittalenttitle'">Stats</div>
-    <div [ngClass]="{ 'traittalenttdetails': true, 'statrows': true }">
-        <span *ngFor="let attribute of attributes">
-            {{ $any(stats).get($any(attribute)['key']) }}: {{ $any(attribute)['value'] }}
-        </span>
-    </div>
+  <div [ngClass]="'traittalenttitle'">Stats</div>
+  <div [ngClass]="{ traittalenttdetails: true, statrows: true }">
+    <span *ngFor="let attribute of attributes">
+      {{ $any(stats).get($any(attribute)["key"]) }}:
+      {{ $any(attribute)["value"] }}
+    </span>
+  </div>
 </div>

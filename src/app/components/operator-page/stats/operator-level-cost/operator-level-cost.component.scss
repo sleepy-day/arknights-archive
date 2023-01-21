@@ -1,48 +1,47 @@
 .ecost {
-    padding: 12px;
-    box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    border-radius: 6px;
+  padding: 12px;
+  box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
+  border-radius: 6px;
 }
 
 .evocosttitle {
-    padding: 2px 5px 2px 5px;
-    margin-bottom: 3px;
-    width: fit-content;
-    border-left: 2px solid white;
-    font-size: medium;
-    background-color: #505050;
-    border-radius: 0px 3px 3px 0px;
+  padding: 2px 5px 2px 5px;
+  margin-bottom: 3px;
+  width: fit-content;
+  border-left: 2px solid white;
+  font-size: medium;
+  background-color: #505050;
+  border-radius: 0px 3px 3px 0px;
 }
 
 .items {
-    padding-top: 5px;
-    display: flex;
-
+  padding-top: 5px;
+  display: flex;
 }
 
 .item {
-    display: flex;
-    align-items: center;
-    padding-bottom: 3px;
-    padding-right: 5px;
-    padding-left: 5px;
+  display: flex;
+  align-items: center;
+  padding-bottom: 3px;
+  padding-right: 5px;
+  padding-left: 5px;
 }
 
 .lmdcount {
-    padding-right: 5px;
-    min-width: 62px;
-    font-size: large;
-    text-align: center;
+  padding-right: 5px;
+  min-width: 62px;
+  font-size: large;
+  text-align: center;
 }
 
 .count {
-    padding-right: 5px;
-    min-width: 26px;
-    font-size: large;
-    text-align: center;
+  padding-right: 5px;
+  min-width: 26px;
+  font-size: large;
+  text-align: center;
 }
 
 .itemicon {
-    height: 60px;
-    padding-right: 3px;
+  height: 60px;
+  padding-right: 3px;
 }

@@ -1,125 +1,135 @@
 * {
-    background-color: #2E2E2E;
-    color: white;
+  background-color: #2e2e2e;
+  color: white;
 }
 
 button {
-    border: none;
-    padding: 5px;
-    width: 60px;
+  border: none;
+  padding: 5px;
+  width: 60px;
 }
 
 .checkbox {
-    display: block;
-    position: relative;
-    float: right;
-    padding: 5px 5px 5px 20px;
-    font-size: smaller;
+  display: block;
+  position: relative;
+  float: right;
+  padding: 5px 5px 5px 20px;
+  font-size: smaller;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input {
+    position: absolute;
+    opacity: 0;
     cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+    height: 0;
+    width: 0;
+  }
 
-    input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-    }
-
-    input:checked ~ .check {
-        background-color: white;
-    }
+  input:checked ~ .check {
+    background-color: white;
+  }
 }
 
-
 .check {
-    position: absolute;
-    margin-right: 10px;
-    border: 2px solid white;
-    width: 8px;
-    height: 8px;
-    left: 4px;
-    top: 8px;
-    border-radius: 3px;
-    background-color: #2E2E2E;
+  position: absolute;
+  margin-right: 10px;
+  border: 2px solid white;
+  width: 8px;
+  height: 8px;
+  left: 4px;
+  top: 8px;
+  border-radius: 3px;
+  background-color: #2e2e2e;
 }
 
 .active {
-    border-bottom: 2px solid white;
+  border-bottom: 2px solid white;
 }
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .skillinfotop {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .skillinfotopleft {
-    display: flex;
-    padding: 10px;
-    width: auto;
+  display: flex;
+  padding: 10px;
+  width: auto;
 }
 
 .skillinfotopright {
-    margin: auto;
+  margin: auto;
 }
 
 .skillinfoactiv {
-    display: flex;
-    margin: auto;
+  display: flex;
+  margin: auto;
 }
 
 .skillimg {
-    height: 80px;
+  height: 80px;
 }
 
 .skillname {
-    font-size: larger;
-    padding-left: 5px;
-    align-self: center;
+  font-size: larger;
+  padding-left: 5px;
+  align-self: center;
 }
 
 .skillsbody {
-    box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
-    padding: 5px;    
-    margin-bottom: 12px;
-    margin-top: 12px;
-    border-radius: 6px;
+  box-shadow: 2px 4px 7px 3px rgba(0, 0, 0, 0.459);
+  padding: 5px;
+  margin-bottom: 12px;
+  margin-top: 12px;
+  border-radius: 6px;
 }
 
 .sp {
-    padding: 1px 6px 1px 6px;
-    margin-bottom: 4px;
-    border-radius: 3px;
-    width: fit-content;
-    margin-left: 5px;
+  padding: 1px 6px 1px 6px;
+  margin-bottom: 4px;
+  border-radius: 3px;
+  width: fit-content;
+  margin-left: 5px;
 }
 
 .spstart {
-    background-color: #69ca19;
-    border-radius: 3px;
-    width: fit-content;
-    padding: 1px 6px 1px 6px;
+  background-color: #69ca19;
+  border-radius: 3px;
+  width: fit-content;
+  padding: 1px 6px 1px 6px;
 }
 
 .spcost {
-    background-color: white;
-    color: black;
-    border-radius: 3px;
-    width: fit-content;
-    padding: 1px 6px 1px 6px;
-    margin-top: 4px;
+  background-color: white;
+  color: black;
+  border-radius: 3px;
+  width: fit-content;
+  padding: 1px 6px 1px 6px;
+  margin-top: 4px;
 }
 
-.sptype1 { background-color: #69ca19; }
-.sptype2 { background-color: #FC653E; }
-.sptype4 { background-color: #FFB400; }
-.sptype8 { background-color: #737373; }
-.skilltype { background-color: white; color: black; }
+.sptype1 {
+  background-color: #69ca19;
+}
+.sptype2 {
+  background-color: #fc653e;
+}
+.sptype4 {
+  background-color: #ffb400;
+}
+.sptype8 {
+  background-color: #737373;
+}
+.skilltype {
+  background-color: white;
+  color: black;
+}

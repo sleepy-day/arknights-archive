@@ -1,61 +1,61 @@
 .hidden {
-    display: none;
+  display: none;
 }
 
 .talentname {
-    width: fit-content;
-    background-color: white;
-    color: #2E2E2E;
-    border: 2px solid white;
-    border-bottom: none;
-    border-radius: 3px 3px 0px 0px;
-    font-size: large;
-    padding: 3px 5px 3px 5px;
-    margin-top: 10px;
+  width: fit-content;
+  background-color: white;
+  color: #2e2e2e;
+  border: 2px solid white;
+  border-bottom: none;
+  border-radius: 3px 3px 0px 0px;
+  font-size: large;
+  padding: 3px 5px 3px 5px;
+  margin-top: 10px;
 }
 
 .potentialtoggle {
-    display: block;
-    width: 20px;
-    border-radius: 3px;
-    border: solid 2px white;
-    padding: 2px;
-    margin: 3px 3px auto auto;
-    float: right;
-    cursor: pointer;
+  display: block;
+  width: 20px;
+  border-radius: 3px;
+  border: solid 2px white;
+  padding: 2px;
+  margin: 3px 3px auto auto;
+  float: right;
+  cursor: pointer;
 
-    &.pressed {
-        background-color: rgb(55, 158, 255);
-    }
+  &.pressed {
+    background-color: rgb(55, 158, 255);
+  }
 }
 
 .talentdetails {
-    border: 2px solid white;
-    border-radius: 0px 5px 5px 5px;
+  border: 2px solid white;
+  border-radius: 0px 5px 5px 5px;
 }
 
 .evobutton {
-    appearance: none;
-    background-color: #2E2E2E;
-    font-size: medium;
-    color: white;
-    width: fit-content;
-    min-width: 50px;
-    height: 30px;
-    border: none;
-    border-bottom: 2px solid transparent;
-    padding: 2px 5px 2px;
-    cursor: pointer;
+  appearance: none;
+  background-color: #2e2e2e;
+  font-size: medium;
+  color: white;
+  width: fit-content;
+  min-width: 50px;
+  height: 30px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  padding: 2px 5px 2px;
+  cursor: pointer;
 
-    &.pressed {
-        border-bottom: 2px solid white;
-    }
+  &.pressed {
+    border-bottom: 2px solid white;
+  }
 }
 
 .talentdesc {
-    padding: 4px 8px 8px;
+  padding: 4px 8px 8px;
 }
 
 .talentbuttons {
-    width: 100%;
+  width: 100%;
 }

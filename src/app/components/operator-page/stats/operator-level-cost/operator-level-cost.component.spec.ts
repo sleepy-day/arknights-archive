@@ -8,9 +8,8 @@ describe('OperatorLevelCostComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ OperatorLevelCostComponent ]
-    })
-    .compileComponents();
+      declarations: [OperatorLevelCostComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(OperatorLevelCostComponent);
     component = fixture.componentInstance;
